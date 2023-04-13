@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>使用Oracle Cloud（甲骨文云）的沙盒，体验其的云服务</title>
+      <link href="/posts/22db22cf.html"/>
+      <url>/posts/22db22cf.html</url>
+      
+        <content type="html"><![CDATA[<p>众所周知，甲骨文的服务器对中国大陆实行了严苛的注册制度，从而导致注册大概率失败。如果有人需要体验甲骨文的服务器而苦于注册不成功的话，那该咋办呢？在这期教程中，我来和大家一起使用甲骨文的沙盒，体验甲骨文云的服务。</p><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul><li>Oracle 账户</li></ul><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>打开这个网站：<a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=648">https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=648</a> ，登录自己的Oracle账户。然后点击“Start”启动沙盒</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132049408.png" alt="img"></p><ol start="2"><li>点击底下的绿色按钮，启动沙盒</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132054265.png" alt="img"></p><ol start="3"><li>设置时区，同意协议。然后点击绿色按钮启动沙盒</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132100047.png" alt="img"></p><ol start="4"><li>等待配置沙盒，大概需要2-5分钟的时间</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132055085.png" alt="img"></p><ol start="5"><li>待配置完成后，点击“Launch Workshop”</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132055879.png" alt="img"></p><ol start="6"><li>点击“View Login Info”，然后复制密码，点击“Launch OCI”按钮</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132055780.png" alt="img"></p><ol start="7"><li>可以正常登录到云控制面板</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132049132.png" alt="img"></p><ol start="8"><li>如需延长试用时间，可点击“Extend Workshop Reservation”字样续时。最高可以续到10小时</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132049219.png" alt="img"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WindowsServer2022激活</title>
       <link href="/posts/e96d05a4.html"/>
       <url>/posts/e96d05a4.html</url>
