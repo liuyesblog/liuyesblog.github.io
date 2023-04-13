@@ -11,6 +11,34 @@
         <content type="html"><![CDATA[<p>众所周知，甲骨文的服务器对中国大陆实行了严苛的注册制度，从而导致注册大概率失败。如果有人需要体验甲骨文的服务器而苦于注册不成功的话，那该咋办呢？在这期教程中，我来和大家一起使用甲骨文的沙盒，体验甲骨文云的服务。</p><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul><li>Oracle 账户</li></ul><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>打开这个网站：<a href="https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=648">https://apexapps.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=648</a> ，登录自己的Oracle账户。然后点击“Start”启动沙盒</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132049408.png" alt="img"></p><ol start="2"><li>点击底下的绿色按钮，启动沙盒</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132054265.png" alt="img"></p><ol start="3"><li>设置时区，同意协议。然后点击绿色按钮启动沙盒</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132100047.png" alt="img"></p><ol start="4"><li>等待配置沙盒，大概需要2-5分钟的时间</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132055085.png" alt="img"></p><ol start="5"><li>待配置完成后，点击“Launch Workshop”</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132055879.png" alt="img"></p><ol start="6"><li>点击“View Login Info”，然后复制密码，点击“Launch OCI”按钮</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132055780.png" alt="img"></p><ol start="7"><li>可以正常登录到云控制面板</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132049132.png" alt="img"></p><ol start="8"><li>如需延长试用时间，可点击“Extend Workshop Reservation”字样续时。最高可以续到10小时</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132049219.png" alt="img"></p>]]></content>
       
       
+      <categories>
+          
+          <category> VPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vps </tag>
+            
+            <tag> 服务器 </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> cloud </tag>
+            
+            <tag> oracle </tag>
+            
+            <tag> 甲骨文 </tag>
+            
+            <tag> 甲骨文云 </tag>
+            
+            <tag> 沙盒 </tag>
+            
+            <tag> 体验 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -23,6 +51,12 @@
       
         <content type="html"><![CDATA[<h1 id="Windows-Server-2022-Datacenter"><a href="#Windows-Server-2022-Datacenter" class="headerlink" title="Windows Server 2022 Datacenter"></a>Windows Server 2022 Datacenter</h1><p>slmgr -ipk WX4NM-KYWYW-QJJR4-XV3QB-6VM33<br>slmgr &#x2F;skms kms.03k.org<br>slmgr -ato<br>slmgr -dlv</p><h1 id="Windows-Server-2022-Standard"><a href="#Windows-Server-2022-Standard" class="headerlink" title="Windows Server 2022 Standard"></a>Windows Server 2022 Standard</h1><p>slmgr -ipk VDYBN-27WPP-V4HQT-9VMD4-VMK7H<br>slmgr &#x2F;skms kms.03k.org<br>slmgr -ato<br>slmgr -dlv</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
       
       
         <tags>
@@ -45,6 +79,20 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304130811174.jpeg" alt="main1"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304130810895.jpeg" alt="top_img1"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304130810343.jpeg" alt="General 3000x2092 women camera hands"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304130823798.jpeg" alt="General 3840x2160 Star Trek Star Trek: TOS spaceship vehicle"></p>]]></content>
       
       
+      <categories>
+          
+          <category> VPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vps </tag>
+            
+            <tag> 示例 </tag>
+            
+        </tags>
       
     </entry>
     
