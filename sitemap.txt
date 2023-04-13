@@ -5,10 +5,10 @@ https://blog.ssopay.com/link/index.html
 https://blog.ssopay.com/categories/index.html
 https://blog.ssopay.com/tags/index.html
 https://blog.ssopay.com/
-https://blog.ssopay.com/tags/vps/
-https://blog.ssopay.com/tags/%E7%A4%BA%E4%BE%8B/
 https://blog.ssopay.com/tags/windows/
 https://blog.ssopay.com/tags/%E6%BF%80%E6%B4%BB/
+https://blog.ssopay.com/tags/vps/
+https://blog.ssopay.com/tags/%E7%A4%BA%E4%BE%8B/
 https://blog.ssopay.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/
 https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/
 https://blog.ssopay.com/tags/cloud/
@@ -17,5 +17,5 @@ https://blog.ssopay.com/tags/%E7%94%B2%E9%AA%A8%E6%96%87/
 https://blog.ssopay.com/tags/%E7%94%B2%E9%AA%A8%E6%96%87%E4%BA%91/
 https://blog.ssopay.com/tags/%E6%B2%99%E7%9B%92/
 https://blog.ssopay.com/tags/%E4%BD%93%E9%AA%8C/
-https://blog.ssopay.com/categories/VPS/
 https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/
+https://blog.ssopay.com/categories/VPS/
