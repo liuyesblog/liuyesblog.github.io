@@ -62,7 +62,7 @@
     <link href="https://blog.ssopay.com/posts/e96d05a4.html"/>
     <id>https://blog.ssopay.com/posts/e96d05a4.html</id>
     <published>2023-04-06T08:25:00.000Z</published>
-    <updated>2023-04-13T13:17:10.479Z</updated>
+    <updated>2023-04-13T14:18:24.038Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Windows-Server-2022-Datacenter"><a href="#Windows-Server-2022-Datacenter" class="headerlink" title="Windows Server 2022 Datacenter"></a>Windows Server 2022 Datacenter</h1><p>slmgr -ipk WX4NM-KYWYW-QJJR4-XV3QB-6VM33<br>slmgr &#x2F;skms kms.03k.org<br>slmgr -ato<br>slmgr -dlv</p><h1 id="Windows-Server-2022-Standard"><a href="#Windows-Server-2022-Standard" class="headerlink" title="Windows Server 2022 Standard"></a>Windows Server 2022 Standard</h1><p>slmgr -ipk VDYBN-27WPP-V4HQT-9VMD4-VMK7H<br>slmgr &#x2F;skms kms.03k.org<br>slmgr -ato<br>slmgr -dlv</p>]]></content>
     
