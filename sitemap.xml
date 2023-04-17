@@ -2,16 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.ssopay.com/posts/69e9b14c.html</loc>
-    
-    <lastmod>2023-04-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ssopay.com/posts/a6626f42.html</loc>
+    <loc>https://blog.ssopay.com/posts/22db22cf.html</loc>
     
     <lastmod>2023-04-14</lastmod>
     
@@ -29,9 +20,18 @@
   </url>
   
   <url>
-    <loc>https://blog.ssopay.com/posts/22db22cf.html</loc>
+    <loc>https://blog.ssopay.com/posts/69e9b14c.html</loc>
     
-    <lastmod>2023-04-13</lastmod>
+    <lastmod>2023-04-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/posts/a6626f42.html</loc>
+    
+    <lastmod>2023-04-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -67,120 +67,120 @@
 
   <url>
     <loc>https://blog.ssopay.com/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.ssopay.com/tags/vps/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ssopay.com/tags/%E7%A4%BA%E4%BE%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ssopay.com/tags/windows/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E6%BF%80%E6%B4%BB/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/vps/</loc>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/cloud/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/oracle/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E7%94%B2%E9%AA%A8%E6%96%87/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E7%94%B2%E9%AA%A8%E6%96%87%E4%BA%91/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E6%B2%99%E7%9B%92/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E4%BD%93%E9%AA%8C/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/cloudflare/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/cdn/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/ssl/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E5%9F%9F%E5%90%8D/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -188,15 +188,15 @@
 
   
   <url>
-    <loc>https://blog.ssopay.com/categories/VPS/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <loc>https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <loc>https://blog.ssopay.com/categories/VPS/</loc>
+    <lastmod>2023-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
