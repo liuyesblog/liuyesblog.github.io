@@ -205,7 +205,7 @@
 <p>后面的proxy status显示橙色的云表示已经应用了Cloudflare的CDN，很好，不用管，除非设置的某个子域名是用来直接SSH、FTP服务器的。</p>
 <p>然后，记得在SSL&#x2F;TLS里切换模式到Full（不然在下面的配置中，会让访问在http和https间反复横跳，too many redirections）。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141001264.png" alt="记得改SSL/TLS模式设置"></p>
 <h1 id="SSL准备"><a href="#SSL准备" class="headerlink" title="SSL准备"></a>SSL准备</h1><p>在有了一个域名的基础上，可以申请LetsEncrypt的域名证书。<br>可以使用<a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh">acme.sh</a></p>
-<p>安装：<code>curl https://get.acme.sh | sh -s email=my@example.com</code><br>其中后面那个email不要用<a href="mailto:&#109;&#121;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#109;&#121;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a>，会出错的。</p>
+<p>安装：<code>curl https://get.acme.sh | sh -s email=my@example.com</code><br>其中后面那个email不要用<a href="mailto:&#x6d;&#x79;&#x40;&#101;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#x6d;">&#x6d;&#x79;&#x40;&#101;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#x6d;</a>，会出错的。</p>
 <p>其他就跟着GitHub的教程来吧，有中文的：<br><a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明</a></p>
 <p>厂家DNS不给力的记得先换了其他厂家的DNS，不然可以这一步申请证书会超时。</p>
 <blockquote>
