@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ssopay.com/posts/ab77ae52.html</loc>
+    
+    <lastmod>2023-05-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.ssopay.com/categories/index.html</loc>
     
     <lastmod>2023-05-16</lastmod>
@@ -293,20 +302,6 @@
   </url>
   
   <url>
-    <loc>https://blog.ssopay.com/tags/windows/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.ssopay.com/tags/%E6%BF%80%E6%B4%BB/</loc>
-    <lastmod>2023-05-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.ssopay.com/tags/VPS/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -343,6 +338,20 @@
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/windows/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/%E6%BF%80%E6%B4%BB/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -553,6 +562,41 @@
   
   <url>
     <loc>https://blog.ssopay.com/tags/%E8%AE%A2%E9%98%85/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/openvz/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/lxc/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/alpine/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2023-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ssopay.com/tags/%E9%87%8D%E8%A3%85/</loc>
     <lastmod>2023-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
