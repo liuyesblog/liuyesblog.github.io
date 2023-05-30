@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Alpine+V2Ray+Nginx+PHP探针+套CF | 六爺的博客</title><meta name="author" content="liuyes"><meta name="copyright" content="liuyes"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Alpine+V2Ray+Nginx+PHP探针+套CF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alpine+V2Ray+Nginx+PHP探针+套CF">
+<meta property="og:url" content="https://blog.ssopay.com/posts/48c55392.html">
+<meta property="og:site_name" content="六爺的博客">
+<meta property="og:description" content="Alpine+V2Ray+Nginx+PHP探针+套CF">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png">
+<meta property="article:published_time" content="2023-05-30T03:36:00.000Z">
+<meta property="article:modified_time" content="2023-05-30T03:41:23.724Z">
+<meta property="article:author" content="liuyes">
+<meta property="article:tag" content="cf">
+<meta property="article:tag" content="cloudflare">
+<meta property="article:tag" content="探针">
+<meta property="article:tag" content="alpine">
+<meta property="article:tag" content="v2ray">
+<meta property="article:tag" content="nginx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.ssopay.com/posts/48c55392.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Alpine+V2Ray+Nginx+PHP探针+套CF',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-05-30 11:41:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="六爺的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/avatar2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://blog.ssopay.com"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于本站</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS订阅</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png')"><nav id="nav"><span id="blog-info"><a href="/" title="六爺的博客"><span class="site-name">六爺的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://blog.ssopay.com"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于本站</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS订阅</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Alpine+V2Ray+Nginx+PHP探针+套CF</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-30T03:36:00.000Z" title="发表于 2023-05-30 11:36:00">2023-05-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-30T03:41:23.724Z" title="更新于 2023-05-30 11:41:23">2023-05-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Alpine+V2Ray+Nginx+PHP探针+套CF"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>碎碎念，开始！</p>
+<p>前几天入手了VMOcean的32M&#x2F;64M的小鸡，其他的Linux玩不起来，只能整个alpine OS来折腾，效果还真别说，真不错！完全超出了0.5&#x2F;1刀每年的预期。。。好了，废话不说了，开整。</p>
+<p>准备工作：</p>
+<p>VMOcean家的OS模板有点问题，使用的Alpine3.16默认是没有ssh的，需要自己来折腾一下</p>
+<p>登录noVNC，使用的是root和邮件里的密码登录（注意输入的密码是否正确，noVNC实际的输入可能跟预期的不一样，最好先在用户名的位置把密码输入检查一下，以确保密码的正确性）</p>
+<p>如果实在不行的话，可以重置一下OS，那里会提示让你重新设置root密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305301124023.jpeg" alt="img"></p>
+<p>默认已经用root账号登录系统了</p>
+<p>安装使用dropbear，一个轻量级的ssh服务器端，直接运行下面的命令，不需要额外的配置，就可以用root登录了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add dropbear &amp;&amp; rc-update add dropbear &amp;&amp; rc-service dropbear start</span><br></pre></td></tr></table></figure>
+
+<p>安装openssh-server，这个比dropbear要稍微麻烦一点点儿。完全看个人喜好，dropbear和openssh-server二选一就成了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk add openssh-server &amp;&amp; rc-update add sshd （不熟的话，可以一个一个运行，熟悉一下运行输入的结果）</span><br><span class="line">echo &quot;PermitRootLogin yes&quot;&gt;&gt;/etc/ssh/sshd_config </span><br><span class="line">rc-service sshd start</span><br></pre></td></tr></table></figure>
+
+<p>#安装ssh-server和将ssh加到默认启动的列表里，这样系统重启后，ssh也会默认启动</p>
+<p> #ssh默认的配置是不允许root账号直接登录的，需要如此处理一下，或者自己到&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件里找到对应的选项进行编辑</p>
+<p>#启动ssh服务，现在就可以通过putty或者其他的客户端，通过默认提供的IPv4:Port或者IPv6默认端口进行连接。官方提供的<a target="_blank" rel="noopener" href="https://www.vmocean.com/index.php?rp=/knowledgebase/1/IPv4-port-mapping-relationship-of-Nat-VPS.html">IPv4端口计算的方法</a></p>
+<p>（PS：开始使用的命令是apk add openssh，这个默认会把ssh的client端也给安装上，看看自己的内存，还是把能不安装的都去除掉吧。）</p>
+<p>准备工作完事，现在可以在putty或者其他的ssh客户端里开始折腾了。。。</p>
+<p>v2ray安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk add v2ray</span><br><span class="line">rm /etc/v2ray/config.json</span><br><span class="line">vi /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
+
+<p>在alpine里，v2ray可以直接命令安装，默认的配置文件可以直接删除，然后把自己想用的配置文件放进去（vi命令运行完毕后，复制自己配置文件内容，键盘按下字母i，鼠标右键，内容复制完毕；键盘按下ESC，然后输入:wq，回车）。有些ssh客户端有文件传输的功能，也可以直接把配置文件编辑完毕后上传上去。</p>
+<p>配置文件1，直接使用443端口+WS，套CF：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> &quot;inbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;port&quot;: 443,</span><br><span class="line">   &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">   &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;clients&quot;: [</span><br><span class="line">     &#123;</span><br><span class="line">      &quot;id&quot;: &quot;UUID-xxx&quot;,</span><br><span class="line">      &quot;alterId&quot;: 0</span><br><span class="line">     &#125;</span><br><span class="line">    ]</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;streamSettings&quot;: &#123;</span><br><span class="line">    &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">    &quot;security&quot;: &quot;tls&quot;,</span><br><span class="line">    &quot;tlsSettings&quot;: &#123;</span><br><span class="line">     &quot;serverName&quot;: &quot;localhost&quot;,</span><br><span class="line">     &quot;certificates&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">       &quot;certificateFile&quot;: &quot;/v2/cert/localhost.crt&quot;,</span><br><span class="line">       &quot;keyFile&quot;: &quot;/v2/cert/localhost.key&quot;</span><br><span class="line">      &#125;</span><br><span class="line">     ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;wsSettings&quot;: &#123;</span><br><span class="line">     &quot;path&quot;: &quot;/Path/&quot;,</span><br><span class="line">     &quot;headers&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> ],</span><br><span class="line"> &quot;outbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">   &quot;settings&quot;: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果自己手上没有可用UUID的话，可以通过v2ctl uuid来生成一个随机的UUID（v2ray 4.x的版本，需要v2ctl来执行；最新的5.x版本里，生成随机UUID的工作可以通过v2ray来完成）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># v2ctl uuid</span><br><span class="line">67c5d2a9-fa63-ed5f-4c00-a1084d1ccb9f</span><br><span class="line"></span><br><span class="line">v2ray 5.x</span><br><span class="line"></span><br><span class="line"># v2ray uuid</span><br><span class="line">9c714576-ef94-dc32-ac33-308be673359e</span><br></pre></td></tr></table></figure>
+
+<p>标红的位置需要自己的信息；域名和证书，需要自己来搞定。如果自己手里有有效的证书，可以直接使用有效的域名和证书；也可以自签名一个证书。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /v2/cert &amp;&amp; openssl req -x509 -nodes -days 36500 -newkey rsa:2048  -keyout /v2/cert/localhost.key -out /v2/cert/localhost.crt</span><br></pre></td></tr></table></figure>
+
+<p>贴一个自己用的100年的自签名的命令，不建议在alpine里直接运行，毕竟还需要安装openssl，不给小鸡添加压力了，直接在其他的环境里运行并备份或者复制到alpine小鸡里。上面的标红位置自己DIY就成了。反正路径、文件名一致就成了。</p>
+<p>CloudFlare里，在域名domain-name里加个aaaa记录，启用CDN，ssl的加密模式设置为Full就可以了。本文里使用的是自签名+CF的SSL加密模式Full，完全可以在domain1-name里，加条同样的aaaa记录，然后在domain1-name里像domain-name一样玩耍。无感在CF多个域名里来回切换。</p>
+<p>如果你能保证证书有效性，也可以将SSL加密模式设置成Full (strict)。</p>
+<p>对了，CF提供15年的CF自用证书，上文提到的证书文件，也完全可以替换成CF的。</p>
+<p>测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#rc-service v2ray start</span><br><span class="line">#rc-service v2ray status</span><br></pre></td></tr></table></figure>
+
+<p>启动v2ray并查看运行状态</p>
+<p>最后在浏览器里访问<a target="_blank" rel="noopener" href="https://domain-name/Path/%EF%BC%8C%E8%BF%94%E5%9B%9EBad">https://domain-name/Path/，返回Bad</a> Request就说明v2ray配置成功了。</p>
+<p>配置文件2，需要Nignx、或者其他的程序反代：</p>
+<p> config.json的配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> &quot;inbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;port&quot;: 10000,</span><br><span class="line">   &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">   &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;clients&quot;: [</span><br><span class="line">     &#123;</span><br><span class="line">      &quot;id&quot;: &quot;UUID-xxx&quot;,</span><br><span class="line">      &quot;alterId&quot;: 0</span><br><span class="line">     &#125;</span><br><span class="line">    ]</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;streamSettings&quot;: &#123;</span><br><span class="line">    &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">    &quot;security&quot;: &quot;&quot;,</span><br><span class="line">    &quot;wsSettings&quot;: &#123;</span><br><span class="line">     &quot;path&quot;: &quot;/Path/&quot;,</span><br><span class="line">     &quot;headers&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> ],</span><br><span class="line"> &quot;outbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">   &quot;settings&quot;: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样，标红的位置需要换成自己的(这个配置文件，也可以作为vmess裸奔的配置，在端口10000上裸奔)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#rc-service v2ray start</span><br><span class="line">#rc-service v2ray status</span><br></pre></td></tr></table></figure>
+
+<p>启动v2ray并查看运行状态 </p>
+<p>PS: 这个配置文件里，没有指定listen IP地址，默认是监控所有IP的10000端口，如果需要的话，可以添加listen IP(“listen”:”127.0.0.1”,)的信息。</p>
+<p><strong>安装nginx+php-fpm（用于网站+php单机探针）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk add php-fpm &amp;&amp; rc-update add php-fpm8 &amp;&amp; rc-service php-fpm8 start</span><br></pre></td></tr></table></figure>
+
+<p>安装个php-fpm就能保证php探针运行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">apk add nginx</span><br><span class="line"></span><br><span class="line">rm /etc/nginx/http.d/default.conf</span><br><span class="line"></span><br><span class="line">vi /etc/nginx/http.d/default.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 443 ssl http2 default_server;</span><br><span class="line">  listen [::]:443 ssl http2 default_server;</span><br><span class="line"></span><br><span class="line">  ssl_certificate /v2/cert/localhost.crt;</span><br><span class="line">  ssl_certificate_key /v2/cert/localhost.key;</span><br><span class="line"></span><br><span class="line">  ssl_session_timeout 1d;</span><br><span class="line">  ssl_session_cache shared:MozSSL:10m;</span><br><span class="line">  ssl_session_tickets off;</span><br><span class="line"></span><br><span class="line">  error_log  /dev/null;</span><br><span class="line">  access_log /dev/null;</span><br><span class="line"></span><br><span class="line">  root  /v2/www;</span><br><span class="line">  index  index.html index.php;</span><br><span class="line"></span><br><span class="line">  ssl_protocols  TLSv1.2 TLSv1.3;</span><br><span class="line">  ssl_ciphers    TLS-CHACHA20-POLY1305-SHA256:TLS-AES-256-GCM-SHA384:TLS-AES-128-GCM-SHA256:EECDH+AESGCM:EDH+AESGCM:AES256+EDH;</span><br><span class="line">  ssl_prefer_server_ciphers  on;</span><br><span class="line"></span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">       fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">       fastcgi_index   index.php;</span><br><span class="line">       include      fastcgi.conf;</span><br><span class="line">  &#125;</span><br><span class="line">  location /ip &#123;</span><br><span class="line">    default_type text/plain;</span><br><span class="line">    return 200 &quot;Your IP address is: $remote_addr&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  location /Path/ &#123;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:10000;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Host $http_host;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">  listen 80 default_server;</span><br><span class="line">  listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">  error_log  /dev/null;</span><br><span class="line">  access_log /dev/null;</span><br><span class="line"></span><br><span class="line">  root  /v2/www;</span><br><span class="line">  index  index.html index.php;</span><br><span class="line"></span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">       fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">       fastcgi_index   index.php;</span><br><span class="line">       include      fastcgi.conf;</span><br><span class="line">  &#125;</span><br><span class="line">  location /ip &#123;</span><br><span class="line">    default_type text/plain;</span><br><span class="line">    return 200 &quot;Your IP address is: $remote_addr&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  location /Path/ &#123;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:10000;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Host $http_host;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">  listen 12345 default_server;</span><br><span class="line">  listen [::]:12345 default_server;</span><br><span class="line"></span><br><span class="line">  error_log  /dev/null;</span><br><span class="line">  access_log /dev/null;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    default_type text/plain;</span><br><span class="line">    return 200 &quot;Your IP address is: $remote_addr&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  location /Path/ &#123;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:10000;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Host $http_host;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于443和80端口，我把网站的根目录设置成&#x2F;v2&#x2F;www了，这个需要按照实际情况来编辑成自己的；把index.html或index.php作为首页，php单机探针文件也需要放在网站根目录，也可直接将探针的php文件名修改成index.php让其作为首页显示。最后在那个12345端口上，可以换成系统给分配的IPv4端口，根据自己的需求、结合上面的80和443进行DIY，这个去除了php配置，主页只显示一个字符串Your IP address is: xxxxx。</p>
+<p>PS：配置文件里直接是default_server，就是为了一劳永逸，不是标准的做法；如果使用正常的域名和签名，就需要把server_name等啥的都给设置上。</p>
+<p>最后运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rc-update add nginx &amp;&amp; rc-service nginx start</span><br><span class="line"></span><br><span class="line">rc-service v2ray status &amp;&amp; rc-service nginx status</span><br></pre></td></tr></table></figure>
+
+<p>最后看一下v2ray和nginx是否正常运行。</p>
+<p>现在可以直接通过浏览器访问网站了。（某些情况下，可能需要一个扶墙的环境）测试v2ray：</p>
+<p>浏览器里访问<a target="_blank" rel="noopener" href="https://domain-name/Path/%EF%BC%8Chttp://domain-name/Path/%E6%88%96%E8%80%85http://ip-address:12345/Path/%E8%BF%94%E5%9B%9EBad">https://domain-name/Path/，http://domain-name/Path/或者http://ip-address:12345/Path/返回Bad</a> Request就说明v2ray配置成功了。</p>
+<p>放只32M的小鸡，vmess的连接就不放了</p>
+<p><a target="_blank" rel="noopener" href="https://vm.maverick.tk/">https://vm.maverick.tk/</a></p>
+<p><a target="_blank" rel="noopener" href="https://vm.maverick.tk/tz.php">https://vm.maverick.tk/tz.php</a></p>
+<p><a target="_blank" rel="noopener" href="https://vm.maverick.tk/tz1.php">https://vm.maverick.tk/tz1.php</a></p>
+<p>alpine小鸡的更新重启命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apk update &amp;&amp; apk upgrade &amp;&amp; sync &amp;&amp; reboot </span><br><span class="line"></span><br><span class="line">（32M的小鸡直接运行可能会失败，可以将一些服务给停掉然后再运行）</span><br><span class="line">rc-service v2ray stop &amp;&amp; rc-service nginx stop &amp;&amp; rc-service php-fpm8 stop &amp;&amp; apk update &amp;&amp; apk upgrade &amp;&amp; sync &amp;&amp; reboot</span><br></pre></td></tr></table></figure>
+
+<p>刚才发现alpine3.17发布了，再贴点命令，来升级alpine版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apk update &amp;&amp; apk upgrade alpine-keys</span><br><span class="line">sed -i &#x27;s/v3.1./v3.17/g&#x27; /etc/apk/repositories</span><br><span class="line">apk upgrade -a</span><br></pre></td></tr></table></figure>
+
+<p>尽情折腾吧，少年！</p>
+<p>以下内容跟alpine无关。。。。。。</p>
+<p>PS：关于v2ray的 client需要主意一下，alpine3.16内置的那个v2ray版本比较低，手机上的最新v2rayNG无法使用，不过SagerNet可以正常使用；Window上的v2rayN，注意修改一下内核，使用SagerNet或者v2fly的内核（非v2fly_v5）。</p>
+<p>v2ray linux上最新的v4版本的一键安装命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --version v4.45.2</span><br><span class="line">systemctl enable v2ray &amp;&amp; systemctl start v2ray</span><br><span class="line"></span><br><span class="line">或者分解开为：</span><br><span class="line"></span><br><span class="line">curl -L -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</span><br><span class="line">bash install-release.sh --version v4.45.2</span><br><span class="line">systemctl enable v2ray &amp;&amp; systemctl start v2ray</span><br></pre></td></tr></table></figure>
+
+<p>我再贴一下linux里的client端用的配置文件吧</p>
+<p>v2ray运行的配置文件放在这里 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/etc/v2ray/config.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"> &quot;inbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;port&quot;: 1080,</span><br><span class="line">   &quot;protocol&quot;: &quot;socks&quot;,</span><br><span class="line">   &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">    &quot;udp&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">   &quot;port&quot;: 1081,</span><br><span class="line">   &quot;protocol&quot;: &quot;http&quot;,</span><br><span class="line">   &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;udp&quot;: true</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> ],</span><br><span class="line"> &quot;outbounds&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;mux&quot;: &#123;</span><br><span class="line">    &quot;enabled&quot;: true,</span><br><span class="line">    &quot;concurrency&quot;: 8</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">   &quot;streamSettings&quot;: &#123;</span><br><span class="line">    &quot;wsSettings&quot;: &#123;</span><br><span class="line">     &quot;path&quot;: &quot;/Path/&quot;,</span><br><span class="line">     &quot;headers&quot;: &#123;</span><br><span class="line">      &quot;host&quot;: &quot;domain-name&quot;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;tlsSettings&quot;: &#123;</span><br><span class="line">     &quot;serverName&quot;: &quot;domain-name&quot;,</span><br><span class="line">     &quot;allowInsecure&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;security&quot;: &quot;tls&quot;,</span><br><span class="line">    &quot;network&quot;: &quot;ws&quot;</span><br><span class="line">   &#125;,</span><br><span class="line">   &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;vnext&quot;: [</span><br><span class="line">     &#123;</span><br><span class="line">      &quot;address&quot;: &quot;CF-DIY-Domain&quot;,</span><br><span class="line">      &quot;users&quot;: [</span><br><span class="line">       &#123;</span><br><span class="line">        &quot;encryption&quot;: &quot;none&quot;,</span><br><span class="line">        &quot;id&quot;: &quot;UUID-XXX&quot;,</span><br><span class="line">        &quot;level&quot;: 0</span><br><span class="line">       &#125;</span><br><span class="line">      ],</span><br><span class="line">      &quot;port&quot;: 443</span><br><span class="line">     &#125;</span><br><span class="line">    ]</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>标红的地方需要换成自己的，CF-DIY-Domain那里，是可以换成CF自选IP或者其他优质的CF域名；至于为啥整个虚拟机来运行v2ray客户端，那是因为主机可能某些原因被安装一些监控的软件，直接放在linux虚拟机里，安全性在理论上是会多一些，毕竟linux虚拟机，自己装的，一般情况下其他人是看不到里面是些啥的。</p>
+<p>补充：</p>
+<p>Alpine从3.16升级到3.17后，v2ray可能会出现莫名的crashed，启动不起来，检查了下，升级的过程中，v2ray版本4.45.0-r5 -&gt; 5.1.0-r2，配置文件改动比较大，需要修改一下&#x2F;etc&#x2F;init.d&#x2F;v2ray文件，然后重启v2ray就行了。（PS：试了下把我的Alpine从3.16升级到3.17，v2ray的init.d文件也修改完毕；试了下手机客户端，v2rayNG依旧不好用；SagerNet依旧好用！PC端：试了下最新的v2rayN v6.6，xray最新内核不好用，其余三个（v2fly, SagerNet, v2fly_v5）内核好用。）</p>
+<p><strong>#vi &#x2F;etc&#x2F;init.d&#x2F;v2ray</strong></p>
+<p>#!&#x2F;sbin&#x2F;openrc-run<br># Copyright 1999-2018 Gentoo Foundation<br># Distributed under the terms of the GNU General Public License v2</p>
+<p>V2_CONFIG&#x3D;”<strong>&#x2F;etc&#x2F;v2ray</strong>“<br>V2_PIDFILE&#x3D;”&#x2F;run&#x2F;v2ray.pid”<br>V2_LOG&#x3D;”&#x2F;var&#x2F;log&#x2F;v2ray.log”</p>
+<p>depend() {<br>    need net<br>}</p>
+<p>checkconfig() {<br>    if [ ! -f ${V2_CONFIG} ]; then<br>        ewarn “${V2_CONFIG} does not exist.”<br>    fi<br>}</p>
+<p>start() {<br>    checkconfig || return 1</p>
+<p>​    ebegin “Starting V2ray”<br>​    ebegin “Log File : ${V2_LOG}”<br>​    start-stop-daemon –start    <br>​    -b -1 ${V2_LOG} -2 ${V2_LOG}  <br>​    -m -p ${V2_PIDFILE}       <br>​    –exec &#x2F;usr&#x2F;bin&#x2F;v2ray <strong>run -d</strong> ${V2_CONFIG}<br>​    eend $?</p>
+<p>}</p>
+<p>stop() {<br>    ebegin “Stopping V2ray”<br>    start-stop-daemon –stop -p ${V2_PIDFILE}<br>    eend $?<br>}</p>
+<p>两处加粗部分修改，正常的话v2ray run后面需要加-c或者-config &#x2F;etc&#x2F;v2ray&#x2F;config.json；但不知什么原因，一直出错，所以修改一下，使用run -d，直接指向&#x2F;etc&#x2F;v2ray文件夹，会直接加载此目录下的所有json文件；你可以清空这个目录，只保留config.json文件，最后执行下面的命令，重启v2ray，查看状态</p>
+<p>PS：如果一切运行OK，可以将&#x2F;var&#x2F;log&#x2F;v2ray.log变成&#x2F;dev&#x2F;null，不记录日志，减少小鸡负担</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rc-service v2ray restart &amp;&amp; rc-service v2ray status</span><br></pre></td></tr></table></figure>
+
+<p> PS：升级Alpine后，Nginx里的php探针有可能会失效，检查了一下，是php-fpm版本变化了，处理方式如下。大版本升级过程中，如果其他软件有类似的情况，也可以参考解决。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rc-update del php-fpm8 &amp;&amp; rc-update add php-fpm81 &amp;&amp; rc-service php-fpm81 start</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.misaka.rest/2023/05/26/cf-wkrs-vless/">https://blog.misaka.rest/2023/05/26/cf-wkrs-vless/</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.ssopay.com">liuyes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.ssopay.com/posts/48c55392.html">https://blog.ssopay.com/posts/48c55392.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.ssopay.com" target="_blank">六爺的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cf/">cf</a><a class="post-meta__tags" href="/tags/cloudflare/">cloudflare</a><a class="post-meta__tags" href="/tags/%E6%8E%A2%E9%92%88/">探针</a><a class="post-meta__tags" href="/tags/alpine/">alpine</a><a class="post-meta__tags" href="/tags/v2ray/">v2ray</a><a class="post-meta__tags" href="/tags/nginx/">nginx</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/7975d21a.html" title="Microsoft Learn 临时免费云电脑使用教程及评测"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305301109294.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Microsoft Learn 临时免费云电脑使用教程及评测</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/61d5747e.html" title="借助Cloudflare Argo Tunnel隧道，在PaaS容器云平台部署哪吒探针"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304271345807.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-27</div><div class="title">借助Cloudflare Argo Tunnel隧道，在PaaS容器云平台部署哪吒探针</div></div></a></div><div><a href="/posts/f1a88224.html" title="使用Hostmonit网站，在线优选CloudFlare IP"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305120943743.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-12</div><div class="title">使用Hostmonit网站，在线优选CloudFlare IP</div></div></a></div><div><a href="/posts/aa969a82.html" title="在CloudFlare Workers搭建VLESS节点"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141025185.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-26</div><div class="title">在CloudFlare Workers搭建VLESS节点</div></div></a></div><div><a href="/posts/69e9b14c.html" title="启用cloudflare的ssl和二级域名"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141025185.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-14</div><div class="title">启用cloudflare的ssl和二级域名</div></div></a></div><div><a href="/posts/32016df9.html" title="CloudFlare Argo Tunnel教程"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201022434.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-20</div><div class="title">CloudFlare Argo Tunnel教程</div></div></a></div><div><a href="/posts/ab77ae52.html" title="将OpenVZ或LXC虚拟化架构的VPS系统重装至Alpine"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-16</div><div class="title">将OpenVZ或LXC虚拟化架构的VPS系统重装至Alpine</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/avatar2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">liuyes</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">92</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuyesblog"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://t.me/liuyesblog" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://github.com/liuyesblog" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:liuyesblog@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">博客新上线，欢迎捧场</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/48c55392.html" title="Alpine+V2Ray+Nginx+PHP探针+套CF"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Alpine+V2Ray+Nginx+PHP探针+套CF"/></a><div class="content"><a class="title" href="/posts/48c55392.html" title="Alpine+V2Ray+Nginx+PHP探针+套CF">Alpine+V2Ray+Nginx+PHP探针+套CF</a><time datetime="2023-05-30T03:36:00.000Z" title="发表于 2023-05-30 11:36:00">2023-05-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/7975d21a.html" title="Microsoft Learn 临时免费云电脑使用教程及评测"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305301109294.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Microsoft Learn 临时免费云电脑使用教程及评测"/></a><div class="content"><a class="title" href="/posts/7975d21a.html" title="Microsoft Learn 临时免费云电脑使用教程及评测">Microsoft Learn 临时免费云电脑使用教程及评测</a><time datetime="2023-05-30T03:11:00.000Z" title="发表于 2023-05-30 11:11:00">2023-05-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aa969a82.html" title="在CloudFlare Workers搭建VLESS节点"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141025185.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在CloudFlare Workers搭建VLESS节点"/></a><div class="content"><a class="title" href="/posts/aa969a82.html" title="在CloudFlare Workers搭建VLESS节点">在CloudFlare Workers搭建VLESS节点</a><time datetime="2023-05-26T02:22:00.000Z" title="发表于 2023-05-26 10:22:00">2023-05-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cd3afdd8.html" title="甲骨文Oracle开区时间及AMD类型"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132104038.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="甲骨文Oracle开区时间及AMD类型"/></a><div class="content"><a class="title" href="/posts/cd3afdd8.html" title="甲骨文Oracle开区时间及AMD类型">甲骨文Oracle开区时间及AMD类型</a><time datetime="2023-05-24T02:45:00.000Z" title="发表于 2023-05-24 10:45:00">2023-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cc0ad38f.html" title="VPS/服务器常用脚本合集"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305181051552.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VPS/服务器常用脚本合集"/></a><div class="content"><a class="title" href="/posts/cc0ad38f.html" title="VPS/服务器常用脚本合集">VPS/服务器常用脚本合集</a><time datetime="2023-05-18T02:45:00.000Z" title="发表于 2023-05-18 10:45:00">2023-05-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By liuyes</div><div class="footer_custom_text"><div><p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://icp.gov.moe/?keyword=20230401" title="本站已加入萌ICP豪华套餐，萌ICP备20230401号"><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20230401-fe1384?style-flat&amp;logo=data:image/png;base64,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"></a>&nbsp;<a target="_blank" href="https://vercel.com/"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '58d9b0e56209edfe8871',
+      clientSecret: '8da2eb88d30d5d09c285ad791572d23fdfdb61cc',
+      repo: 'liuyesblog.comment',
+      owner: 'liuyesblog',
+      admin: ['liuyesblog'],
+      id: '7c847acd17d2841245a01842dff837b2',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/61d5747e.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304271345807.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-04-27</span><a class="blog-slider__title" href="posts/61d5747e.html" alt="">借助Cloudflare Argo Tunnel隧道，在PaaS容器云平台部署哪吒探针</a><div class="blog-slider__text">借助Cloudflare Argo Tunnel隧道，在PaaS容器云平台部署哪吒探针</div><a class="blog-slider__button" href="posts/61d5747e.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/cc0ad38f.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305181051552.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-05-18</span><a class="blog-slider__title" href="posts/cc0ad38f.html" alt="">VPS/服务器常用脚本合集</a><div class="blog-slider__text">VPS/服务器常用脚本合集</div><a class="blog-slider__button" href="posts/cc0ad38f.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/bfd72768.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305051645904.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-05-05</span><a class="blog-slider__title" href="posts/bfd72768.html" alt="">在Chrome使用New Bing聊天</a><div class="blog-slider__text">在Chrome使用New Bing聊天</div><a class="blog-slider__button" href="posts/bfd72768.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/22db22cf.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132104038.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-04-13</span><a class="blog-slider__title" href="posts/22db22cf.html" alt="">使用Oracle Cloud（甲骨文云）的沙盒，体验其的云服务</a><div class="blog-slider__text">使用甲骨文的沙盒，体验甲骨文云的服务</div><a class="blog-slider__button" href="posts/22db22cf.html" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
