@@ -1,0 +1,495 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>lxc母鸡批量开小鸡 | 六爺的博客</title><meta name="author" content="liuyes"><meta name="copyright" content="liuyes"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="lxc母鸡批量开小鸡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lxc母鸡批量开小鸡">
+<meta property="og:url" content="https://blog.ssopay.com/posts/85890b5e.html">
+<meta property="og:site_name" content="六爺的博客">
+<meta property="og:description" content="lxc母鸡批量开小鸡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311101178.png">
+<meta property="article:published_time" content="2023-05-31T02:59:00.000Z">
+<meta property="article:modified_time" content="2023-05-31T03:17:26.595Z">
+<meta property="article:author" content="liuyes">
+<meta property="article:tag" content="lxc">
+<meta property="article:tag" content="脚本">
+<meta property="article:tag" content="nat">
+<meta property="article:tag" content="小鸡">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311101178.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.ssopay.com/posts/85890b5e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'lxc母鸡批量开小鸡',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-31 11:17:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="六爺的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/avatar2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://blog.ssopay.com"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于本站</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS订阅</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311101178.png')"><nav id="nav"><span id="blog-info"><a href="/" title="六爺的博客"><span class="site-name">六爺的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="https://blog.ssopay.com"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于本站</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS订阅</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">lxc母鸡批量开小鸡</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-31T02:59:00.000Z" title="发表于 2023-05-31 10:59:00">2023-05-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-31T03:17:26.595Z" title="更新于 2023-05-31 11:17:26">2023-05-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="lxc母鸡批量开小鸡"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果脚本有任何问题或者任何修复系统的需求，可在issues中提出，有空会解决或者回答</p>
+<h1 id="lxc-一键母鸡开小鸡"><a href="#lxc-一键母鸡开小鸡" class="headerlink" title="lxc 一键母鸡开小鸡"></a>lxc 一键母鸡开小鸡</h1><p>更新：</p>
+<p>2023.05.28 修复部分宿主机原生的DNS和IPV4网络优先级的问题</p>
+<p><a href="CHANGELOG.md">更新日志</a></p>
+<h2 id="待解决的问题"><a href="#待解决的问题" class="headerlink" title="待解决的问题"></a>待解决的问题</h2><p>使得母鸡支持更多的系统版本，使小鸡支持更多的系统版本</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82">配置要求</a><ul>
+<li><a href="#%E8%84%9A%E6%9C%AC%E6%A3%80%E6%B5%8B">脚本检测</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85">手动安装</a><ul>
+<li><a href="#%E6%99%AE%E9%80%9A%E7%89%88%E6%9C%AC">普通版本</a><ul>
+<li><a href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99">关闭防火墙</a></li>
+<li><a href="#%E5%BC%80%E8%AE%BE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98SWAP">开设虚拟内存SWAP</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85LXD">安装LXD</a></li>
+<li><a href="#%E5%A4%9A%E6%AC%A1%E6%89%B9%E9%87%8F%E7%94%9F%E6%88%90LXC%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E5%B0%8F%E9%B8%A1">多次批量生成LXC虚拟化的小鸡</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BA%AF%E6%8E%A2%E9%92%88%E7%89%88%E6%9C%AC">纯探针版本</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Blog%E6%96%87%E4%BB%B6">查看log文件</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">注意事项</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E8%80%81%E6%89%8B%E6%8E%A8%E8%8D%90%E6%96%B9%E4%BE%BF%E5%BF%AB%E6%8D%B7">一键脚本老手推荐方便快捷</a><ul>
+<li><a href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lxd%E7%8E%AF%E5%A2%83">一键安装lxd环境</a></li>
+<li><a href="#%E5%8F%AA%E5%BC%80%E4%B8%80%E4%B8%AANAT%E6%9C%8D%E5%8A%A1%E5%99%A8">只开一个NAT服务器</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE">其他配置</a></li>
+</ul>
+</li>
+<li><a href="#%E8%87%B4%E8%B0%A2">致谢</a></li>
+<li><a href="#%E5%8F%8B%E9%93%BE">友链</a></li>
+</ul>
+<h2 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h2><p>硬件要求:</p>
+<ul>
+<li>系统：Debian 8+, Ubuntu 18+(推荐)，系统越新越好</li>
+<li>架构：推荐KVM、VMWARE虚拟化</li>
+<li>内存：内存至少512MB</li>
+<li>硬盘：硬盘(系统盘)至少10G</li>
+<li>网络：独立的IPV4地址，IPV6可有可无，带宽能下载脚本就行，网络能连接Github的raw页面就行</li>
+</ul>
+<p>PS: 如果硬件非常好资源很多，可使用PVE批量开KVM虚拟化的虚拟机 <a target="_blank" rel="noopener" href="https://github.com/spiritLHLS/pve">跳转</a></p>
+<p>PS: 如果硬件资源更烂，虚拟化不支持，可使用docker版本的，适配面更广 <a target="_blank" rel="noopener" href="https://github.com/spiritLHLS/docker">跳转</a></p>
+<h3 id="脚本检测"><a href="#脚本检测" class="headerlink" title="脚本检测"></a>脚本检测</h3><p><strong>使用后续脚本的务必执行本命令检测母鸡是否符合要求</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget -qO- --no-check-certificate https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/pre_check.sh)</span><br></pre></td></tr></table></figure>
+
+<h4 id="项目特点"><a href="#项目特点" class="headerlink" title="项目特点"></a>项目特点</h4><ul>
+<li><p>本套脚本开发使用的Ubuntu20，Ubuntu别的长期维护版本应该也没问题，Debian无法使用zfs时自动切换别的存储类型</p>
+</li>
+<li><p>已设置同时进行TCP和UDP转发，除了SSH端口其他的映射内网外网端口一致</p>
+</li>
+<li><p>已设置支持开出的LXC容器进行docker嵌套虚拟，默认普通版本和纯探针版本使用debian11系统</p>
+</li>
+<li><p>已屏蔽容器内可能用于滥用的工具包和IPV4网络的TCP&#x2F;UDP协议的端口( 3389 8888 54321 65432 )，以防止容器被用于扫描和爆破，且可外置进程检查有问题自动停机</p>
+</li>
+<li><p>已支持一键为LXC容器配置IPV6地址(前提是母鸡有IPV6子网，无IPV6地址则不配置)</p>
+</li>
+<li><p>一定要在 <code>/root</code> 的路径下运行本仓库脚本，且使用<code>一键脚本</code>的<strong>不要删除</strong>路径下的<code>ssh.sh</code>和<code>config.sh</code>文件</p>
+</li>
+<li><p>保证你要开的盘为默认的系统盘(sda或者sda1)而不是挂载的盘(sdb之类的)，不确定的使用<code>fdisk -l</code>和<code>df</code>查看</p>
+</li>
+<li><p>挂载其他盘的详看 <a target="_blank" rel="noopener" href="https://github.com/spiritLHLS/lxc/blob/main/README_other.md">其他说明</a></p>
+</li>
+<li><p>一键脚本支持自定义限制所有内容，普通版本支持多次运行批量生成不覆盖先前生成的配置</p>
+</li>
+</ul>
+<h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><p>新手推荐，避免有bug不知道怎么修</p>
+<ul>
+<li>批量生成NAT服务器</li>
+<li>支持批量重复生成(多次批量开NAT服务器，且不覆盖原配置)</li>
+<li>批量重复生成仅限于普通版本的配置，不支持纯探针版本</li>
+</ul>
+<h3 id="普通版本"><a href="#普通版本" class="headerlink" title="普通版本"></a>普通版本</h3><p>(带1个SSH端口，25个外网端口)</p>
+<p>开出的小鸡配置：1核256MB内存1GB硬盘限速250Mbps带宽</p>
+<h4 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install curl wget sudo dos2unix ufw -y</span><br><span class="line">ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="开设虚拟内存SWAP"><a href="#开设虚拟内存SWAP" class="headerlink" title="开设虚拟内存SWAP"></a>开设虚拟内存SWAP</h4><p>内存看你开多少小鸡，这里如果要开8个，换算需要2G内存，实际内存如果是512MB内存，还需要开1.5G，保守点开2G虚拟内存即可</p>
+<p>执行下面命令，输入1，再输入2048，代表开2G虚拟内存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/swap.sh -o swap.sh &amp;&amp; chmod +x swap.sh &amp;&amp; bash swap.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装LXD"><a href="#安装LXD" class="headerlink" title="安装LXD"></a>安装LXD</h4><p>实际swap开的虚拟内存应该是实际内存的2倍，也就是开1G是合理的，上面我描述的情况属于超开了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install snapd -y</span><br><span class="line">snap install lxd</span><br><span class="line">/snap/bin/lxd init</span><br></pre></td></tr></table></figure>
+
+<p>如果上面的命令中出现下面的错误</p>
+<p>(snap “lxd” assumes unsupported features: snapd2.39 (try to update snapd and refresh the core snap))</p>
+<p>使用命令修补后再进行lxd的安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snap install core</span><br></pre></td></tr></table></figure>
+
+<p>如果无异常，上面三行命令执行结果如下</p>
+<p><img src="https://user-images.githubusercontent.com/103393591/233270028-5a43d0f7-45f5-4175-969e-d4d182cb877a.png" alt="图片"></p>
+<p>一般的选项回车默认即可</p>
+<p>选择配置物理盘大小(提示默认最小1GB那个选项)，一般我填空闲磁盘大小减去内存大小后乘以0.95并向下取整，这里我填了10GB</p>
+<p>提示带auto的更新image的选项记得选no，避免更新占用系统</p>
+<p>测试lxc有没有软连接上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc -h</span><br></pre></td></tr></table></figure>
+
+<p>如果报错则执行以下命令软连接lxc命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">! lxc -h &gt;/dev/null 2&gt;&amp;1 &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;alias lxc=&quot;/snap/bin/lxc&quot;&#x27;</span> &gt;&gt; /root/.bashrc &amp;&amp; <span class="built_in">source</span> /root/.bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/snap/bin</span><br></pre></td></tr></table></figure>
+
+<p>连接后再测试lxc命令是否有报错找不到</p>
+<h4 id="手动批量生成LXC虚拟化的小鸡"><a href="#手动批量生成LXC虚拟化的小鸡" class="headerlink" title="手动批量生成LXC虚拟化的小鸡"></a>手动批量生成LXC虚拟化的小鸡</h4><p>(默认内存和硬盘大小)</p>
+<p>lxc若命令无问题，执行初始化开小鸡，这一步最好放<code>screen</code>中后台挂起执行，开小鸡时长与你开几个和母鸡配置相关</p>
+<p>执行下面命令加载开机脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf init.sh</span><br><span class="line">wget https://github.com/spiritLHLS/lxc/raw/main/scripts/init.sh</span><br><span class="line">chmod 777 init.sh</span><br><span class="line">apt install dos2unix -y</span><br><span class="line">dos2unix init.sh</span><br></pre></td></tr></table></figure>
+
+<p>下面命令为开小鸡名字前缀为<strong>tj</strong>的<strong>10</strong>个小鸡</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./init.sh tj 10</span><br></pre></td></tr></table></figure>
+
+<p>有时候init.sh的运行路径有问题，此时建议前面加上sudo强制根目录执行</p>
+<h4 id="多次批量生成LXC虚拟化的小鸡"><a href="#多次批量生成LXC虚拟化的小鸡" class="headerlink" title="多次批量生成LXC虚拟化的小鸡"></a>多次批量生成LXC虚拟化的小鸡</h4><p>可自定义内存和硬盘大小</p>
+<p>有执行过上面的手动批量生成过也没问题，配置是继承的不覆盖</p>
+<p>如果需要多次批量生成小鸡，可使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/spiritLHLS/lxc/raw/main/scripts/add_more.sh -o add_more.sh &amp;&amp; chmod +x add_more.sh &amp;&amp; bash add_more.sh</span><br></pre></td></tr></table></figure>
+
+<p>可多次运行批量生成小鸡，且继承前面已生成的部分在后面添加，可自定义内存和硬盘大小</p>
+<h3 id="纯探针版本"><a href="#纯探针版本" class="headerlink" title="纯探针版本"></a>纯探针版本</h3><p>(只有一个SSH端口)</p>
+<p>开出的小鸡配置：1核128MB内存300MB硬盘限速200Mbps带宽</p>
+<p>关闭防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install curl wget sudo dos2unix ufw -y</span><br><span class="line">ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+
+<p>开设虚拟内存</p>
+<p>内存看你开多少小鸡，这里如果要开10个，换算需要1G内存，实际内存如果是512MB内存，还需要开0.5G，保守点开1G虚拟内存即可</p>
+<p>执行下面命令，输入1，再输入1024，代表开1G虚拟内存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/swap.sh -o swap.sh &amp;&amp; <span class="built_in">chmod</span> +x swap.sh &amp;&amp; bash swap.sh</span><br></pre></td></tr></table></figure>
+
+<p>实际swap开的虚拟内存应该是实际内存的2倍，也就是开1G是合理的，再多就超开了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install snapd -y</span><br><span class="line">snap install lxd</span><br><span class="line">/snap/bin/lxd init</span><br></pre></td></tr></table></figure>
+
+<p>如果上面的命令中出现下面的错误</p>
+<p>(snap “lxd” assumes unsupported features: snapd2.39 (try to update snapd and refresh the core snap))</p>
+<p>使用命令修补后再进行lxd的安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snap install core</span><br></pre></td></tr></table></figure>
+
+<p>如果无异常，上面三行命令执行结果如下</p>
+<p><img src="https://user-images.githubusercontent.com/103393591/233270028-5a43d0f7-45f5-4175-969e-d4d182cb877a.png" alt="图片"></p>
+<p>一般的选项回车默认即可</p>
+<p>选择配置物理盘大小(提示默认最小1GB那行)，一般我填空闲磁盘大小减去内存大小后乘以0.95并向下取整</p>
+<p>提示带auto的更新image的选项记得选no，避免更新占用</p>
+<p>软连接lxc命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">! lxc -h &gt;/dev/null 2&gt;&amp;1 &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;alias lxc=&quot;/snap/bin/lxc&quot;&#x27;</span> &gt;&gt; /root/.bashrc &amp;&amp; <span class="built_in">source</span> /root/.bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/snap/bin</span><br></pre></td></tr></table></figure>
+
+<p>测试lxc有没有软连接上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc -h</span><br></pre></td></tr></table></figure>
+
+<p>lxc命令无问题，执行初始化开小鸡，这一步最好放screen中后台挂起执行，开小鸡时长与你开几个和母鸡配置相关</p>
+<p>加载开机脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf least.sh</span><br><span class="line">wget https://github.com/spiritLHLS/lxc/raw/main/scripts/least.sh</span><br><span class="line">chmod 777 least.sh</span><br><span class="line">apt install dos2unix -y</span><br><span class="line">dos2unix least.sh</span><br></pre></td></tr></table></figure>
+
+<p>下列命令最后一行为开小鸡名字前缀为<strong>tj</strong>的<strong>10</strong>个小鸡</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./least.sh tj 10</span><br></pre></td></tr></table></figure>
+
+<p>有时候least.sh的运行路径有问题，此时建议前面加上sudo强制根目录执行</p>
+<h3 id="查看log文件"><a href="#查看log文件" class="headerlink" title="查看log文件"></a>查看log文件</h3><h4 id="开完小鸡后，具体信息会生成在当前目录下的log文件中，格式如下"><a href="#开完小鸡后，具体信息会生成在当前目录下的log文件中，格式如下" class="headerlink" title="开完小鸡后，具体信息会生成在当前目录下的log文件中，格式如下"></a>开完小鸡后，具体信息会生成在当前目录下的log文件中，格式如下</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1号服务器名称 密码 ssh端口 外网端口起始 外网端口终止</span><br><span class="line">2号服务器名称 密码 ssh端口 外网端口起始 外网端口终止</span><br></pre></td></tr></table></figure>
+
+<p>如果想要查看，只需在当前目录执行以下命令打印log文件即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><h4 id="不要拿该脚本开出的小鸡当生产环境，lxc虚拟化不支持换内核，dd，开启bbr，纯探针版本-普通版本无问题-挂载warp等操作"><a href="#不要拿该脚本开出的小鸡当生产环境，lxc虚拟化不支持换内核，dd，开启bbr，纯探针版本-普通版本无问题-挂载warp等操作" class="headerlink" title="不要拿该脚本开出的小鸡当生产环境，lxc虚拟化不支持换内核，dd，开启bbr，纯探针版本(普通版本无问题)挂载warp等操作"></a>不要拿该脚本开出的小鸡当生产环境，lxc虚拟化不支持换内核，dd，开启bbr，<strong>纯探针版本</strong>(普通版本无问题)挂载warp等操作</h4><p>本仓库不提供lxc虚拟化使用的其他问题的解答，非脚本相关问题请自行解决</p>
+<p>虚拟小鸡想要查看是否在线</p>
+<p>查看所有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc list</span><br></pre></td></tr></table></figure>
+
+<p>查看个例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc info 服务器名字</span><br></pre></td></tr></table></figure>
+
+<p>启动个例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc start 服务器名字</span><br></pre></td></tr></table></figure>
+
+<p>停止个例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc stop 服务器名字</span><br></pre></td></tr></table></figure>
+
+<p>删除个例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc delete -f 服务器名字</span><br></pre></td></tr></table></figure>
+
+<p>进入内部</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc <span class="built_in">exec</span> 服务器名字 /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>退出则输入<code>exit</code>回车即可</p>
+<p>删除所有LXC容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxc list | awk &#x27;&#123;print $2&#125;&#x27; | grep -v &quot;^$&quot; | xargs -I &#123;&#125; lxc delete -f &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在容器内执行删除无用日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove</span><br><span class="line">sudo apt-get clean</span><br><span class="line">sudo find /var/log -type f -delete</span><br><span class="line">sudo find /var/tmp -type f -delete</span><br><span class="line">sudo find /tmp -type f -delete</span><br><span class="line">sudo find /var/cache/apt/archives -type f -delete</span><br></pre></td></tr></table></figure>
+
+<h2 id="一键脚本老手推荐方便快捷"><a href="#一键脚本老手推荐方便快捷" class="headerlink" title="一键脚本老手推荐方便快捷"></a>一键脚本老手推荐方便快捷</h2><ul>
+<li>环境要求：Ubuntu 18+(推荐)，Debian 8+(仅限x86_64架构)</li>
+<li>只生成一个NAT服务器，可自定义限制所有内容</li>
+</ul>
+<h4 id="一键安装lxd环境"><a href="#一键安装lxd环境" class="headerlink" title="一键安装lxd环境"></a>一键安装lxd环境</h4><h5 id="初始化LXC环境"><a href="#初始化LXC环境" class="headerlink" title="初始化LXC环境"></a>初始化LXC环境</h5><p><strong>如果是全新的服务器，务必保证apt update和apt install curl都无问题再执行本脚本</strong></p>
+<p><strong>且自开机起最好等待5分钟后再执行以下命令，避免系统默认设置中就执行了本脚本导致apt源卡死</strong></p>
+<p>这里的虚拟内存是说要开的SWAP大小，存储池则是你所有要开的小鸡占的盘的大小的总和</p>
+<p><strong>如果是Debian系统的母鸡，务必在screen中执行本脚本，避免长期运行时SSH中断导致ZFS编译安装失败</strong></p>
+<p>环境安装过程中可能需要重启服务器再次执行以加载含zfs的内核</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/lxdinstall.sh -o lxdinstall.sh &amp;&amp; <span class="built_in">chmod</span> +x lxdinstall.sh &amp;&amp; bash lxdinstall.sh</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<p>如果系统盘除去已占用空间还有18G硬盘空余，想开2G虚拟内存(2048MB的SWAP)，15G的存储池，则依次输入<code>2048</code>和<code>15</code></p>
+<h4 id="只开一个NAT服务器"><a href="#只开一个NAT服务器" class="headerlink" title="只开一个NAT服务器"></a>只开一个NAT服务器</h4><h5 id="下载开机脚本"><a href="#下载开机脚本" class="headerlink" title="下载开机脚本"></a>下载开机脚本</h5><ul>
+<li>(<em><strong>非必须</strong></em>，如果你使用过一键安装LXD的命令，自动已下载对应的开机脚本，请忽略下面的命令)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf buildone.sh</span><br><span class="line">wget https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/buildone.sh</span><br><span class="line">chmod 777 buildone.sh</span><br><span class="line">apt install dos2unix -y</span><br><span class="line">dos2unix buildone.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="开NAT服务器"><a href="#开NAT服务器" class="headerlink" title="开NAT服务器"></a>开NAT服务器</h5><p>内存大小以MB计算，硬盘大小以GB计算，下载速度上传速度以Mbit计算，是否启用IPV6不一定要填Y或者N，没有这个参数也行</p>
+<p>如果<code>外网起端口</code>和<code>外网止端口</code>都设置为0则不做区间外网端口映射了，只映射基础的SSH端口，注意<code>不能为空</code>，不进行映射需要设置为0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./buildone.sh 小鸡名称 内存大小 硬盘大小 SSH端口 外网起端口 外网止端口 下载速度 上传速度 是否启用IPV6(Y or N)</span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./buildone.sh test 256 2 20001 20002 20025 300 300 N</span><br></pre></td></tr></table></figure>
+
+<p>这样就是创建一个名为test的小鸡，内存256MB，硬盘2G，SSH端口20001，内外网起止端口20002~20025，下载和上传速度都设置为300Mbit，且不自动设置外网IPV6地址</p>
+<p>如果已通过以上方法生成过小鸡，还需要批量生成小鸡，可使用手动安装部分的脚本</p>
+<p>但注意先删除测试小鸡再进行批量生成小鸡</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lxc delete -f test</span><br><span class="line">rm -rf test</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<p>需要查看信息则执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat 小鸡名字</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h3><ul>
+<li><strong>以下的配置安装会加重母鸡的负担，非必要不要安装</strong></li>
+</ul>
+<h5 id="自动配置IPV6地址"><a href="#自动配置IPV6地址" class="headerlink" title="自动配置IPV6地址"></a>自动配置IPV6地址</h5><ul>
+<li>(<em><strong>非必须</strong></em>，不使用的也没问题)</li>
+<li><strong>该脚本仅适用于母鸡有给<code>IPV6</code>子网且是<code>/64</code>的，且母鸡绑定了子网的<code>第一个IP</code>做<code>母鸡的IPV6地址或IPV6的gateway</code></strong></li>
+<li>自动为LXD创建的LXC容器配置<code>IPV6</code>地址</li>
+<li>已集成到<code>buildone.sh</code>中可使用变量控制且无需事先下载，该脚本可不手动使用，在使用<code>buildone.sh</code>时配置Y开启即可</li>
+</ul>
+<p>下载脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/build_ipv6_network.sh -o build_ipv6_network.sh &amp;&amp; <span class="built_in">chmod</span> +x build_ipv6_network.sh</span><br></pre></td></tr></table></figure>
+
+<p>自动为容器配置IPV6映射地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash build_ipv6_network.sh 容器名称</span><br></pre></td></tr></table></figure>
+
+<p>映射完毕会打印信息</p>
+<p>示例(给test容器自动配置IPV6地址，配置完成会写入一个test_v6的文件信息)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash build_ipv6_network.sh <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>删除所有IPV6已映射的规则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip6tables -t nat -F PREROUTING</span><br></pre></td></tr></table></figure>
+
+<h5 id="屏蔽容易被滥用的端口的出入流量以屏蔽端口和屏蔽滥用工具包"><a href="#屏蔽容易被滥用的端口的出入流量以屏蔽端口和屏蔽滥用工具包" class="headerlink" title="屏蔽容易被滥用的端口的出入流量以屏蔽端口和屏蔽滥用工具包"></a>屏蔽容易被滥用的端口的出入流量以屏蔽端口和屏蔽滥用工具包</h5><ul>
+<li>(<em><strong>非必须</strong></em>，该脚本仅仅是为了防止容器滥用方便，不装的也没问题)</li>
+<li>事前预防</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/spiritLHLS/lxc/raw/main/scripts/rules.sh -o rules.sh &amp;&amp; chmod +x rules.sh &amp;&amp; bash rules.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用screen配置监控屏蔽某些进程的执行，遇到某些进程的出现直接关闭容器"><a href="#使用screen配置监控屏蔽某些进程的执行，遇到某些进程的出现直接关闭容器" class="headerlink" title="使用screen配置监控屏蔽某些进程的执行，遇到某些进程的出现直接关闭容器"></a>使用screen配置监控屏蔽某些进程的执行，遇到某些进程的出现直接关闭容器</h5><ul>
+<li>如需停止监控可使用<code>screen</code>命令停止<code>lxc_moniter</code>这个名字的窗口并删除</li>
+<li>(<em><strong>非必须</strong></em>，该脚本仅仅是为了防止容器滥用方便，不装的也没问题)</li>
+<li>事后停机</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/spiritLHLS/lxc/raw/main/scripts/build_monitor.sh -o build_monitor.sh &amp;&amp; chmod +x build_monitor.sh &amp;&amp; bash build_monitor.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="一键安装开lxd母鸡所需要的带vnstat环境的常用预配置环境"><a href="#一键安装开lxd母鸡所需要的带vnstat环境的常用预配置环境" class="headerlink" title="一键安装开lxd母鸡所需要的带vnstat环境的常用预配置环境"></a>一键安装开lxd母鸡所需要的带vnstat环境的常用预配置环境</h5><ul>
+<li>(<em><strong>非必须</strong></em>，该脚本仅仅是为了站点对接监控方便，不装的也没问题)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/lxc/main/scripts/backend.sh -o backend.sh &amp;&amp; chmod +x backend.sh &amp;&amp; bash backend.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="一键安装母鸡可视化操作的面板"><a href="#一键安装母鸡可视化操作的面板" class="headerlink" title="一键安装母鸡可视化操作的面板"></a>一键安装母鸡可视化操作的面板</h5><ul>
+<li>(<em><strong>非必须</strong></em>，该面板只是为了方便可视化操作，没有也没问题)</li>
+<li>原作者仓库：<a target="_blank" rel="noopener" href="https://github.com/turtle0x1/LxdMosaic">跳转</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lxc config set core.https_address [::]</span><br><span class="line">lxc config set core.trust_password some-secret-string</span><br><span class="line">snap install lxdmosaic</span><br></pre></td></tr></table></figure>
+
+<p>安装完毕后打开母鸡IP地址，按照提示设置admin的密码，其他一路默认就能使用面板了</p>
+<p><strong>原作者项目地址：<a target="_blank" rel="noopener" href="https://github.com/spiritLHLS/lxc">点击跳转</a></strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.ssopay.com">liuyes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.ssopay.com/posts/85890b5e.html">https://blog.ssopay.com/posts/85890b5e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.ssopay.com" target="_blank">六爺的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/lxc/">lxc</a><a class="post-meta__tags" href="/tags/%E8%84%9A%E6%9C%AC/">脚本</a><a class="post-meta__tags" href="/tags/nat/">nat</a><a class="post-meta__tags" href="/tags/%E5%B0%8F%E9%B8%A1/">小鸡</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311101178.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/6d4bb709.html" title="Linux网络优化加速一键脚本"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311130871.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux网络优化加速一键脚本</div></div></a></div><div class="next-post pull-right"><a href="/posts/88eb9716.html" title="一键梭哈脚本"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305310825025.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">一键梭哈脚本</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/63f131f8.html" title="使用docker架设NAT机器"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311056458.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-31</div><div class="title">使用docker架设NAT机器</div></div></a></div><div><a href="/posts/ab77ae52.html" title="将OpenVZ或LXC虚拟化架构的VPS系统重装至Alpine"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-16</div><div class="title">将OpenVZ或LXC虚拟化架构的VPS系统重装至Alpine</div></div></a></div><div><a href="/posts/cc0ad38f.html" title="VPS&#x2F;服务器常用脚本合集"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305181051552.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-18</div><div class="title">VPS&#x2F;服务器常用脚本合集</div></div></a></div><div><a href="/posts/88eb9716.html" title="一键梭哈脚本"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305310825025.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-31</div><div class="title">一键梭哈脚本</div></div></a></div><div><a href="/posts/6d4bb709.html" title="Linux网络优化加速一键脚本"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311130871.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-31</div><div class="title">Linux网络优化加速一键脚本</div></div></a></div><div><a href="/posts/8bda40b2.html" title="Mysql之mysqldump整库备份单表恢复还原"><img class="cover" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304191003124.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-19</div><div class="title">Mysql之mysqldump整库备份单表恢复还原</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/avatar2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">liuyes</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuyesblog"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://t.me/liuyesblog" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://github.com/liuyesblog" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:liuyesblog@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">博客新上线，欢迎捧场</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lxc-%E4%B8%80%E9%94%AE%E6%AF%8D%E9%B8%A1%E5%BC%80%E5%B0%8F%E9%B8%A1"><span class="toc-number">2.</span> <span class="toc-text">lxc 一键母鸡开小鸡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%85%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">待解决的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">3.</span> <span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82"><span class="toc-number">3.1.</span> <span class="toc-text">配置要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E6%A3%80%E6%B5%8B"><span class="toc-number">3.1.1.</span> <span class="toc-text">脚本检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%89%B9%E7%82%B9"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">项目特点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-number">3.2.</span> <span class="toc-text">手动安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%89%88%E6%9C%AC"><span class="toc-number">3.2.1.</span> <span class="toc-text">普通版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">关闭防火墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E8%AE%BE%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98SWAP"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">开设虚拟内存SWAP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85LXD"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">安装LXD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%89%B9%E9%87%8F%E7%94%9F%E6%88%90LXC%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E5%B0%8F%E9%B8%A1"><span class="toc-number">3.2.1.4.</span> <span class="toc-text">手动批量生成LXC虚拟化的小鸡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E6%89%B9%E9%87%8F%E7%94%9F%E6%88%90LXC%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E5%B0%8F%E9%B8%A1"><span class="toc-number">3.2.1.5.</span> <span class="toc-text">多次批量生成LXC虚拟化的小鸡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%AF%E6%8E%A2%E9%92%88%E7%89%88%E6%9C%AC"><span class="toc-number">3.2.2.</span> <span class="toc-text">纯探针版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Blog%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text">查看log文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%AE%8C%E5%B0%8F%E9%B8%A1%E5%90%8E%EF%BC%8C%E5%85%B7%E4%BD%93%E4%BF%A1%E6%81%AF%E4%BC%9A%E7%94%9F%E6%88%90%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84log%E6%96%87%E4%BB%B6%E4%B8%AD%EF%BC%8C%E6%A0%BC%E5%BC%8F%E5%A6%82%E4%B8%8B"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">开完小鸡后，具体信息会生成在当前目录下的log文件中，格式如下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.2.4.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E8%A6%81%E6%8B%BF%E8%AF%A5%E8%84%9A%E6%9C%AC%E5%BC%80%E5%87%BA%E7%9A%84%E5%B0%8F%E9%B8%A1%E5%BD%93%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%EF%BC%8Clxc%E8%99%9A%E6%8B%9F%E5%8C%96%E4%B8%8D%E6%94%AF%E6%8C%81%E6%8D%A2%E5%86%85%E6%A0%B8%EF%BC%8Cdd%EF%BC%8C%E5%BC%80%E5%90%AFbbr%EF%BC%8C%E7%BA%AF%E6%8E%A2%E9%92%88%E7%89%88%E6%9C%AC-%E6%99%AE%E9%80%9A%E7%89%88%E6%9C%AC%E6%97%A0%E9%97%AE%E9%A2%98-%E6%8C%82%E8%BD%BDwarp%E7%AD%89%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.4.1.</span> <span class="toc-text">不要拿该脚本开出的小鸡当生产环境，lxc虚拟化不支持换内核，dd，开启bbr，纯探针版本(普通版本无问题)挂载warp等操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E8%80%81%E6%89%8B%E6%8E%A8%E8%8D%90%E6%96%B9%E4%BE%BF%E5%BF%AB%E6%8D%B7"><span class="toc-number">3.3.</span> <span class="toc-text">一键脚本老手推荐方便快捷</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lxd%E7%8E%AF%E5%A2%83"><span class="toc-number">3.3.0.1.</span> <span class="toc-text">一键安装lxd环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96LXC%E7%8E%AF%E5%A2%83"><span class="toc-number">3.3.0.1.1.</span> <span class="toc-text">初始化LXC环境</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AA%E5%BC%80%E4%B8%80%E4%B8%AANAT%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.3.0.2.</span> <span class="toc-text">只开一个NAT服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%BC%80%E6%9C%BA%E8%84%9A%E6%9C%AC"><span class="toc-number">3.3.0.2.1.</span> <span class="toc-text">下载开机脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80NAT%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.3.0.2.2.</span> <span class="toc-text">开NAT服务器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.1.</span> <span class="toc-text">其他配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AEIPV6%E5%9C%B0%E5%9D%80"><span class="toc-number">3.3.1.0.1.</span> <span class="toc-text">自动配置IPV6地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B1%8F%E8%94%BD%E5%AE%B9%E6%98%93%E8%A2%AB%E6%BB%A5%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E7%9A%84%E5%87%BA%E5%85%A5%E6%B5%81%E9%87%8F%E4%BB%A5%E5%B1%8F%E8%94%BD%E7%AB%AF%E5%8F%A3%E5%92%8C%E5%B1%8F%E8%94%BD%E6%BB%A5%E7%94%A8%E5%B7%A5%E5%85%B7%E5%8C%85"><span class="toc-number">3.3.1.0.2.</span> <span class="toc-text">屏蔽容易被滥用的端口的出入流量以屏蔽端口和屏蔽滥用工具包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8screen%E9%85%8D%E7%BD%AE%E7%9B%91%E6%8E%A7%E5%B1%8F%E8%94%BD%E6%9F%90%E4%BA%9B%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%EF%BC%8C%E9%81%87%E5%88%B0%E6%9F%90%E4%BA%9B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%87%BA%E7%8E%B0%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E5%AE%B9%E5%99%A8"><span class="toc-number">3.3.1.0.3.</span> <span class="toc-text">使用screen配置监控屏蔽某些进程的执行，遇到某些进程的出现直接关闭容器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%BC%80lxd%E6%AF%8D%E9%B8%A1%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E5%B8%A6vnstat%E7%8E%AF%E5%A2%83%E7%9A%84%E5%B8%B8%E7%94%A8%E9%A2%84%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-number">3.3.1.0.4.</span> <span class="toc-text">一键安装开lxd母鸡所需要的带vnstat环境的常用预配置环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E6%AF%8D%E9%B8%A1%E5%8F%AF%E8%A7%86%E5%8C%96%E6%93%8D%E4%BD%9C%E7%9A%84%E9%9D%A2%E6%9D%BF"><span class="toc-number">3.3.1.0.5.</span> <span class="toc-text">一键安装母鸡可视化操作的面板</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/6d4bb709.html" title="Linux网络优化加速一键脚本"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311130871.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux网络优化加速一键脚本"/></a><div class="content"><a class="title" href="/posts/6d4bb709.html" title="Linux网络优化加速一键脚本">Linux网络优化加速一键脚本</a><time datetime="2023-05-31T03:25:00.000Z" title="发表于 2023-05-31 11:25:00">2023-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/85890b5e.html" title="lxc母鸡批量开小鸡"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311101178.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="lxc母鸡批量开小鸡"/></a><div class="content"><a class="title" href="/posts/85890b5e.html" title="lxc母鸡批量开小鸡">lxc母鸡批量开小鸡</a><time datetime="2023-05-31T02:59:00.000Z" title="发表于 2023-05-31 10:59:00">2023-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/88eb9716.html" title="一键梭哈脚本"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305310825025.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一键梭哈脚本"/></a><div class="content"><a class="title" href="/posts/88eb9716.html" title="一键梭哈脚本">一键梭哈脚本</a><time datetime="2023-05-31T02:55:00.000Z" title="发表于 2023-05-31 10:55:00">2023-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/63f131f8.html" title="使用docker架设NAT机器"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311056458.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用docker架设NAT机器"/></a><div class="content"><a class="title" href="/posts/63f131f8.html" title="使用docker架设NAT机器">使用docker架设NAT机器</a><time datetime="2023-05-31T02:55:00.000Z" title="发表于 2023-05-31 10:55:00">2023-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/48c55392.html" title="Alpine+V2Ray+Nginx+PHP探针+套CF"><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305161451024.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Alpine+V2Ray+Nginx+PHP探针+套CF"/></a><div class="content"><a class="title" href="/posts/48c55392.html" title="Alpine+V2Ray+Nginx+PHP探针+套CF">Alpine+V2Ray+Nginx+PHP探针+套CF</a><time datetime="2023-05-30T03:36:00.000Z" title="发表于 2023-05-30 11:36:00">2023-05-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 By liuyes</div><div class="footer_custom_text"><div><p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://icp.gov.moe/?keyword=20230401" title="本站已加入萌ICP豪华套餐，萌ICP备20230401号"><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20230401-fe1384?style-flat&amp;logo=data:image/png;base64,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"></a>&nbsp;<a target="_blank" href="https://vercel.com/"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '58d9b0e56209edfe8871',
+      clientSecret: '8da2eb88d30d5d09c285ad791572d23fdfdb61cc',
+      repo: 'liuyesblog.comment',
+      owner: 'liuyesblog',
+      admin: ['liuyesblog'],
+      id: 'd32076e6892a5f34c5ad7b22180d4854',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/61d5747e.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304271345807.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-04-27</span><a class="blog-slider__title" href="posts/61d5747e.html" alt="">借助Cloudflare Argo Tunnel隧道，在PaaS容器云平台部署哪吒探针</a><div class="blog-slider__text">借助Cloudflare Argo Tunnel隧道，在PaaS容器云平台部署哪吒探针</div><a class="blog-slider__button" href="posts/61d5747e.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/cc0ad38f.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305181051552.jpeg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-05-18</span><a class="blog-slider__title" href="posts/cc0ad38f.html" alt="">VPS/服务器常用脚本合集</a><div class="blog-slider__text">VPS/服务器常用脚本合集</div><a class="blog-slider__button" href="posts/cc0ad38f.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/bfd72768.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305051645904.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-05-05</span><a class="blog-slider__title" href="posts/bfd72768.html" alt="">在Chrome使用New Bing聊天</a><div class="blog-slider__text">在Chrome使用New Bing聊天</div><a class="blog-slider__button" href="posts/bfd72768.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="posts/22db22cf.html" alt=""><img width="48" height="48" src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304132104038.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-04-13</span><a class="blog-slider__title" href="posts/22db22cf.html" alt="">使用Oracle Cloud（甲骨文云）的沙盒，体验其的云服务</a><div class="blog-slider__text">使用甲骨文的沙盒，体验甲骨文云的服务</div><a class="blog-slider__button" href="posts/22db22cf.html" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
