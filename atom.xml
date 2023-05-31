@@ -6,7 +6,7 @@
   <link href="https://blog.ssopay.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ssopay.com/"/>
-  <updated>2023-05-31T03:30:49.558Z</updated>
+  <updated>2023-05-31T03:50:03.406Z</updated>
   <id>https://blog.ssopay.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>alpine系统手动安装v2ray服务</title>
+    <link href="https://blog.ssopay.com/posts/9794bd71.html"/>
+    <id>https://blog.ssopay.com/posts/9794bd71.html</id>
+    <published>2023-05-31T03:45:00.000Z</published>
+    <updated>2023-05-31T03:50:03.406Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意!"></a>注意!</h1><p>本次手搓方法只实用有IPV4的机器上</p><h2 id="手搓方法"><a href="#手搓方法" class="headerlink" title="手搓方法"></a>手搓方法</h2><p>先用v2rayN生成配置，没有v2rayN用其他类似的桌面端软件也行</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311144077.png" alt="img"></p><p>保存，导出为服务端配置，导出后用文本编辑器打开，待会有用。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311144084.png" alt="img"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"><span class="built_in">mkdir</span> v2ray</span><br><span class="line"><span class="built_in">cd</span> v2ray/</span><br><span class="line">wget https://github.com/v2ray/v2ray-core/releases/download/v4.22.1/v2ray-linux-32.zip</span><br><span class="line">unzip v2ray-linux-32.zip</span><br><span class="line"><span class="built_in">rm</span> v2ray-linux-32.zip</span><br><span class="line"><span class="built_in">cat</span> &gt; config.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入之前导出的配置，回车，ctrl + D结束输入</span></span><br></pre></td></tr></table></figure><h3 id="安装开机启动服务"><a href="#安装开机启动服务" class="headerlink" title="安装开机启动服务"></a>安装开机启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /etc/init.d/v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入下面的服务配置文件，回车，ctrl + D结束输入</span></span><br></pre></td></tr></table></figure><p>服务配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/sbin/openrc-run</span></span><br><span class="line">name=<span class="string">&quot;v2ray&quot;</span></span><br><span class="line">description=<span class="string">&quot;v2ray service&quot;</span></span><br><span class="line"><span class="built_in">command</span>=<span class="string">&quot;/usr/local/v2ray/v2ray&quot;</span></span><br><span class="line">pidfile=<span class="string">&quot;/run/v2ray.pid&quot;</span></span><br><span class="line">command_background=<span class="string">&quot;yes&quot;</span></span><br><span class="line">rc_ulimit=<span class="string">&quot;-n 30000&quot;</span></span><br><span class="line">rc_cgroup_cleanup=<span class="string">&quot;yes&quot;</span></span><br><span class="line"><span class="function"><span class="title">depend</span></span>() &#123;</span><br><span class="line">    need net</span><br><span class="line">    after net</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="最后一步，启用服务"><a href="#最后一步，启用服务" class="headerlink" title="最后一步，启用服务"></a>最后一步，启用服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u+x /etc/init.d/v2ray</span><br><span class="line">rc-update add v2ray default</span><br><span class="line">service  v2ray start</span><br><span class="line">service v2ray status</span><br></pre></td></tr></table></figure><h2 id="额外附赠：参数调优"><a href="#额外附赠：参数调优" class="headerlink" title="额外附赠：参数调优"></a>额外附赠：参数调优</h2><p>在完成上面的步骤后，v2ray服务已经运行，下面可以约束下内存缓冲参数，防止不小心连接数目太多导致内存过载，导致机器卡死。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311149726.png" alt="img"></p><p>Bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;policy&quot;</span>:&#123;</span><br><span class="line">    <span class="string">&quot;handshake&quot;</span>: 4,</span><br><span class="line">    <span class="string">&quot;connIdle&quot;</span>: 300,</span><br><span class="line">    <span class="string">&quot;uplinkOnly&quot;</span>: 2,</span><br><span class="line">    <span class="string">&quot;downlinkOnly&quot;</span>: 5,</span><br><span class="line">    <span class="string">&quot;statsUserUplink&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;statsUserDownlink&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;bufferSize&quot;</span>: 1024</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">alpine系统手动安装v2ray服务</summary>
+    
+    
+    
+    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    
+    <category term="v2ray" scheme="https://blog.ssopay.com/tags/v2ray/"/>
+    
+    <category term="手动" scheme="https://blog.ssopay.com/tags/%E6%89%8B%E5%8A%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux网络优化加速一键脚本</title>
@@ -64,9 +89,9 @@
     <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="lxc" scheme="https://blog.ssopay.com/tags/lxc/"/>
-    
     <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="lxc" scheme="https://blog.ssopay.com/tags/lxc/"/>
     
     <category term="nat" scheme="https://blog.ssopay.com/tags/nat/"/>
     
@@ -95,9 +120,9 @@
     
     <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
-    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
-    
     <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
     
     <category term="v2ray" scheme="https://blog.ssopay.com/tags/v2ray/"/>
     
@@ -597,42 +622,11 @@
     <category term="技术" scheme="https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
     <category term="clash" scheme="https://blog.ssopay.com/tags/clash/"/>
     
     <category term="内核" scheme="https://blog.ssopay.com/tags/%E5%86%85%E6%A0%B8/"/>
-    
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CloudFlare Argo Tunnel教程</title>
-    <link href="https://blog.ssopay.com/posts/32016df9.html"/>
-    <id>https://blog.ssopay.com/posts/32016df9.html</id>
-    <published>2023-04-20T02:19:00.000Z</published>
-    <updated>2023-04-27T05:54:52.753Z</updated>
-    
-    <content type="html"><![CDATA[<p>在我们使用NAT VPS的时候，或者是我们自己使用本地环境的时候，由于我们没有公网IP，只能使用内网穿透的法子。这时候，我们就可以使用CloudFlare Argo Tunnel来穿透我们需要使用公网IP的服务，并且可以自定义域名。</p><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul><li>一枚域名，并DNS解析到CloudFlare</li></ul><h2 id="步骤方法"><a href="#步骤方法" class="headerlink" title="步骤方法"></a>步骤方法</h2><ol><li>打开Argo Tunnel的官网：<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation</a> ，然后选择自己的Linux版本下载对应的安装包。CentOS系系统选择rpm包下载，Debian系系统选择deb包下载</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201019203.png" alt="img"></p><ol><li>使用<code>dpkg -i cloudflared-linux-amd64.deb</code>（CentOS：<code>rpm -i cloudflared-linux-amd64.rpm</code>）安装cloudflared客户端<br>PS: 本文中官网下载的文件名为cloudflared-linux-amd64.deb，请按照实际文件名安装</li><li>可以使用<code>cloudflared tunnel --url http://127.0.0.1:端口号</code>命令，测试HTTP隧道效果或使用<code>cloudflared tunnel --url tcp://127.0.0.1:端口号</code>命令，测试TCP隧道效果</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201019082.png" alt="img"></p><ol><li>使用<code>cloudflared tunnel login</code>命令，登录你的CloudFlare账号。复制控制台出现的网址登录你的CloudFlare账号</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201019759.png" alt="img"></p><ol><li>选择一个域名，授权给Argo Tunnel使用</li><li>下面是一些常用的命令</li></ol><p>创建隧道：<code>cloudflared tunnel create 隧道名</code><br>删除隧道：<code>cloudflared tunnel delete 隧道名</code><br>列出隧道：<code>cloudflared tunnel list</code><br>配置隧道：<code>cloudflared tunnel route dns 隧道名 [CNAME 记录名称].[接入 CLoudflare 的域名]</code><br>运行隧道：<code>cloudflared tunnel run --url http://127.0.0.1:http端口号 隧道名</code> 或 <code>cloudflared tunnel run --url tcp://127.0.0.1:tcp端口号 隧道名</code></p><ol><li>使用YML配置文件文件如下</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">YAML</span><br><span class="line">tunnel: [tunnel 的名称或 UUID]</span><br><span class="line">credentials-file: /root/.cloudflared/[tunnel 的 UUID].json</span><br><span class="line"></span><br><span class="line">ingress:</span><br><span class="line">  - hostname: [CNAME 记录名称].[接入 CLoudflare 的域名]</span><br><span class="line">    service: http://localhost:80</span><br><span class="line">  - service: http_status:404</span><br></pre></td></tr></table></figure><blockquote><p>配置文件使用 Ingress 规则，如果想配置 SSH、TCP 等其他协议，可以查看官网：<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/ingress">https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/ingress</a></p></blockquote><p>然后使用 <code>cloudflared tunnel --config [配置文件路径] run</code> 命令运行隧道</p><p>参考：<a href="https://www.blueskyxn.com/202102/4176.html">https://www.blueskyxn.com/202102/4176.html</a></p><blockquote><p>原文链接：<a href="https://blog.misaka.rest/2023/04/19/argo-tunnel/">https://blog.misaka.rest/2023/04/19/argo-tunnel/</a></p></blockquote>]]></content>
-    
-    
-    <summary type="html">CloudFlare Argo Tunnel教程</summary>
-    
-    
-    
-    <category term="技术" scheme="https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="VPS" scheme="https://blog.ssopay.com/tags/VPS/"/>
-    
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
-    <category term="argo" scheme="https://blog.ssopay.com/tags/argo/"/>
-    
-    <category term="tunnel" scheme="https://blog.ssopay.com/tags/tunnel/"/>
-    
-    <category term="cdn" scheme="https://blog.ssopay.com/tags/cdn/"/>
     
   </entry>
   
