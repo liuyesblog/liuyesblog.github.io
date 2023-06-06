@@ -6,7 +6,7 @@
   <link href="https://blog.ssopay.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ssopay.com/"/>
-  <updated>2023-05-31T03:50:03.406Z</updated>
+  <updated>2023-06-06T03:17:26.487Z</updated>
   <id>https://blog.ssopay.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>alpine系统一键脚本装X-UI面板创建vmess节点套CF一条龙搞定</title>
+    <link href="https://blog.ssopay.com/posts/a983f08a.html"/>
+    <id>https://blog.ssopay.com/posts/a983f08a.html</id>
+    <published>2023-06-06T03:13:00.000Z</published>
+    <updated>2023-06-06T03:17:26.487Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、如果没有IPV4，我们需要用warp来让这个小鸡支持IPV4出站：<br>apk add wget bash sudo<br>wget -N <a href="https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh">https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh</a> &amp;&amp; bash menu.sh<br>选择为 1. 为 NAT IPv4 添加 WARP IPv4 网络接口，然后再选择优先级为IPv6，至此小鸡就可以正常访问IPV4了。</p><p>2、使用下面一键脚本命令安装alpine系统专用x-ui面板：<br>apk add curl &amp;&amp; apk add bash &amp;&amp; apk add sudo &amp;&amp; bash &lt;(curl -Ls <a href="https://raw.githubusercontent.com/ozersource/x-ui-Alpine/main/x-ui-alpine">https://raw.githubusercontent.com/ozersource/x-ui-Alpine/main/x-ui-alpine</a>)<br>保险起见，直接重复安装两遍！</p><p>3、在cloudflare网站中添加一个AAAA记录解析到我们的IPV6地址服务器，先不开启小云朵CDN代理<br>浏览器中使用我们的域名:9000端口号打开x-ui面板，初始账号：admin，密码：admin登录，登录后可点面板设置修改端口号及登录账号密码</p><p>4、入站列表里点加号添加节点，协议:vmess，端口:80，传输:ws，请求头点加号-值：我们解析的域名，其它可默认不动（自己需要限制总流量和到期时间的话自行设置），点添加后复制节点链接或者使用二维码扫描方式导入到我们的代理软件（以V2rayN为例）<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306061115743.jpeg" alt="img"><br>5、cloudflare网站里将我们解析的这个域名开启小云朵CDN代理，等待成功开启即可测试节点是否可用。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306061115285.jpeg" alt="img"></p>]]></content>
+    
+    
+    <summary type="html">alpine系统一键脚本装X-UI面板创建vmess节点套CF一条龙搞定</summary>
+    
+    
+    
+    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    
+    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    
+    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="一键" scheme="https://blog.ssopay.com/tags/%E4%B8%80%E9%94%AE/"/>
+    
+    <category term="x-ui" scheme="https://blog.ssopay.com/tags/x-ui/"/>
+    
+  </entry>
+  
+  <entry>
     <title>alpine系统手动安装v2ray服务</title>
     <link href="https://blog.ssopay.com/posts/9794bd71.html"/>
     <id>https://blog.ssopay.com/posts/9794bd71.html</id>
     <published>2023-05-31T03:45:00.000Z</published>
-    <updated>2023-05-31T03:50:03.406Z</updated>
+    <updated>2023-05-31T03:50:19.469Z</updated>
     
     <content type="html"><![CDATA[<h1 id="注意"><a href="#注意" class="headerlink" title="注意!"></a>注意!</h1><p>本次手搓方法只实用有IPV4的机器上</p><h2 id="手搓方法"><a href="#手搓方法" class="headerlink" title="手搓方法"></a>手搓方法</h2><p>先用v2rayN生成配置，没有v2rayN用其他类似的桌面端软件也行</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311144077.png" alt="img"></p><p>保存，导出为服务端配置，导出后用文本编辑器打开，待会有用。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311144084.png" alt="img"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line"><span class="built_in">mkdir</span> v2ray</span><br><span class="line"><span class="built_in">cd</span> v2ray/</span><br><span class="line">wget https://github.com/v2ray/v2ray-core/releases/download/v4.22.1/v2ray-linux-32.zip</span><br><span class="line">unzip v2ray-linux-32.zip</span><br><span class="line"><span class="built_in">rm</span> v2ray-linux-32.zip</span><br><span class="line"><span class="built_in">cat</span> &gt; config.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入之前导出的配置，回车，ctrl + D结束输入</span></span><br></pre></td></tr></table></figure><h3 id="安装开机启动服务"><a href="#安装开机启动服务" class="headerlink" title="安装开机启动服务"></a>安装开机启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; /etc/init.d/v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入下面的服务配置文件，回车，ctrl + D结束输入</span></span><br></pre></td></tr></table></figure><p>服务配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/sbin/openrc-run</span></span><br><span class="line">name=<span class="string">&quot;v2ray&quot;</span></span><br><span class="line">description=<span class="string">&quot;v2ray service&quot;</span></span><br><span class="line"><span class="built_in">command</span>=<span class="string">&quot;/usr/local/v2ray/v2ray&quot;</span></span><br><span class="line">pidfile=<span class="string">&quot;/run/v2ray.pid&quot;</span></span><br><span class="line">command_background=<span class="string">&quot;yes&quot;</span></span><br><span class="line">rc_ulimit=<span class="string">&quot;-n 30000&quot;</span></span><br><span class="line">rc_cgroup_cleanup=<span class="string">&quot;yes&quot;</span></span><br><span class="line"><span class="function"><span class="title">depend</span></span>() &#123;</span><br><span class="line">    need net</span><br><span class="line">    after net</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="最后一步，启用服务"><a href="#最后一步，启用服务" class="headerlink" title="最后一步，启用服务"></a>最后一步，启用服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u+x /etc/init.d/v2ray</span><br><span class="line">rc-update add v2ray default</span><br><span class="line">service  v2ray start</span><br><span class="line">service v2ray status</span><br></pre></td></tr></table></figure><h2 id="额外附赠：参数调优"><a href="#额外附赠：参数调优" class="headerlink" title="额外附赠：参数调优"></a>额外附赠：参数调优</h2><p>在完成上面的步骤后，v2ray服务已经运行，下面可以约束下内存缓冲参数，防止不小心连接数目太多导致内存过载，导致机器卡死。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311149726.png" alt="img"></p><p>Bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;policy&quot;</span>:&#123;</span><br><span class="line">    <span class="string">&quot;handshake&quot;</span>: 4,</span><br><span class="line">    <span class="string">&quot;connIdle&quot;</span>: 300,</span><br><span class="line">    <span class="string">&quot;uplinkOnly&quot;</span>: 2,</span><br><span class="line">    <span class="string">&quot;downlinkOnly&quot;</span>: 5,</span><br><span class="line">    <span class="string">&quot;statsUserUplink&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;statsUserDownlink&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">&quot;bufferSize&quot;</span>: 1024</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -89,9 +118,9 @@
     <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
-    
     <category term="lxc" scheme="https://blog.ssopay.com/tags/lxc/"/>
+    
+    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
     
     <category term="nat" scheme="https://blog.ssopay.com/tags/nat/"/>
     
@@ -120,9 +149,9 @@
     
     <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
-    
     <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    
+    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
     
     <category term="v2ray" scheme="https://blog.ssopay.com/tags/v2ray/"/>
     
@@ -298,9 +327,9 @@
     
     <category term="vps" scheme="https://blog.ssopay.com/tags/vps/"/>
     
-    <category term="服务器" scheme="https://blog.ssopay.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
     <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="服务器" scheme="https://blog.ssopay.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     <category term="测速" scheme="https://blog.ssopay.com/tags/%E6%B5%8B%E9%80%9F/"/>
     
@@ -602,31 +631,6 @@
     <category term="邮箱" scheme="https://blog.ssopay.com/tags/%E9%82%AE%E7%AE%B1/"/>
     
     <category term="密码" scheme="https://blog.ssopay.com/tags/%E5%AF%86%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Clash将默认的Clash Premium内核切换为Clash Meta内核</title>
-    <link href="https://blog.ssopay.com/posts/71157ecf.html"/>
-    <id>https://blog.ssopay.com/posts/71157ecf.html</id>
-    <published>2023-04-20T02:25:00.000Z</published>
-    <updated>2023-04-27T05:55:04.559Z</updated>
-    
-    <content type="html"><![CDATA[<p>在我们使用Clash For Windows（以下均使用CFW指代）时，有时候需要使用Clash Meta内核。对于习惯CFW的用户来说，切换客户端有时是一件忍痛割爱的事情。那在这篇教程中，我来和大家一起来在CFW中将默认的Clash Premium内核切换为Clash Meta内核。</p><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul><li>Clash For Windows</li></ul><h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><ol><li>打开 Clash Meta 的项目下载地址：<a href="https://github.com/MetaCubeX/Clash.Meta/releases">https://github.com/MetaCubeX/Clash.Meta/releases</a> ，下载适合自己电脑的版本</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201026040.png" alt="img"></p><ol><li>解压内核程序，备用</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201025418.png" alt="img"></p><ol><li>进入CFW的安装目录中的<code>resources/static/files/win/x64</code>（如为32位系统的程序则为<code>x86</code>），将默认的<code>clash-win64.exe</code>更名备份，我这里就改为<code>clash-win642.exe</code></li><li>将第二步解压的内核程序复制进来，并改为<code>clash-win64.exe</code></li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201025239.png" alt="img"></p><ol><li>打开CFW，当此处出现“Unknown”即为切换成功</li></ol><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304201025030.png" alt="img"></p><blockquote><p>原文链接：<a href="https://blog.misaka.rest/2023/04/19/cfw-change-meta/">https://blog.misaka.rest/2023/04/19/cfw-change-meta/</a></p></blockquote>]]></content>
-    
-    
-    <summary type="html">Clash将默认的Clash Premium内核切换为Clash Meta内核</summary>
-    
-    
-    
-    <category term="技术" scheme="https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="clash" scheme="https://blog.ssopay.com/tags/clash/"/>
-    
-    <category term="内核" scheme="https://blog.ssopay.com/tags/%E5%86%85%E6%A0%B8/"/>
     
   </entry>
   
