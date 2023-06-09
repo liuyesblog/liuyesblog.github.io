@@ -6,7 +6,7 @@
   <link href="https://blog.ssopay.com/atom.xml" rel="self"/>
   
   <link href="https://blog.ssopay.com/"/>
-  <updated>2023-06-09T02:57:10.368Z</updated>
+  <updated>2023-06-09T06:18:45.313Z</updated>
   <id>https://blog.ssopay.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>FRP一键安装脚本</title>
+    <link href="https://blog.ssopay.com/posts/c3f5490d.html"/>
+    <id>https://blog.ssopay.com/posts/c3f5490d.html</id>
+    <published>2023-06-09T06:10:00.000Z</published>
+    <updated>2023-06-09T06:18:45.313Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文分享我自己写的FRP一键安装脚本, 同时支持 FRPS (服务端) 和 FRPC (客户端)</p><h2 id="脚本分享"><a href="#脚本分享" class="headerlink" title="脚本分享"></a>脚本分享</h2><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091411196.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091411282.webp" alt="img"></p><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Slotheve/Shells/main/frp.sh)</span><br></pre></td></tr></table></figure><blockquote><p>原文链接：<a href="https://www.slotheve.com/frp/">https://www.slotheve.com/frp/</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">FRP一键安装脚本</summary>
+    
+    
+    
+    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="一键" scheme="https://blog.ssopay.com/tags/%E4%B8%80%E9%94%AE/"/>
+    
+    <category term="frp" scheme="https://blog.ssopay.com/tags/frp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用CertBot申请证书+自动续期</title>
     <link href="https://blog.ssopay.com/posts/b4fedc42.html"/>
     <id>https://blog.ssopay.com/posts/b4fedc42.html</id>
     <published>2023-06-09T02:51:00.000Z</published>
-    <updated>2023-06-09T02:57:10.368Z</updated>
+    <updated>2023-06-09T02:58:24.897Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕竟acme.sh是较新的证书申请方式, 但毕竟较新, 兼容性和适配范围不如certbot, 所以本文介绍如何使用certbot申请证书并自动续期</p><h2 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 一键脚本仅支持CloudFlare</span><br><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Slotheve/Shells/main/certbot.sh)</span><br></pre></td></tr></table></figure><h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><ul><li><strong>准备工作</strong></li></ul><p>安装certbot本体</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># APT系  </span><br><span class="line">apt install -y certbot</span><br><span class="line"># YUM系</span><br><span class="line">yum install -y certbot</span><br></pre></td></tr></table></figure><ul><li><strong>安装插件</strong></li></ul><p># cloudflare (软件包自带)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python*-certbot-dns-cloudflare</span><br></pre></td></tr></table></figure><p># dnspod (需先安装pip)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install certbot-dns-dnspod</span><br></pre></td></tr></table></figure><p># aliyun (需先安装pip)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install certbot-dns-aliyun</span><br></pre></td></tr></table></figure><ul><li><strong>创建配置文件并赋予权限</strong></li></ul><p># cloudflare</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/letsencrypt/cloudflare.ini</span><br><span class="line">cat &gt; /etc/letsencrypt/cloudflare.ini &lt;&lt; EOF</span><br><span class="line">dns_cloudflare_email = # 你的cf邮箱</span><br><span class="line">dns_cloudflare_api_key = # 你的cf global api</span><br><span class="line">EOF</span><br><span class="line">chmod 600 /etc/letsencrypt/cloudflare.ini</span><br></pre></td></tr></table></figure><p># dnspod</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/letsencrypt/dnspod.ini</span><br><span class="line">cat &gt; /etc/letsencrypt/dnspod.ini &lt;&lt; EOF</span><br><span class="line">dns_dnspod_email = # 你的dnspod邮箱</span><br><span class="line">dns_dnspod_api_token = # 你的dnspod api token</span><br><span class="line">EOF</span><br><span class="line">chmod 600 /etc/letsencrypt/dnspod.ini</span><br></pre></td></tr></table></figure><p># aliyun</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/letsencrypt/credentials.ini</span><br><span class="line">cat &gt; /etc/letsencrypt/credentials.ini &lt;&lt; EOF</span><br><span class="line">certbot_dns_aliyun:dns_aliyun_access_key = # 你的aliyun密钥</span><br><span class="line">certbot_dns_aliyun:dns_aliyun_access_key_secret = # 你的密钥密码</span><br><span class="line">EOF</span><br><span class="line">chmod 600 /etc/letsencrypt/credentials.ini</span><br></pre></td></tr></table></figure><ul><li><strong>申请证书</strong></li></ul><p># cloudflare</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --dns-cloudflare \</span><br><span class="line">    --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \</span><br><span class="line">    -d # 你的域名,多个域名使用 &#x27;,&#x27; 分隔</span><br></pre></td></tr></table></figure><p># dnspod</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly -a dns-dnspod \</span><br><span class="line">    --dns-dnspod-credentials /etc/letsencrypt/dnspod.ini \</span><br><span class="line">    -d # 你的域名,多个域名使用 &#x27;,&#x27; 分隔</span><br></pre></td></tr></table></figure><p># aliyun</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly -a certbot-dns-aliyun:dns-aliyun \</span><br><span class="line">    --certbot-dns-aliyun:dns-aliyun-credentials /etc/letsencrypt/credentials.ini \</span><br><span class="line">    -d # 你的域名,多个域名使用 &#x27;,&#x27; 分隔</span><br></pre></td></tr></table></figure><p>第一次申请填写几个参数（邮箱、是否同意条款、是否接收资讯邮件）就行。</p><ul><li><strong>安装证书</strong></li></ul><p>证书申请后保存在 <code>/etc/letsencrypt/live/</code> 域名&#x2F;目录下。</p><ul><li><strong>自动续期</strong></li></ul><p>使用crontab任务计划来实现自动续期</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 */8 * * certbot renew</span><br></pre></td></tr></table></figure><p>保存后重启crond服务</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart crond/crontab/cron</span><br></pre></td></tr></table></figure><p>每隔8天凌晨3点整执行证书续签指令</p>]]></content>
     
@@ -50,7 +75,7 @@
     <link href="https://blog.ssopay.com/posts/7f349c0f.html"/>
     <id>https://blog.ssopay.com/posts/7f349c0f.html</id>
     <published>2023-06-09T02:43:00.000Z</published>
-    <updated>2023-06-09T02:47:42.557Z</updated>
+    <updated>2023-06-09T02:58:24.892Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每个人的技术参差不齐, 就算是保姆级的手动安装教程, 有时候也有人搞不懂, 所以<code>官方</code>一键脚本是最适合小白的。</p><h2 id="一、确定Alpine版本"><a href="#一、确定Alpine版本" class="headerlink" title="一、确定Alpine版本"></a>一、确定Alpine版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/os-release</span><br></pre></td></tr></table></figure><p>请先升级Alpine到<code>3.17及以上</code> (反正Alpine占用巨低,升级不影响)</p><h2 id="二、安装依赖"><a href="#二、安装依赖" class="headerlink" title="二、安装依赖"></a>二、安装依赖</h2><p>先取消Alpine源文件里的<code>#</code>号 (若有<code>#</code>号)</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091045887.png" alt="img"></p><p>安装 <code>bash curl</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk update &amp;&amp; apk add bash curl</span><br></pre></td></tr></table></figure><h2 id="三、运行一键脚本"><a href="#三、运行一键脚本" class="headerlink" title="三、运行一键脚本"></a>三、运行一键脚本</h2><p>复制脚本</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091046614.png" alt="img"></p><p>运行脚本</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091046786.png" alt="img"></p><p>提示: 注意脚本命令的<code>sudo</code>, 不是所有系统都带<code>sudo</code>, 自行删除</p><p><strong>OK !</strong> 此时, 你的Alpine探针小鸡已上线了</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091046878.png" alt="img"></p>]]></content>
     
@@ -203,9 +228,9 @@
     <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
     <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    
+    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
     <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
     
@@ -261,9 +286,9 @@
     <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
     <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    
+    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
     <category term="探针" scheme="https://blog.ssopay.com/tags/%E6%8E%A2%E9%92%88/"/>
     
@@ -325,9 +350,9 @@
     
     <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
     <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    
+    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
     <category term="vless" scheme="https://blog.ssopay.com/tags/vless/"/>
     
@@ -412,9 +437,9 @@
     <category term="技术" scheme="https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="vps" scheme="https://blog.ssopay.com/tags/vps/"/>
+    
+    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="openvz" scheme="https://blog.ssopay.com/tags/openvz/"/>
     
@@ -445,9 +470,9 @@
     <category term="技术" scheme="https://blog.ssopay.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="vps" scheme="https://blog.ssopay.com/tags/vps/"/>
+    
+    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="azure" scheme="https://blog.ssopay.com/tags/azure/"/>
     
@@ -476,9 +501,9 @@
     
     <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
     <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    
+    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
     <category term="优选" scheme="https://blog.ssopay.com/tags/%E4%BC%98%E9%80%89/"/>
     
@@ -573,9 +598,9 @@
     
     <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
     <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    
+    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
     
     <category term="argo" scheme="https://blog.ssopay.com/tags/argo/"/>
     
@@ -592,37 +617,6 @@
     <category term="探针" scheme="https://blog.ssopay.com/tags/%E6%8E%A2%E9%92%88/"/>
     
     <category term="部署" scheme="https://blog.ssopay.com/tags/%E9%83%A8%E7%BD%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>美国各个地区Google Voice号段地图</title>
-    <link href="https://blog.ssopay.com/posts/7b32c8fe.html"/>
-    <id>https://blog.ssopay.com/posts/7b32c8fe.html</id>
-    <published>2023-04-26T01:11:00.000Z</published>
-    <updated>2023-04-26T01:31:48.160Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304260925649.png" alt="img"></p><p>各州包含号段介绍（号码前三位为所在州号段）</p><table><thead><tr><th><strong>美国州</strong></th><th><strong>包含电话号段（Google Voice 前三位）</strong></th></tr></thead><tbody><tr><td>Alabama (AL) 阿拉巴马州</td><td>205, 251, 256, 334, 938</td></tr><tr><td>Alaska (AK) 阿拉斯加州</td><td>907</td></tr><tr><td>Arizona (AZ) 亚利桑那州</td><td>480, 520, 602, 623, 928</td></tr><tr><td>Arkansas (AR) 阿肯色州</td><td>479, 501, 870</td></tr><tr><td>California (CA) 加利福尼亚州</td><td>209, 213, 279, 310, 323, 341, 408, 415, 424, 442, 510, 530, 559, 562, 619, 626, 628, 650, 657, 661, 669, 707, 714, 747, 760, 805, 818, 820, 831, 858, 909, 916, 925, 949, 951</td></tr><tr><td>Colorado (CO) 科罗拉多州</td><td>303, 719, 720, 970</td></tr><tr><td>Connecticut (CT) 康涅狄格州</td><td>203, 475, 860, 959</td></tr><tr><td>Delaware (DE) 特拉华州</td><td>302</td></tr><tr><td>Florida (FL) 佛罗里达州</td><td>239, 305, 321, 352, 386, 407, 561, 727, 754, 772, 786, 813, 850, 863, 904, 941, 954</td></tr><tr><td>Georgia (GA) 乔治亚州</td><td>229, 404, 470, 478, 678, 706, 762, 770, 912</td></tr><tr><td>Hawaii (HI) 夏威夷州</td><td>808</td></tr><tr><td>Idaho (ID) 爱华达州</td><td>208, 986</td></tr><tr><td>Illinois (IL) 伊利诺伊州</td><td>217, 224, 309, 312, 331, 618, 630, 708, 773, 779, 815, 847, 872</td></tr><tr><td>Indiana (IN) 印第安那州</td><td>219, 260, 317, 463, 574, 765, 812, 930</td></tr><tr><td>Iowa (IA) 爱荷华州</td><td>319, 515, 563, 641, 712</td></tr><tr><td>Kansas (KS) 堪萨斯州</td><td>316, 620, 785, 913</td></tr><tr><td>Kentucky (KY) 肯塔基州</td><td>270, 364, 502, 606, 859</td></tr><tr><td>Louisiana (LA) 路易斯安那州</td><td>225, 318, 337, 504, 985</td></tr><tr><td>Maine (ME) 缅因州</td><td>207</td></tr><tr><td>Maryland (MD) 马里兰州</td><td>240, 301, 410, 443, 667</td></tr><tr><td>Massachusetts (MA) 马萨诸塞州</td><td>339, 351, 413, 508, 617, 774, 781, 857, 978</td></tr><tr><td>Michigan (MI) 密歇根州</td><td>231, 248, 269, 313, 517, 586, 616, 734, 810, 906, 947, 989</td></tr><tr><td>Minnesota (MN) 明尼苏达州</td><td>218, 320, 507, 612, 651, 763, 952</td></tr><tr><td>Mississippi (MS) 密西西比州</td><td>228, 601, 662, 769</td></tr><tr><td>Missouri (MO) 密苏里州</td><td>314, 417, 573, 636, 660, 816</td></tr><tr><td>Montana (MT) 蒙大拿州</td><td>406</td></tr><tr><td>Nebraska (NE) 内布拉斯加州</td><td>308, 402, 531</td></tr><tr><td>Nevada (NV) 内华达州</td><td>702, 725, 775</td></tr><tr><td>New Hampshire (NH) 新罕布什尔州</td><td>603</td></tr><tr><td>New Jersey (NJ) 新泽西州</td><td>201, 551, 609, 640, 732, 848, 856, 862, 908, 973</td></tr><tr><td>New Mexico (NM) 新墨西哥州</td><td>505, 575</td></tr><tr><td>New York (NY) 纽约州</td><td>212, 315, 332, 347, 516, 518, 585, 607, 631, 646, 680, 716, 718, 838, 845, 914, 917, 929, 934</td></tr><tr><td>North Carolina (NC) 北卡罗来纳州</td><td>252, 336, 704, 743, 828, 910, 919, 980, 984</td></tr><tr><td>North Dakota (ND) 北达科他州</td><td>701</td></tr><tr><td>Ohio (OH) 俄亥俄州</td><td>216, 220, 234, 330, 380, 419, 440, 513, 567, 614, 740, 937</td></tr><tr><td>Oklahoma (OK) 奥克拉荷马州</td><td>405, 539, 580, 918</td></tr><tr><td>Oregon (OR) 俄勒冈州</td><td>458, 503, 541, 971</td></tr><tr><td>Pennsylvania (PA) 宾夕法尼亚州</td><td>215, 223, 267, 272, 412, 445, 484, 570, 610, 717, 724, 814, 878</td></tr><tr><td>Rhode Island (RI) 罗德岛州</td><td>401</td></tr><tr><td>South Carolina (SC) 南卡罗来纳州</td><td>803, 843, 854, 864</td></tr><tr><td>South Dakota (SD) 南达科他州</td><td>605</td></tr><tr><td>Tennessee (TN) 田纳西州</td><td>423, 615, 629, 731, 865, 901, 931</td></tr><tr><td>Texas (TX) 德克萨斯州</td><td>210, 214, 254, 281, 325, 346, 361, 409, 430, 432, 469, 512, 682, 713, 726, 737, 806, 817, 830, 832, 903, 915, 936, 940, 956, 972, 979</td></tr><tr><td>Utah (UT) 犹他州</td><td>385, 435, 801</td></tr><tr><td>Vermont (VT) 佛蒙特州</td><td>802</td></tr><tr><td>Virginia (VA) 弗吉尼亚州</td><td>276, 434, 540, 571, 703, 757, 804</td></tr><tr><td>Washington (WA) 华盛顿州</td><td>206, 253, 360, 425, 509, 564</td></tr><tr><td>Washington (DC) 华盛顿特区</td><td>202</td></tr><tr><td>West Virginia (WV) 西弗吉尼亚州</td><td>304, 681</td></tr><tr><td>Wisconsin (WI) 威斯康辛州</td><td>262, 414, 534, 608, 715, 920</td></tr><tr><td>Wyoming (WY) 怀俄明州</td><td>307</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">美国各个地区Google Voice号段地图</summary>
-    
-    
-    
-    <category term="知识" scheme="https://blog.ssopay.com/categories/%E7%9F%A5%E8%AF%86/"/>
-    
-    
-    <category term="美国" scheme="https://blog.ssopay.com/tags/%E7%BE%8E%E5%9B%BD/"/>
-    
-    <category term="地图" scheme="https://blog.ssopay.com/tags/%E5%9C%B0%E5%9B%BE/"/>
-    
-    <category term="区号" scheme="https://blog.ssopay.com/tags/%E5%8C%BA%E5%8F%B7/"/>
-    
-    <category term="google" scheme="https://blog.ssopay.com/tags/google/"/>
-    
-    <category term="voice" scheme="https://blog.ssopay.com/tags/voice/"/>
-    
-    <category term="gv" scheme="https://blog.ssopay.com/tags/gv/"/>
     
   </entry>
   
