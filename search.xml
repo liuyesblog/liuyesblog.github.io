@@ -4,11 +4,77 @@
   
     
     <entry>
+      <title>使用CertBot申请证书+自动续期</title>
+      <link href="/posts/b4fedc42.html"/>
+      <url>/posts/b4fedc42.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>毕竟acme.sh是较新的证书申请方式, 但毕竟较新, 兼容性和适配范围不如certbot, 所以本文介绍如何使用certbot申请证书并自动续期</p><h2 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 一键脚本仅支持CloudFlare</span><br><span class="line">bash &lt;(curl -fsSL https://raw.githubusercontent.com/Slotheve/Shells/main/certbot.sh)</span><br></pre></td></tr></table></figure><h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><ul><li><strong>准备工作</strong></li></ul><p>安装certbot本体</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># APT系  </span><br><span class="line">apt install -y certbot</span><br><span class="line"># YUM系</span><br><span class="line">yum install -y certbot</span><br></pre></td></tr></table></figure><ul><li><strong>安装插件</strong></li></ul><p># cloudflare (软件包自带)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python*-certbot-dns-cloudflare</span><br></pre></td></tr></table></figure><p># dnspod (需先安装pip)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install certbot-dns-dnspod</span><br></pre></td></tr></table></figure><p># aliyun (需先安装pip)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install certbot-dns-aliyun</span><br></pre></td></tr></table></figure><ul><li><strong>创建配置文件并赋予权限</strong></li></ul><p># cloudflare</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/letsencrypt/cloudflare.ini</span><br><span class="line">cat &gt; /etc/letsencrypt/cloudflare.ini &lt;&lt; EOF</span><br><span class="line">dns_cloudflare_email = # 你的cf邮箱</span><br><span class="line">dns_cloudflare_api_key = # 你的cf global api</span><br><span class="line">EOF</span><br><span class="line">chmod 600 /etc/letsencrypt/cloudflare.ini</span><br></pre></td></tr></table></figure><p># dnspod</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/letsencrypt/dnspod.ini</span><br><span class="line">cat &gt; /etc/letsencrypt/dnspod.ini &lt;&lt; EOF</span><br><span class="line">dns_dnspod_email = # 你的dnspod邮箱</span><br><span class="line">dns_dnspod_api_token = # 你的dnspod api token</span><br><span class="line">EOF</span><br><span class="line">chmod 600 /etc/letsencrypt/dnspod.ini</span><br></pre></td></tr></table></figure><p># aliyun</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/letsencrypt/credentials.ini</span><br><span class="line">cat &gt; /etc/letsencrypt/credentials.ini &lt;&lt; EOF</span><br><span class="line">certbot_dns_aliyun:dns_aliyun_access_key = # 你的aliyun密钥</span><br><span class="line">certbot_dns_aliyun:dns_aliyun_access_key_secret = # 你的密钥密码</span><br><span class="line">EOF</span><br><span class="line">chmod 600 /etc/letsencrypt/credentials.ini</span><br></pre></td></tr></table></figure><ul><li><strong>申请证书</strong></li></ul><p># cloudflare</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --dns-cloudflare \</span><br><span class="line">    --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \</span><br><span class="line">    -d # 你的域名,多个域名使用 &#x27;,&#x27; 分隔</span><br></pre></td></tr></table></figure><p># dnspod</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly -a dns-dnspod \</span><br><span class="line">    --dns-dnspod-credentials /etc/letsencrypt/dnspod.ini \</span><br><span class="line">    -d # 你的域名,多个域名使用 &#x27;,&#x27; 分隔</span><br></pre></td></tr></table></figure><p># aliyun</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly -a certbot-dns-aliyun:dns-aliyun \</span><br><span class="line">    --certbot-dns-aliyun:dns-aliyun-credentials /etc/letsencrypt/credentials.ini \</span><br><span class="line">    -d # 你的域名,多个域名使用 &#x27;,&#x27; 分隔</span><br></pre></td></tr></table></figure><p>第一次申请填写几个参数（邮箱、是否同意条款、是否接收资讯邮件）就行。</p><ul><li><strong>安装证书</strong></li></ul><p>证书申请后保存在 <code>/etc/letsencrypt/live/</code> 域名&#x2F;目录下。</p><ul><li><strong>自动续期</strong></li></ul><p>使用crontab任务计划来实现自动续期</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 */8 * * certbot renew</span><br></pre></td></tr></table></figure><p>保存后重启crond服务</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart crond/crontab/cron</span><br></pre></td></tr></table></figure><p>每隔8天凌晨3点整执行证书续签指令</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 脚本 </tag>
+            
+            <tag> CertBot </tag>
+            
+            <tag> 证书 </tag>
+            
+            <tag> 自动 </tag>
+            
+            <tag> 续期 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在Alpine上使用Nezha一键脚本</title>
+      <link href="/posts/7f349c0f.html"/>
+      <url>/posts/7f349c0f.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为每个人的技术参差不齐, 就算是保姆级的手动安装教程, 有时候也有人搞不懂, 所以<code>官方</code>一键脚本是最适合小白的。</p><h2 id="一、确定Alpine版本"><a href="#一、确定Alpine版本" class="headerlink" title="一、确定Alpine版本"></a>一、确定Alpine版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/os-release</span><br></pre></td></tr></table></figure><p>请先升级Alpine到<code>3.17及以上</code> (反正Alpine占用巨低,升级不影响)</p><h2 id="二、安装依赖"><a href="#二、安装依赖" class="headerlink" title="二、安装依赖"></a>二、安装依赖</h2><p>先取消Alpine源文件里的<code>#</code>号 (若有<code>#</code>号)</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091045887.png" alt="img"></p><p>安装 <code>bash curl</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk update &amp;&amp; apk add bash curl</span><br></pre></td></tr></table></figure><h2 id="三、运行一键脚本"><a href="#三、运行一键脚本" class="headerlink" title="三、运行一键脚本"></a>三、运行一键脚本</h2><p>复制脚本</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091046614.png" alt="img"></p><p>运行脚本</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091046786.png" alt="img"></p><p>提示: 注意脚本命令的<code>sudo</code>, 不是所有系统都带<code>sudo</code>, 自行删除</p><p><strong>OK !</strong> 此时, 你的Alpine探针小鸡已上线了</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306091046878.png" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> alpine </tag>
+            
+            <tag> 脚本 </tag>
+            
+            <tag> 一键 </tag>
+            
+            <tag> nezha </tag>
+            
+            <tag> 监控 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>alpine系统一键脚本装X-UI面板创建vmess节点套CF一条龙搞定</title>
       <link href="/posts/a983f08a.html"/>
       <url>/posts/a983f08a.html</url>
       
-        <content type="html"><![CDATA[<p>1、如果没有IPV4，我们需要用warp来让这个小鸡支持IPV4出站：<br>apk add wget bash sudo<br>wget -N <a href="https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh">https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh</a> &amp;&amp; bash menu.sh<br>选择为 1. 为 NAT IPv4 添加 WARP IPv4 网络接口，然后再选择优先级为IPv6，至此小鸡就可以正常访问IPV4了。</p><p>2、使用下面一键脚本命令安装alpine系统专用x-ui面板：<br>apk add curl &amp;&amp; apk add bash &amp;&amp; apk add sudo &amp;&amp; bash &lt;(curl -Ls <a href="https://raw.githubusercontent.com/ozersource/x-ui-Alpine/main/x-ui-alpine">https://raw.githubusercontent.com/ozersource/x-ui-Alpine/main/x-ui-alpine</a>)<br>保险起见，直接重复安装两遍！</p><p>3、在cloudflare网站中添加一个AAAA记录解析到我们的IPV6地址服务器，先不开启小云朵CDN代理<br>浏览器中使用我们的域名:9000端口号打开x-ui面板，初始账号：admin，密码：admin登录，登录后可点面板设置修改端口号及登录账号密码</p><p>4、入站列表里点加号添加节点，协议:vmess，端口:80，传输:ws，请求头点加号-值：我们解析的域名，其它可默认不动（自己需要限制总流量和到期时间的话自行设置），点添加后复制节点链接或者使用二维码扫描方式导入到我们的代理软件（以V2rayN为例）<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306061115743.jpeg" alt="img"><br>5、cloudflare网站里将我们解析的这个域名开启小云朵CDN代理，等待成功开启即可测试节点是否可用。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306061115285.jpeg" alt="img"></p>]]></content>
+        <content type="html"><![CDATA[<p>1、如果没有IPV4，我们需要用warp来让这个小鸡支持IPV4出站：<br>apk add wget bash sudo<br>wget -N <a href="https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh">https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh</a> &amp;&amp; bash menu.sh<br>选择为 1. 为 NAT IPv4 添加 WARP IPv4 网络接口，然后再选择优先级为IPv6，至此小鸡就可以正常访问IPV4了。</p><p>2、使用下面一键脚本命令安装alpine系统专用x-ui面板：<br>apk add curl &amp;&amp; apk add bash &amp;&amp; apk add sudo &amp;&amp; bash &lt;(curl -Ls <a href="https://raw.githubusercontent.com/ozersource/x-ui-Alpine/main/x-ui-alpine">https://raw.githubusercontent.com/ozersource/x-ui-Alpine/main/x-ui-alpine</a>)<br>保险起见，直接重复安装两遍！</p><p>3、在cloudflare网站中添加一个AAAA记录解析到我们的IPV6地址服务器，先不开启小云朵CDN代理<br>浏览器中使用我们的域名:9000端口号打开x-ui面板，初始账号：admin，密码：admin登录，登录后可点面板设置修改端口号及登录账号密码</p><p>4、入站列表里点加号添加节点，协议:vmess，端口:80，传输:ws，请求头点加号-值：我们解析的域名，其它可默认不动（自己需要限制总流量和到期时间的话自行设置），点添加后复制节点链接或者使用二维码扫描方式导入到我们的代理软件（以V2rayN为例）<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306061115743.jpeg" alt="img"><br>5、cloudflare网站里将我们解析的这个域名开启小云朵CDN代理，等待成功开启即可测试节点是否可用。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306061115285.jpeg" alt="img"></p><blockquote><p>原文链接：<a href="https://youshi.eu.org/2023/06/03/13.html">https://youshi.eu.org/2023/06/03/13.html</a></p></blockquote>]]></content>
       
       
       <categories>
@@ -148,9 +214,9 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> alpine </tag>
             
@@ -214,9 +280,9 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> 探针 </tag>
             
@@ -286,9 +352,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> vless </tag>
             
@@ -354,9 +420,9 @@
             
             <tag> vps </tag>
             
-            <tag> 脚本 </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> 脚本 </tag>
             
             <tag> 测速 </tag>
             
@@ -385,9 +451,9 @@
       
         <tags>
             
-            <tag> vps </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> vps </tag>
             
             <tag> openvz </tag>
             
@@ -422,9 +488,9 @@
       
         <tags>
             
-            <tag> vps </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> vps </tag>
             
             <tag> azure </tag>
             
@@ -457,9 +523,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> 优选 </tag>
             
@@ -566,9 +632,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> argo </tag>
             
@@ -675,9 +741,9 @@
       
         <tags>
             
-            <tag> vps </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> vps </tag>
             
             <tag> 服务器 </tag>
             
@@ -749,15 +815,15 @@
             
             <tag> 教程 </tag>
             
+            <tag> VPS </tag>
+            
             <tag> cloudflare </tag>
+            
+            <tag> cdn </tag>
             
             <tag> argo </tag>
             
             <tag> tunnel </tag>
-            
-            <tag> VPS </tag>
-            
-            <tag> cdn </tag>
             
         </tags>
       
@@ -869,7 +935,7 @@
       <link href="/posts/69e9b14c.html"/>
       <url>/posts/69e9b14c.html</url>
       
-        <content type="html"><![CDATA[<h1 id="域名准备"><a href="#域名准备" class="headerlink" title="域名准备"></a>域名准备</h1><p>想要架上二级域名，首先，我们需要一个一级域名……自行在心仪的厂家选购。我比较常用的（价格比较实惠的）是国内的是万网，特价的时候一百多人民币买过十年的。国外的是NameSilo，首年特价很多，.com，.xyz比较实惠，但像.top之类的还是当年万网买得更便宜。（不过拿.top，.cyou之类的便宜域名发邮件比较容易被当成垃圾邮件屏蔽……）</p><p>提醒一下，Freenom的虽然免费，但在那个bug多端的网站申请其实还挺麻烦的，而且实测无法使用LetsEncrypt获取证书（不支持那几个顶级域名）。</p><h1 id="DNS准备"><a href="#DNS准备" class="headerlink" title="DNS准备"></a>DNS准备</h1><p>获得域名后，如果那家的DNS不尽如人意，可以转接其他服务商的DNS，比如Cloudflare。</p><p>在Cloudflare的话，可以这样配置域名：</p><table><thead><tr><th align="left">Type</th><th align="left">Name</th><th align="left">Content</th></tr></thead><tbody><tr><td align="left">A</td><td align="left">你弄到的那个域名，比如mydomain.com</td><td align="left">你的IP(IPv4)</td></tr><tr><td align="left">CNAME</td><td align="left">二级域名，比如blog</td><td align="left">你的主域名，如上面的mydomain.com</td></tr><tr><td align="left">CNAME</td><td align="left">另一个二级域名，如repo</td><td align="left">你的主域名</td></tr><tr><td align="left">CNAME</td><td align="left">其他想要配置的二级域名，如www</td><td align="left">你的主域名</td></tr></tbody></table><p>后面的proxy status显示橙色的云表示已经应用了Cloudflare的CDN，很好，不用管，除非设置的某个子域名是用来直接SSH、FTP服务器的。</p><p>然后，记得在SSL&#x2F;TLS里切换模式到Full（不然在下面的配置中，会让访问在http和https间反复横跳，too many redirections）。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141001264.png" alt="记得改SSL/TLS模式设置"></p><h1 id="SSL准备"><a href="#SSL准备" class="headerlink" title="SSL准备"></a>SSL准备</h1><p>在有了一个域名的基础上，可以申请LetsEncrypt的域名证书。<br>可以使用<a href="https://github.com/acmesh-official/acme.sh">acme.sh</a></p><p>安装：<code>curl https://get.acme.sh | sh -s email=my@example.com</code><br>其中后面那个email不要用<a href="mailto:&#x6d;&#x79;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;">&#x6d;&#x79;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;</a>，会出错的。</p><p>其他就跟着GitHub的教程来吧，有中文的：<br><a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明</a></p><p>厂家DNS不给力的记得先换了其他厂家的DNS，不然可以这一步申请证书会超时。</p><blockquote><p>PS：也可以直接使用cloudflare的证书，15年</p></blockquote><h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="基础的配置"><a href="#基础的配置" class="headerlink" title="基础的配置"></a>基础的配置</h2><p>&#x2F;etc&#x2F;nginx&#x2F;nginx.conf里，http花括号里确保有</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include /etc/nginx/conf.d/*.conf;</span><br><span class="line">include /etc/nginx/sites-enabled/*.conf;</span><br></pre></td></tr></table></figure><p>这样conf.d和sites-enabled目录下.conf后缀名的文件都会被包含进设置。</p><p>sites-enabled目录下，可以每个站点单写一个.conf文件，方便管理。需要关闭某个站点的时候，直接<code>mv the_site_name.conf ../sites-available</code>把文件移走，然后<code>service nginx restart</code>。要开启某个站点就从sites-available移回来，再重启nginx。</p><h2 id="ssl-snippets"><a href="#ssl-snippets" class="headerlink" title="ssl snippets"></a>ssl snippets</h2><p>如果站点很多的话，给ssl配置部分写一个snippet会方便很多。这样，在每个站点的文件中就可以直接引用snippet，不用一遍一遍的重复证书路径、加密等等的设置了。</p><p>每份域名证书都需要一个对应的snippet，泛域名证书的话，可以多个子域名站点共用同一个snippet。</p><blockquote><p>例，申请了 <code>*.mysite.com</code>的证书，并为它写了ssl snippet<br>a.mysite.com<br>b.mysite.com<br>c.mysite.com<br>都可以共用这个snippet</p></blockquote><p>存放一份据说是安全的设置的模板：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/snippets/ssl.conf</span><br><span class="line"># 就是个提醒自己的路径啦</span><br><span class="line"></span><br><span class="line">server_tokens   off;</span><br><span class="line">ssl_session_cache        shared:SSL:10m;</span><br><span class="line">ssl_session_timeout      60m;</span><br><span class="line">ssl_session_tickets      on;</span><br><span class="line"></span><br><span class="line"># OCSP stapling</span><br><span class="line"># 证书状态缓存</span><br><span class="line">ssl_stapling             on;</span><br><span class="line">ssl_stapling_verify      on;</span><br><span class="line">resolver                 8.8.4.4 8.8.8.8  valid=300s;</span><br><span class="line">resolver_timeout         10s;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Ephemeral Diffie-Hellman key exchange</span><br><span class="line">ssl_dhparam /your_path_to_cert/dhparam.pem;</span><br><span class="line">ssl_ecdh_curve secp384r1; # Requires nginx &gt;= 1.1.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># path to ssl certificates</span><br><span class="line">ssl_certificate         /your_path_to_cert/fullchain.cer;</span><br><span class="line">ssl_certificate_key     /you_path_to_cert/&lt;domain&gt;.key;</span><br><span class="line"></span><br><span class="line"># disable TLSv1.0 &amp; TLSv1.1</span><br><span class="line"># 禁用安全性不好的 TLS1.0和1.1</span><br><span class="line">ssl_protocols           TLSv1.2 TLSv1.3;</span><br><span class="line"></span><br><span class="line">ssl_ciphers &quot;ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># headers</span><br><span class="line">add_header  Strict-Transport-Security &quot;max-age=31536000;includeSubDomains;preload&quot;;</span><br><span class="line">add_header  X-Frame-Options  sameorigin;</span><br><span class="line">add_header  Referrer-Policy  strict-origin-when-cross-origin;</span><br><span class="line"> </span><br><span class="line">add_header  X-Content-Type-Options  nosniff;</span><br><span class="line">add_header  x-xss-protection &quot;1; mode=block&quot;;</span><br><span class="line"></span><br><span class="line">add_header Content-Security-Policy &quot;default-src &#x27;self&#x27; *.your_domain.com other_sites.com; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; blob: https:; connect-src &#x27;self&#x27; https:; img-src &#x27;self&#x27; data: https: blob:; style-src &#x27;unsafe-inline&#x27; https:; font-src &#x27;self&#x27; https: data:&quot;;</span><br></pre></td></tr></table></figure><p>其中，your_path_to_cert（放证书、秘钥等的路径）和CSP请自行调整。</p><p>DF参数提高到至少2048位（乐意的话4096位也可以哦）：<br><code>openssl dhparam -out /your_path_to_cert/dhparam.pem 2048</code><br>openssl如果没有就apt-get安装</p><p>CSP（Content-Security-Policy）里加入你信任的、需要用到的网站和加载方式，浏览器会把没包含在内的加载内容全都截下来的（F12看network或者console里面）。如果配置完，从HTTPS访问时网站有部分内容不显示或表现不正常，优先查看是否因为CSP被浏览器拦截。</p><h2 id="站点设置"><a href="#站点设置" class="headerlink" title="站点设置"></a>站点设置</h2><p>站点的模板，每个站点要使用含有对应证书的ssl snippet哦：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        listen [::]:80;</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 不是.com的自己改啦</span><br><span class="line">        return 301 https://$server_name$request_uri; # 如果被以http访问了，转https</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">server &#123;</span><br><span class="line">        listen 443 ssl; # 这个ssl很重要，不写的话可能会有奇奇怪怪的悲剧发生。另外这行是ipv4</span><br><span class="line">        listen [::]:443 ssl; # 这行是ipv6</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 同上</span><br><span class="line">        </span><br><span class="line">        include snippets/ssl.conf; # 上文中写好的对应snippet，或者自己的ssl设置</span><br><span class="line">        </span><br><span class="line">        client_max_body_size 20m;</span><br><span class="line">        </span><br><span class="line">        location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:&lt;port_number&gt;/&lt;app_name&gt;; #你要转到哪里</span><br><span class="line">        </span><br><span class="line">        proxy_set_header        Host             $host;</span><br><span class="line">        proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_http_version      1.1;</span><br><span class="line">        proxy_set_header        Upgrade          $http_upgrade;</span><br><span class="line">        proxy_set_header        Connection       $http_connection;</span><br><span class="line">        proxy_set_header        Origin           http://$host;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p>配置好之后，<code>nginx -t</code>测试配置。测试通过的话<code>sudo service nginx restart</code>重启就可以看到效果了。不过要刷新ssl证书（比如更新过、或者吊销又重新申请了证书等情况）的话需要<code>sudo service nginx force-reload</code>哟。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="域名准备"><a href="#域名准备" class="headerlink" title="域名准备"></a>域名准备</h1><p>想要架上二级域名，首先，我们需要一个一级域名……自行在心仪的厂家选购。我比较常用的（价格比较实惠的）是国内的是万网，特价的时候一百多人民币买过十年的。国外的是NameSilo，首年特价很多，.com，.xyz比较实惠，但像.top之类的还是当年万网买得更便宜。（不过拿.top，.cyou之类的便宜域名发邮件比较容易被当成垃圾邮件屏蔽……）</p><p>提醒一下，Freenom的虽然免费，但在那个bug多端的网站申请其实还挺麻烦的，而且实测无法使用LetsEncrypt获取证书（不支持那几个顶级域名）。</p><h1 id="DNS准备"><a href="#DNS准备" class="headerlink" title="DNS准备"></a>DNS准备</h1><p>获得域名后，如果那家的DNS不尽如人意，可以转接其他服务商的DNS，比如Cloudflare。</p><p>在Cloudflare的话，可以这样配置域名：</p><table><thead><tr><th align="left">Type</th><th align="left">Name</th><th align="left">Content</th></tr></thead><tbody><tr><td align="left">A</td><td align="left">你弄到的那个域名，比如mydomain.com</td><td align="left">你的IP(IPv4)</td></tr><tr><td align="left">CNAME</td><td align="left">二级域名，比如blog</td><td align="left">你的主域名，如上面的mydomain.com</td></tr><tr><td align="left">CNAME</td><td align="left">另一个二级域名，如repo</td><td align="left">你的主域名</td></tr><tr><td align="left">CNAME</td><td align="left">其他想要配置的二级域名，如www</td><td align="left">你的主域名</td></tr></tbody></table><p>后面的proxy status显示橙色的云表示已经应用了Cloudflare的CDN，很好，不用管，除非设置的某个子域名是用来直接SSH、FTP服务器的。</p><p>然后，记得在SSL&#x2F;TLS里切换模式到Full（不然在下面的配置中，会让访问在http和https间反复横跳，too many redirections）。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141001264.png" alt="记得改SSL/TLS模式设置"></p><h1 id="SSL准备"><a href="#SSL准备" class="headerlink" title="SSL准备"></a>SSL准备</h1><p>在有了一个域名的基础上，可以申请LetsEncrypt的域名证书。<br>可以使用<a href="https://github.com/acmesh-official/acme.sh">acme.sh</a></p><p>安装：<code>curl https://get.acme.sh | sh -s email=my@example.com</code><br>其中后面那个email不要用<a href="mailto:&#109;&#121;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#x6d;">&#109;&#121;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#x6d;</a>，会出错的。</p><p>其他就跟着GitHub的教程来吧，有中文的：<br><a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明</a></p><p>厂家DNS不给力的记得先换了其他厂家的DNS，不然可以这一步申请证书会超时。</p><blockquote><p>PS：也可以直接使用cloudflare的证书，15年</p></blockquote><h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="基础的配置"><a href="#基础的配置" class="headerlink" title="基础的配置"></a>基础的配置</h2><p>&#x2F;etc&#x2F;nginx&#x2F;nginx.conf里，http花括号里确保有</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include /etc/nginx/conf.d/*.conf;</span><br><span class="line">include /etc/nginx/sites-enabled/*.conf;</span><br></pre></td></tr></table></figure><p>这样conf.d和sites-enabled目录下.conf后缀名的文件都会被包含进设置。</p><p>sites-enabled目录下，可以每个站点单写一个.conf文件，方便管理。需要关闭某个站点的时候，直接<code>mv the_site_name.conf ../sites-available</code>把文件移走，然后<code>service nginx restart</code>。要开启某个站点就从sites-available移回来，再重启nginx。</p><h2 id="ssl-snippets"><a href="#ssl-snippets" class="headerlink" title="ssl snippets"></a>ssl snippets</h2><p>如果站点很多的话，给ssl配置部分写一个snippet会方便很多。这样，在每个站点的文件中就可以直接引用snippet，不用一遍一遍的重复证书路径、加密等等的设置了。</p><p>每份域名证书都需要一个对应的snippet，泛域名证书的话，可以多个子域名站点共用同一个snippet。</p><blockquote><p>例，申请了 <code>*.mysite.com</code>的证书，并为它写了ssl snippet<br>a.mysite.com<br>b.mysite.com<br>c.mysite.com<br>都可以共用这个snippet</p></blockquote><p>存放一份据说是安全的设置的模板：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/snippets/ssl.conf</span><br><span class="line"># 就是个提醒自己的路径啦</span><br><span class="line"></span><br><span class="line">server_tokens   off;</span><br><span class="line">ssl_session_cache        shared:SSL:10m;</span><br><span class="line">ssl_session_timeout      60m;</span><br><span class="line">ssl_session_tickets      on;</span><br><span class="line"></span><br><span class="line"># OCSP stapling</span><br><span class="line"># 证书状态缓存</span><br><span class="line">ssl_stapling             on;</span><br><span class="line">ssl_stapling_verify      on;</span><br><span class="line">resolver                 8.8.4.4 8.8.8.8  valid=300s;</span><br><span class="line">resolver_timeout         10s;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Ephemeral Diffie-Hellman key exchange</span><br><span class="line">ssl_dhparam /your_path_to_cert/dhparam.pem;</span><br><span class="line">ssl_ecdh_curve secp384r1; # Requires nginx &gt;= 1.1.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># path to ssl certificates</span><br><span class="line">ssl_certificate         /your_path_to_cert/fullchain.cer;</span><br><span class="line">ssl_certificate_key     /you_path_to_cert/&lt;domain&gt;.key;</span><br><span class="line"></span><br><span class="line"># disable TLSv1.0 &amp; TLSv1.1</span><br><span class="line"># 禁用安全性不好的 TLS1.0和1.1</span><br><span class="line">ssl_protocols           TLSv1.2 TLSv1.3;</span><br><span class="line"></span><br><span class="line">ssl_ciphers &quot;ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># headers</span><br><span class="line">add_header  Strict-Transport-Security &quot;max-age=31536000;includeSubDomains;preload&quot;;</span><br><span class="line">add_header  X-Frame-Options  sameorigin;</span><br><span class="line">add_header  Referrer-Policy  strict-origin-when-cross-origin;</span><br><span class="line"> </span><br><span class="line">add_header  X-Content-Type-Options  nosniff;</span><br><span class="line">add_header  x-xss-protection &quot;1; mode=block&quot;;</span><br><span class="line"></span><br><span class="line">add_header Content-Security-Policy &quot;default-src &#x27;self&#x27; *.your_domain.com other_sites.com; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; blob: https:; connect-src &#x27;self&#x27; https:; img-src &#x27;self&#x27; data: https: blob:; style-src &#x27;unsafe-inline&#x27; https:; font-src &#x27;self&#x27; https: data:&quot;;</span><br></pre></td></tr></table></figure><p>其中，your_path_to_cert（放证书、秘钥等的路径）和CSP请自行调整。</p><p>DF参数提高到至少2048位（乐意的话4096位也可以哦）：<br><code>openssl dhparam -out /your_path_to_cert/dhparam.pem 2048</code><br>openssl如果没有就apt-get安装</p><p>CSP（Content-Security-Policy）里加入你信任的、需要用到的网站和加载方式，浏览器会把没包含在内的加载内容全都截下来的（F12看network或者console里面）。如果配置完，从HTTPS访问时网站有部分内容不显示或表现不正常，优先查看是否因为CSP被浏览器拦截。</p><h2 id="站点设置"><a href="#站点设置" class="headerlink" title="站点设置"></a>站点设置</h2><p>站点的模板，每个站点要使用含有对应证书的ssl snippet哦：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        listen [::]:80;</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 不是.com的自己改啦</span><br><span class="line">        return 301 https://$server_name$request_uri; # 如果被以http访问了，转https</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">server &#123;</span><br><span class="line">        listen 443 ssl; # 这个ssl很重要，不写的话可能会有奇奇怪怪的悲剧发生。另外这行是ipv4</span><br><span class="line">        listen [::]:443 ssl; # 这行是ipv6</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 同上</span><br><span class="line">        </span><br><span class="line">        include snippets/ssl.conf; # 上文中写好的对应snippet，或者自己的ssl设置</span><br><span class="line">        </span><br><span class="line">        client_max_body_size 20m;</span><br><span class="line">        </span><br><span class="line">        location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:&lt;port_number&gt;/&lt;app_name&gt;; #你要转到哪里</span><br><span class="line">        </span><br><span class="line">        proxy_set_header        Host             $host;</span><br><span class="line">        proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_http_version      1.1;</span><br><span class="line">        proxy_set_header        Upgrade          $http_upgrade;</span><br><span class="line">        proxy_set_header        Connection       $http_connection;</span><br><span class="line">        proxy_set_header        Origin           http://$host;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p>配置好之后，<code>nginx -t</code>测试配置。测试通过的话<code>sudo service nginx restart</code>重启就可以看到效果了。不过要刷新ssl证书（比如更新过、或者吊销又重新申请了证书等情况）的话需要<code>sudo service nginx force-reload</code>哟。</p>]]></content>
       
       
       <categories>
@@ -914,9 +980,9 @@
       
         <tags>
             
-            <tag> vps </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> vps </tag>
             
             <tag> 服务器 </tag>
             
