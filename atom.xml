@@ -3,11 +3,11 @@
   <title>六爺的博客</title>
   
   <subtitle>小荷才露尖尖角，早有蜻蜓立上頭。</subtitle>
-  <link href="https://blog.ssopay.com/atom.xml" rel="self"/>
+  <link href="https://blog.liuyes.eu.org/atom.xml" rel="self"/>
   
-  <link href="https://blog.ssopay.com/"/>
+  <link href="https://blog.liuyes.eu.org/"/>
   <updated>2023-07-11T13:22:23.093Z</updated>
-  <id>https://blog.ssopay.com/</id>
+  <id>https://blog.liuyes.eu.org/</id>
   
   <author>
     <name>liuyes</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用 CloudFlare Workers 搭建自己的优选测速地址</title>
-    <link href="https://blog.ssopay.com/posts/8a32044.html"/>
-    <id>https://blog.ssopay.com/posts/8a32044.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/8a32044.html"/>
+    <id>https://blog.liuyes.eu.org/posts/8a32044.html</id>
     <published>2023-07-11T13:09:00.000Z</published>
     <updated>2023-07-11T13:22:23.093Z</updated>
     
@@ -30,27 +30,27 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    <category term="cf" scheme="https://blog.liuyes.eu.org/tags/cf/"/>
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
+    <category term="cloudflare" scheme="https://blog.liuyes.eu.org/tags/cloudflare/"/>
     
-    <category term="优选" scheme="https://blog.ssopay.com/tags/%E4%BC%98%E9%80%89/"/>
+    <category term="优选" scheme="https://blog.liuyes.eu.org/tags/%E4%BC%98%E9%80%89/"/>
     
-    <category term="测速" scheme="https://blog.ssopay.com/tags/%E6%B5%8B%E9%80%9F/"/>
+    <category term="测速" scheme="https://blog.liuyes.eu.org/tags/%E6%B5%8B%E9%80%9F/"/>
     
-    <category term="workers" scheme="https://blog.ssopay.com/tags/workers/"/>
+    <category term="workers" scheme="https://blog.liuyes.eu.org/tags/workers/"/>
     
-    <category term="地址" scheme="https://blog.ssopay.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    <category term="地址" scheme="https://blog.liuyes.eu.org/tags/%E5%9C%B0%E5%9D%80/"/>
     
   </entry>
   
   <entry>
     <title>甲骨文云服务器忘记密码/丢失密钥的解决办法</title>
-    <link href="https://blog.ssopay.com/posts/f1a10669.html"/>
-    <id>https://blog.ssopay.com/posts/f1a10669.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/f1a10669.html"/>
+    <id>https://blog.liuyes.eu.org/posts/f1a10669.html</id>
     <published>2023-07-11T12:00:00.000Z</published>
     <updated>2023-07-11T12:34:46.223Z</updated>
     
@@ -61,68 +61,68 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cloud" scheme="https://blog.ssopay.com/tags/cloud/"/>
+    <category term="cloud" scheme="https://blog.liuyes.eu.org/tags/cloud/"/>
     
-    <category term="oracle" scheme="https://blog.ssopay.com/tags/oracle/"/>
+    <category term="oracle" scheme="https://blog.liuyes.eu.org/tags/oracle/"/>
     
-    <category term="甲骨文云" scheme="https://blog.ssopay.com/tags/%E7%94%B2%E9%AA%A8%E6%96%87%E4%BA%91/"/>
+    <category term="甲骨文云" scheme="https://blog.liuyes.eu.org/tags/%E7%94%B2%E9%AA%A8%E6%96%87%E4%BA%91/"/>
     
-    <category term="密码" scheme="https://blog.ssopay.com/tags/%E5%AF%86%E7%A0%81/"/>
+    <category term="密码" scheme="https://blog.liuyes.eu.org/tags/%E5%AF%86%E7%A0%81/"/>
     
-    <category term="密钥" scheme="https://blog.ssopay.com/tags/%E5%AF%86%E9%92%A5/"/>
+    <category term="密钥" scheme="https://blog.liuyes.eu.org/tags/%E5%AF%86%E9%92%A5/"/>
     
-    <category term="丢失" scheme="https://blog.ssopay.com/tags/%E4%B8%A2%E5%A4%B1/"/>
+    <category term="丢失" scheme="https://blog.liuyes.eu.org/tags/%E4%B8%A2%E5%A4%B1/"/>
     
-    <category term="忘记" scheme="https://blog.ssopay.com/tags/%E5%BF%98%E8%AE%B0/"/>
+    <category term="忘记" scheme="https://blog.liuyes.eu.org/tags/%E5%BF%98%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Microsoft 365 A1/A1P/E3/E5/商业版等搭建域名邮局，实现无限别名邮箱</title>
-    <link href="https://blog.ssopay.com/posts/9f1a467f.html"/>
-    <id>https://blog.ssopay.com/posts/9f1a467f.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/9f1a467f.html"/>
+    <id>https://blog.liuyes.eu.org/posts/9f1a467f.html</id>
     <published>2023-07-11T11:50:00.000Z</published>
     <updated>2023-07-11T12:34:53.533Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>这里要用到的是：catch-all 功能</strong>，又叫全收邮件，就是把发给邮件服务器上不存在账户的邮件都重定向到某个邮箱，而不是直接退信。正常情况下，如发邮件给服务器上不存在的账户会直接退信给发件人。这个教程就是教大家如何利用 Microsoft 365 全局账户，通过<strong>catch-all</strong>功能可以实现无限别名收邮件。</p><p><strong>一，添加域名到Microsoft 365</strong></p><p>打开：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains</a></p><p>这里我们添加域名 cnmail.ml 作为示例。添加过程很简单，一步一步按照提示做就可以了。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953278.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953180.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949007.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949787.jpeg" alt="img"></p><p><strong>二，添加一个用户用于邮件归集</strong></p><p>添加用户：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users</a></p><p>这里我添加了一个 <a href="mailto:&#x63;&#x6e;&#98;&#x6f;&#x79;&#x40;&#x63;&#x6e;&#109;&#97;&#105;&#x6c;&#x2e;&#109;&#x6c;">&#x63;&#x6e;&#98;&#x6f;&#x79;&#x40;&#x63;&#x6e;&#109;&#97;&#105;&#x6c;&#x2e;&#109;&#x6c;</a>，添加过程中记得一定要赋予订阅权限。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949901.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953750.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949193.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953213.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949340.jpeg" alt="img"></p><p><strong>三，设置Catch-all功能。</strong></p><p>1）打开Exchange 管理中心：<a href="https://admin.exchange.microsoft.com/#/homepage">https://outlook.office365.com/ecp/</a></p><p>可以通过上面链接直接进入新版 Exchange 管理中心，也可以在 Microsoft 365 管理中心的左侧菜单栏选择 Exchange 进入</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953755.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949565.jpeg" alt="img"></p><p>2）修改域类型</p><p><strong>邮件流</strong> — <strong>接受的域</strong>，点击刚刚添加的域名，在弹出页里把域类型改为 <strong>内部中继</strong>，并勾选 <strong>接受所有子域的邮件</strong>，保存即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949831.jpeg" alt="img"></p><p>3）创建一个动态通讯组，用于存放已有的用户。</p><p><strong>收件人</strong> — <strong>组</strong> — <strong>动态通讯组列表</strong> — <strong>添加组</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949530.jpeg" alt="img"></p><p>此处选择 <strong>动态分布</strong>（通讯组 对应的是 分布，动态通讯组 对应的是 动态分布）</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954618.jpeg" alt="img"></p><p>我这里动态通讯组名称设置为 <strong>exchange</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949881.jpeg" alt="img"></p><p>此处选择 <strong>仅以下收件人类型</strong> — <strong>具有 Exchange 邮箱的用户</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954178.jpeg" alt="img"></p><p>设置一个组邮件名，这里为了统一，我仍然使用exchange，然后下一步完成即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949103.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949932.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949184.jpeg" alt="img"></p><p>如果刚刚添加的动态通讯组没有在列表中出现，稍等片刻刷新即可看到</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954288.jpeg" alt="img"></p><p>4）创建规则，用于把不存在的邮箱的邮件重定向到指定邮箱</p><p><strong>邮件流</strong> — <strong>规则</strong> — <strong>添加规则</strong> — <strong>创建新规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954241.jpeg" alt="img"></p><p><strong>名称</strong>：随意，这里我填写的是 catch-all；</p><p><strong>在以下情况下应用此规则</strong>：前面选择 <strong>发件人</strong>，后面选择 <strong>在外部&#x2F;内部</strong>，弹出框里选择 <strong>Outside the organization</strong></p><p><strong>请执行以下操作</strong>：前面选择 <strong>将邮件重定向到</strong>，后面选择 <strong>这些人收件人</strong>，弹出框里选择 <strong>本文开始时添加的用户</strong>，这里是 <a href="mailto:&#99;&#x6e;&#x62;&#111;&#x79;&#64;&#x63;&#x6e;&#109;&#97;&#105;&#108;&#x2e;&#x6d;&#x6c;">&#99;&#x6e;&#x62;&#111;&#x79;&#64;&#x63;&#x6e;&#109;&#97;&#105;&#108;&#x2e;&#x6d;&#x6c;</a></p><p><strong>除非</strong>：前面选择 <strong>收件人</strong>，后面选择 <strong>是此组成员</strong>，弹出框内选择 <strong>刚添加的动态通讯组</strong>，这里是 <a href="mailto:&#101;&#120;&#99;&#104;&#97;&#110;&#x67;&#101;&#x40;&#99;&#x6e;&#109;&#x61;&#105;&#x6c;&#x2e;&#x6d;&#108;">&#101;&#120;&#99;&#104;&#97;&#110;&#x67;&#101;&#x40;&#99;&#x6e;&#109;&#x61;&#105;&#x6c;&#x2e;&#x6d;&#108;</a></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949659.jpeg" alt="img"></p><p><strong>设置规则设置</strong>：保持默认即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954907.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949409.jpeg" alt="img"></p><p>至此规则新建完成。但要特别注意，当前规则状态为 Disabled，并未自动开启，所以我们还需要<strong>启用规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949779.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949248.jpeg" alt="img"></p><p>到这里，我们就全部设置完成了！</p><p>可以测试一下：</p><p>向 <a href="mailto:&#99;&#x6e;&#98;&#x6f;&#121;&#x40;&#x63;&#110;&#x6d;&#97;&#x69;&#108;&#x2e;&#109;&#x6c;">&#99;&#x6e;&#98;&#x6f;&#121;&#x40;&#x63;&#110;&#x6d;&#97;&#x69;&#108;&#x2e;&#109;&#x6c;</a> 发送邮件，<a href="mailto:&#x63;&#x6e;&#x62;&#x6f;&#x79;&#64;&#99;&#x6e;&#109;&#97;&#x69;&#x6c;&#x2e;&#109;&#x6c;">&#x63;&#x6e;&#x62;&#x6f;&#x79;&#64;&#99;&#x6e;&#109;&#97;&#x69;&#x6c;&#x2e;&#109;&#x6c;</a>正常接收；</p><p>向 <a href="mailto:&#120;&#x78;&#120;&#x40;&#x63;&#110;&#109;&#97;&#x69;&#x6c;&#x2e;&#x6d;&#x6c;">&#120;&#x78;&#120;&#x40;&#x63;&#110;&#109;&#97;&#x69;&#x6c;&#x2e;&#x6d;&#x6c;</a> 等不存在的前缀域名邮箱发送邮件，邮件重定向到了<a href="mailto:&#x63;&#110;&#98;&#111;&#121;&#x40;&#x63;&#x6e;&#109;&#97;&#105;&#108;&#x2e;&#109;&#108;">&#x63;&#110;&#98;&#111;&#121;&#x40;&#x63;&#x6e;&#109;&#97;&#105;&#108;&#x2e;&#109;&#108;</a>。</p><p>如果接收出现问题，请按本教程逐步检查相应设置是否正确。</p><p>官方相关文档（* 旧版未更新）：</p><p><a href="https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)">https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)</a></p>]]></content>
+    <content type="html"><![CDATA[<p><strong>这里要用到的是：catch-all 功能</strong>，又叫全收邮件，就是把发给邮件服务器上不存在账户的邮件都重定向到某个邮箱，而不是直接退信。正常情况下，如发邮件给服务器上不存在的账户会直接退信给发件人。这个教程就是教大家如何利用 Microsoft 365 全局账户，通过<strong>catch-all</strong>功能可以实现无限别名收邮件。</p><p><strong>一，添加域名到Microsoft 365</strong></p><p>打开：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains</a></p><p>这里我们添加域名 cnmail.ml 作为示例。添加过程很简单，一步一步按照提示做就可以了。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953278.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953180.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949007.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949787.jpeg" alt="img"></p><p><strong>二，添加一个用户用于邮件归集</strong></p><p>添加用户：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users</a></p><p>这里我添加了一个 <a href="mailto:&#x63;&#x6e;&#98;&#x6f;&#x79;&#x40;&#99;&#x6e;&#x6d;&#97;&#105;&#108;&#46;&#109;&#108;">&#x63;&#x6e;&#98;&#x6f;&#x79;&#x40;&#99;&#x6e;&#x6d;&#97;&#105;&#108;&#46;&#109;&#108;</a>，添加过程中记得一定要赋予订阅权限。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949901.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953750.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949193.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953213.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949340.jpeg" alt="img"></p><p><strong>三，设置Catch-all功能。</strong></p><p>1）打开Exchange 管理中心：<a href="https://admin.exchange.microsoft.com/#/homepage">https://outlook.office365.com/ecp/</a></p><p>可以通过上面链接直接进入新版 Exchange 管理中心，也可以在 Microsoft 365 管理中心的左侧菜单栏选择 Exchange 进入</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953755.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949565.jpeg" alt="img"></p><p>2）修改域类型</p><p><strong>邮件流</strong> — <strong>接受的域</strong>，点击刚刚添加的域名，在弹出页里把域类型改为 <strong>内部中继</strong>，并勾选 <strong>接受所有子域的邮件</strong>，保存即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949831.jpeg" alt="img"></p><p>3）创建一个动态通讯组，用于存放已有的用户。</p><p><strong>收件人</strong> — <strong>组</strong> — <strong>动态通讯组列表</strong> — <strong>添加组</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949530.jpeg" alt="img"></p><p>此处选择 <strong>动态分布</strong>（通讯组 对应的是 分布，动态通讯组 对应的是 动态分布）</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954618.jpeg" alt="img"></p><p>我这里动态通讯组名称设置为 <strong>exchange</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949881.jpeg" alt="img"></p><p>此处选择 <strong>仅以下收件人类型</strong> — <strong>具有 Exchange 邮箱的用户</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954178.jpeg" alt="img"></p><p>设置一个组邮件名，这里为了统一，我仍然使用exchange，然后下一步完成即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949103.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949932.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949184.jpeg" alt="img"></p><p>如果刚刚添加的动态通讯组没有在列表中出现，稍等片刻刷新即可看到</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954288.jpeg" alt="img"></p><p>4）创建规则，用于把不存在的邮箱的邮件重定向到指定邮箱</p><p><strong>邮件流</strong> — <strong>规则</strong> — <strong>添加规则</strong> — <strong>创建新规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954241.jpeg" alt="img"></p><p><strong>名称</strong>：随意，这里我填写的是 catch-all；</p><p><strong>在以下情况下应用此规则</strong>：前面选择 <strong>发件人</strong>，后面选择 <strong>在外部&#x2F;内部</strong>，弹出框里选择 <strong>Outside the organization</strong></p><p><strong>请执行以下操作</strong>：前面选择 <strong>将邮件重定向到</strong>，后面选择 <strong>这些人收件人</strong>，弹出框里选择 <strong>本文开始时添加的用户</strong>，这里是 <a href="mailto:&#99;&#x6e;&#98;&#111;&#x79;&#64;&#99;&#110;&#109;&#x61;&#105;&#x6c;&#46;&#109;&#108;">&#99;&#x6e;&#98;&#111;&#x79;&#64;&#99;&#110;&#109;&#x61;&#105;&#x6c;&#46;&#109;&#108;</a></p><p><strong>除非</strong>：前面选择 <strong>收件人</strong>，后面选择 <strong>是此组成员</strong>，弹出框内选择 <strong>刚添加的动态通讯组</strong>，这里是 <a href="mailto:&#x65;&#x78;&#99;&#104;&#97;&#x6e;&#x67;&#x65;&#64;&#99;&#110;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x6d;&#108;">&#x65;&#x78;&#99;&#104;&#97;&#x6e;&#x67;&#x65;&#64;&#99;&#110;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x6d;&#108;</a></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949659.jpeg" alt="img"></p><p><strong>设置规则设置</strong>：保持默认即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954907.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949409.jpeg" alt="img"></p><p>至此规则新建完成。但要特别注意，当前规则状态为 Disabled，并未自动开启，所以我们还需要<strong>启用规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949779.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949248.jpeg" alt="img"></p><p>到这里，我们就全部设置完成了！</p><p>可以测试一下：</p><p>向 <a href="mailto:&#99;&#110;&#x62;&#111;&#121;&#64;&#99;&#110;&#109;&#x61;&#x69;&#108;&#46;&#109;&#x6c;">&#99;&#110;&#x62;&#111;&#121;&#64;&#99;&#110;&#109;&#x61;&#x69;&#108;&#46;&#109;&#x6c;</a> 发送邮件，<a href="mailto:&#x63;&#x6e;&#98;&#111;&#121;&#64;&#x63;&#x6e;&#x6d;&#97;&#105;&#108;&#x2e;&#x6d;&#x6c;">&#x63;&#x6e;&#98;&#111;&#121;&#64;&#x63;&#x6e;&#x6d;&#97;&#105;&#108;&#x2e;&#x6d;&#x6c;</a>正常接收；</p><p>向 <a href="mailto:&#120;&#120;&#120;&#64;&#99;&#x6e;&#x6d;&#x61;&#105;&#108;&#x2e;&#109;&#x6c;">&#120;&#120;&#120;&#64;&#99;&#x6e;&#x6d;&#x61;&#105;&#108;&#x2e;&#109;&#x6c;</a> 等不存在的前缀域名邮箱发送邮件，邮件重定向到了<a href="mailto:&#99;&#110;&#98;&#x6f;&#121;&#64;&#x63;&#x6e;&#x6d;&#97;&#105;&#x6c;&#x2e;&#109;&#x6c;">&#99;&#110;&#98;&#x6f;&#121;&#64;&#x63;&#x6e;&#x6d;&#97;&#105;&#x6c;&#x2e;&#109;&#x6c;</a>。</p><p>如果接收出现问题，请按本教程逐步检查相应设置是否正确。</p><p>官方相关文档（* 旧版未更新）：</p><p><a href="https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)">https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)</a></p>]]></content>
     
     
     <summary type="html">Microsoft 365 A1/A1P/E3/E5/商业版等搭建域名邮局，实现无限别名邮箱</summary>
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="microsoft" scheme="https://blog.ssopay.com/tags/microsoft/"/>
+    <category term="microsoft" scheme="https://blog.liuyes.eu.org/tags/microsoft/"/>
     
-    <category term="邮箱" scheme="https://blog.ssopay.com/tags/%E9%82%AE%E7%AE%B1/"/>
+    <category term="邮箱" scheme="https://blog.liuyes.eu.org/tags/%E9%82%AE%E7%AE%B1/"/>
     
-    <category term="365" scheme="https://blog.ssopay.com/tags/365/"/>
+    <category term="365" scheme="https://blog.liuyes.eu.org/tags/365/"/>
     
-    <category term="a1" scheme="https://blog.ssopay.com/tags/a1/"/>
+    <category term="a1" scheme="https://blog.liuyes.eu.org/tags/a1/"/>
     
-    <category term="a1p" scheme="https://blog.ssopay.com/tags/a1p/"/>
+    <category term="a1p" scheme="https://blog.liuyes.eu.org/tags/a1p/"/>
     
-    <category term="e3" scheme="https://blog.ssopay.com/tags/e3/"/>
+    <category term="e3" scheme="https://blog.liuyes.eu.org/tags/e3/"/>
     
-    <category term="e5" scheme="https://blog.ssopay.com/tags/e5/"/>
+    <category term="e5" scheme="https://blog.liuyes.eu.org/tags/e5/"/>
     
-    <category term="邮局" scheme="https://blog.ssopay.com/tags/%E9%82%AE%E5%B1%80/"/>
+    <category term="邮局" scheme="https://blog.liuyes.eu.org/tags/%E9%82%AE%E5%B1%80/"/>
     
-    <category term="无限" scheme="https://blog.ssopay.com/tags/%E6%97%A0%E9%99%90/"/>
+    <category term="无限" scheme="https://blog.liuyes.eu.org/tags/%E6%97%A0%E9%99%90/"/>
     
-    <category term="别名" scheme="https://blog.ssopay.com/tags/%E5%88%AB%E5%90%8D/"/>
+    <category term="别名" scheme="https://blog.liuyes.eu.org/tags/%E5%88%AB%E5%90%8D/"/>
     
   </entry>
   
   <entry>
     <title>解决Docker Hub国内无法访问方法汇总</title>
-    <link href="https://blog.ssopay.com/posts/7af009da.html"/>
-    <id>https://blog.ssopay.com/posts/7af009da.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/7af009da.html"/>
+    <id>https://blog.liuyes.eu.org/posts/7af009da.html</id>
     <published>2023-07-10T06:40:00.000Z</published>
     <updated>2023-07-10T08:53:38.086Z</updated>
     
@@ -133,25 +133,25 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="docker" scheme="https://blog.ssopay.com/tags/docker/"/>
+    <category term="docker" scheme="https://blog.liuyes.eu.org/tags/docker/"/>
     
-    <category term="hub" scheme="https://blog.ssopay.com/tags/hub/"/>
+    <category term="hub" scheme="https://blog.liuyes.eu.org/tags/hub/"/>
     
-    <category term="国内" scheme="https://blog.ssopay.com/tags/%E5%9B%BD%E5%86%85/"/>
+    <category term="国内" scheme="https://blog.liuyes.eu.org/tags/%E5%9B%BD%E5%86%85/"/>
     
-    <category term="访问" scheme="https://blog.ssopay.com/tags/%E8%AE%BF%E9%97%AE/"/>
+    <category term="访问" scheme="https://blog.liuyes.eu.org/tags/%E8%AE%BF%E9%97%AE/"/>
     
-    <category term="汇总" scheme="https://blog.ssopay.com/tags/%E6%B1%87%E6%80%BB/"/>
+    <category term="汇总" scheme="https://blog.liuyes.eu.org/tags/%E6%B1%87%E6%80%BB/"/>
     
   </entry>
   
   <entry>
     <title>CacheFly免费CDN 每月5T流量，自定义域名，全球Anycast加速</title>
-    <link href="https://blog.ssopay.com/posts/3393e944.html"/>
-    <id>https://blog.ssopay.com/posts/3393e944.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/3393e944.html"/>
+    <id>https://blog.liuyes.eu.org/posts/3393e944.html</id>
     <published>2023-06-29T11:10:00.000Z</published>
     <updated>2023-06-29T11:35:24.592Z</updated>
     
@@ -162,25 +162,25 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cdn" scheme="https://blog.ssopay.com/tags/cdn/"/>
+    <category term="cdn" scheme="https://blog.liuyes.eu.org/tags/cdn/"/>
     
-    <category term="免费" scheme="https://blog.ssopay.com/tags/%E5%85%8D%E8%B4%B9/"/>
+    <category term="免费" scheme="https://blog.liuyes.eu.org/tags/%E5%85%8D%E8%B4%B9/"/>
     
-    <category term="加速" scheme="https://blog.ssopay.com/tags/%E5%8A%A0%E9%80%9F/"/>
+    <category term="加速" scheme="https://blog.liuyes.eu.org/tags/%E5%8A%A0%E9%80%9F/"/>
     
-    <category term="cachefly" scheme="https://blog.ssopay.com/tags/cachefly/"/>
+    <category term="cachefly" scheme="https://blog.liuyes.eu.org/tags/cachefly/"/>
     
-    <category term="全球" scheme="https://blog.ssopay.com/tags/%E5%85%A8%E7%90%83/"/>
+    <category term="全球" scheme="https://blog.liuyes.eu.org/tags/%E5%85%A8%E7%90%83/"/>
     
   </entry>
   
   <entry>
     <title>Azure订阅被禁用如何找回服务器数据实操教程</title>
-    <link href="https://blog.ssopay.com/posts/b8f20aee.html"/>
-    <id>https://blog.ssopay.com/posts/b8f20aee.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/b8f20aee.html"/>
+    <id>https://blog.liuyes.eu.org/posts/b8f20aee.html</id>
     <published>2023-06-29T10:40:00.000Z</published>
     <updated>2023-06-29T11:10:00.211Z</updated>
     
@@ -191,25 +191,25 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="azure" scheme="https://blog.ssopay.com/tags/azure/"/>
+    <category term="azure" scheme="https://blog.liuyes.eu.org/tags/azure/"/>
     
-    <category term="az100" scheme="https://blog.ssopay.com/tags/az100/"/>
+    <category term="az100" scheme="https://blog.liuyes.eu.org/tags/az100/"/>
     
-    <category term="订阅" scheme="https://blog.ssopay.com/tags/%E8%AE%A2%E9%98%85/"/>
+    <category term="订阅" scheme="https://blog.liuyes.eu.org/tags/%E8%AE%A2%E9%98%85/"/>
     
-    <category term="禁用" scheme="https://blog.ssopay.com/tags/%E7%A6%81%E7%94%A8/"/>
+    <category term="禁用" scheme="https://blog.liuyes.eu.org/tags/%E7%A6%81%E7%94%A8/"/>
     
-    <category term="找回" scheme="https://blog.ssopay.com/tags/%E6%89%BE%E5%9B%9E/"/>
+    <category term="找回" scheme="https://blog.liuyes.eu.org/tags/%E6%89%BE%E5%9B%9E/"/>
     
   </entry>
   
   <entry>
     <title>甲骨文云(Oracle Cloud)升级付费账户</title>
-    <link href="https://blog.ssopay.com/posts/dc6473d4.html"/>
-    <id>https://blog.ssopay.com/posts/dc6473d4.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/dc6473d4.html"/>
+    <id>https://blog.liuyes.eu.org/posts/dc6473d4.html</id>
     <published>2023-06-14T08:06:00.000Z</published>
     <updated>2023-06-25T07:20:21.036Z</updated>
     
@@ -220,54 +220,54 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cloud" scheme="https://blog.ssopay.com/tags/cloud/"/>
+    <category term="cloud" scheme="https://blog.liuyes.eu.org/tags/cloud/"/>
     
-    <category term="oracle" scheme="https://blog.ssopay.com/tags/oracle/"/>
+    <category term="oracle" scheme="https://blog.liuyes.eu.org/tags/oracle/"/>
     
-    <category term="甲骨文" scheme="https://blog.ssopay.com/tags/%E7%94%B2%E9%AA%A8%E6%96%87/"/>
+    <category term="甲骨文" scheme="https://blog.liuyes.eu.org/tags/%E7%94%B2%E9%AA%A8%E6%96%87/"/>
     
-    <category term="升级" scheme="https://blog.ssopay.com/tags/%E5%8D%87%E7%BA%A7/"/>
+    <category term="升级" scheme="https://blog.liuyes.eu.org/tags/%E5%8D%87%E7%BA%A7/"/>
     
-    <category term="付费" scheme="https://blog.ssopay.com/tags/%E4%BB%98%E8%B4%B9/"/>
+    <category term="付费" scheme="https://blog.liuyes.eu.org/tags/%E4%BB%98%E8%B4%B9/"/>
     
   </entry>
   
   <entry>
     <title>教育邮箱认证方式注册Azure详细步骤</title>
-    <link href="https://blog.ssopay.com/posts/bec2c9cc.html"/>
-    <id>https://blog.ssopay.com/posts/bec2c9cc.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/bec2c9cc.html"/>
+    <id>https://blog.liuyes.eu.org/posts/bec2c9cc.html</id>
     <published>2023-06-12T08:10:00.000Z</published>
     <updated>2023-06-13T05:33:56.099Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h3><p>前面介绍的方法，适用于有全局管理员的edu邮箱：<a href="https://www.nodeseek.com/post-7935-1">https://www.nodeseek.com/post-7935-1</a><br>如果没有全局管理员，注册Azure会提示你没有资格。那么可以通过edu邮箱验证的方式来注册azure，适用于大多数edu邮箱。</p><h3 id="二、需要准备的"><a href="#二、需要准备的" class="headerlink" title="二、需要准备的"></a>二、需要准备的</h3><p>1、Azure注册地址：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>2、你的edu邮箱<br>3、一个干净的手机号（最好是自用的没撸过az的），一个干净的ip（最好是家宽，不要挂代理）</p><h3 id="三、具体步骤"><a href="#三、具体步骤" class="headerlink" title="三、具体步骤"></a>三、具体步骤</h3><p>1、使用其他邮箱注册Azure账号：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>我用的outlook邮箱：<a href="mailto:&#110;&#x6f;&#100;&#101;&#115;&#101;&#x65;&#x6b;&#x30;&#x30;&#49;&#64;&#x6f;&#x75;&#116;&#108;&#x6f;&#111;&#107;&#46;&#99;&#111;&#x6d;">&#110;&#x6f;&#100;&#101;&#115;&#101;&#x65;&#x6b;&#x30;&#x30;&#49;&#64;&#x6f;&#x75;&#116;&#108;&#x6f;&#111;&#107;&#46;&#99;&#111;&#x6d;</a><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611074.png" alt="img"><br>2、注册完成后，认证教育资格：<a href="https://azure.microsoft.com/zh-cn/free/students/">https://azure.microsoft.com/zh-cn/free/students/</a><br>这里需要手机号码认证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611885.png" alt="img"><br>认证通过后，填写你的edu邮箱验证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611491.png" alt="img"><br>此时查看你的邮箱，会受到验证链接，打开链接后确认你的身份<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611503.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121614182.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615145.png" alt="img"><br>到这个页面填写个人信息，填写信息尽量真实，可以编一个真实地址，提交注册后等待确认<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611819.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611686.png" alt="img"><br>如果申请成功了会提示：正在重定向…<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615915.png" alt="img"><br>ok了<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611969.png" alt="img"></p><h3 id="四、创建虚拟机"><a href="#四、创建虚拟机" class="headerlink" title="四、创建虚拟机"></a>四、创建虚拟机</h3><p>Az香港的线路延迟只有40左右，是真的香，这里记录一些知识点。</p><p>AZ100刀是学生账户，使用特定机型是可以免费一年的。</p><p>AZ200刀是普通账户，赠送200刀免费用一个月，升级版200到听说是可以欠费使用，欠费一年，具体不清楚。</p><p>AZ香港可以拿来做中转，中转一些垃圾节点，虽然没有光移牛逼，但是也能上垃圾节点跑起来。</p><p>AZ100刀如果在开虚拟机的时候，订阅加载不出来，导致开机失败，如下图所示：</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045509.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122050440.png" alt="img"></p><p>这种问题是使用ip不行，更换ip就好了。</p><p>AZ香港是East Asia</p><p>1、AZ100刀免费只能使用B1s也就是如下所示套餐：B1s(1vcpu,1GiB内存)</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045270.png" alt="img"></p><p>2、AZ100刀如果免费使用只能使用动态ip，不可以固定ip，否则会收费</p><p>动态ip，只要不通过AZ面板重启，基本ip就不会变</p><p>3、AZ默认的30G硬盘是收费的。所以linux需要修改硬盘为：P6-240 64G</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048655.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048162.png" alt="img"></p><p>4、放行端口，后台–网络–入站和出站都添加 端口范围* 优先级100</p><p>5、AZ切换root，ssh进去后执行sudo -i</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h3><p>前面介绍的方法，适用于有全局管理员的edu邮箱：<a href="https://www.nodeseek.com/post-7935-1">https://www.nodeseek.com/post-7935-1</a><br>如果没有全局管理员，注册Azure会提示你没有资格。那么可以通过edu邮箱验证的方式来注册azure，适用于大多数edu邮箱。</p><h3 id="二、需要准备的"><a href="#二、需要准备的" class="headerlink" title="二、需要准备的"></a>二、需要准备的</h3><p>1、Azure注册地址：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>2、你的edu邮箱<br>3、一个干净的手机号（最好是自用的没撸过az的），一个干净的ip（最好是家宽，不要挂代理）</p><h3 id="三、具体步骤"><a href="#三、具体步骤" class="headerlink" title="三、具体步骤"></a>三、具体步骤</h3><p>1、使用其他邮箱注册Azure账号：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>我用的outlook邮箱：<a href="mailto:&#x6e;&#x6f;&#x64;&#x65;&#115;&#x65;&#101;&#x6b;&#x30;&#48;&#x31;&#x40;&#x6f;&#x75;&#116;&#x6c;&#111;&#111;&#x6b;&#46;&#99;&#111;&#109;">&#x6e;&#x6f;&#x64;&#x65;&#115;&#x65;&#101;&#x6b;&#x30;&#48;&#x31;&#x40;&#x6f;&#x75;&#116;&#x6c;&#111;&#111;&#x6b;&#46;&#99;&#111;&#109;</a><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611074.png" alt="img"><br>2、注册完成后，认证教育资格：<a href="https://azure.microsoft.com/zh-cn/free/students/">https://azure.microsoft.com/zh-cn/free/students/</a><br>这里需要手机号码认证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611885.png" alt="img"><br>认证通过后，填写你的edu邮箱验证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611491.png" alt="img"><br>此时查看你的邮箱，会受到验证链接，打开链接后确认你的身份<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611503.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121614182.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615145.png" alt="img"><br>到这个页面填写个人信息，填写信息尽量真实，可以编一个真实地址，提交注册后等待确认<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611819.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611686.png" alt="img"><br>如果申请成功了会提示：正在重定向…<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615915.png" alt="img"><br>ok了<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611969.png" alt="img"></p><h3 id="四、创建虚拟机"><a href="#四、创建虚拟机" class="headerlink" title="四、创建虚拟机"></a>四、创建虚拟机</h3><p>Az香港的线路延迟只有40左右，是真的香，这里记录一些知识点。</p><p>AZ100刀是学生账户，使用特定机型是可以免费一年的。</p><p>AZ200刀是普通账户，赠送200刀免费用一个月，升级版200到听说是可以欠费使用，欠费一年，具体不清楚。</p><p>AZ香港可以拿来做中转，中转一些垃圾节点，虽然没有光移牛逼，但是也能上垃圾节点跑起来。</p><p>AZ100刀如果在开虚拟机的时候，订阅加载不出来，导致开机失败，如下图所示：</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045509.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122050440.png" alt="img"></p><p>这种问题是使用ip不行，更换ip就好了。</p><p>AZ香港是East Asia</p><p>1、AZ100刀免费只能使用B1s也就是如下所示套餐：B1s(1vcpu,1GiB内存)</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045270.png" alt="img"></p><p>2、AZ100刀如果免费使用只能使用动态ip，不可以固定ip，否则会收费</p><p>动态ip，只要不通过AZ面板重启，基本ip就不会变</p><p>3、AZ默认的30G硬盘是收费的。所以linux需要修改硬盘为：P6-240 64G</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048655.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048162.png" alt="img"></p><p>4、放行端口，后台–网络–入站和出站都添加 端口范围* 优先级100</p><p>5、AZ切换root，ssh进去后执行sudo -i</p>]]></content>
     
     
     <summary type="html">教育邮箱认证方式注册Azure详细步骤</summary>
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="azure" scheme="https://blog.ssopay.com/tags/azure/"/>
+    <category term="azure" scheme="https://blog.liuyes.eu.org/tags/azure/"/>
     
-    <category term="az100" scheme="https://blog.ssopay.com/tags/az100/"/>
+    <category term="az100" scheme="https://blog.liuyes.eu.org/tags/az100/"/>
     
-    <category term="edu" scheme="https://blog.ssopay.com/tags/edu/"/>
+    <category term="edu" scheme="https://blog.liuyes.eu.org/tags/edu/"/>
     
-    <category term="教育" scheme="https://blog.ssopay.com/tags/%E6%95%99%E8%82%B2/"/>
+    <category term="教育" scheme="https://blog.liuyes.eu.org/tags/%E6%95%99%E8%82%B2/"/>
     
-    <category term="邮箱" scheme="https://blog.ssopay.com/tags/%E9%82%AE%E7%AE%B1/"/>
+    <category term="邮箱" scheme="https://blog.liuyes.eu.org/tags/%E9%82%AE%E7%AE%B1/"/>
     
   </entry>
   
   <entry>
     <title>FRP一键安装脚本</title>
-    <link href="https://blog.ssopay.com/posts/c3f5490d.html"/>
-    <id>https://blog.ssopay.com/posts/c3f5490d.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/c3f5490d.html"/>
+    <id>https://blog.liuyes.eu.org/posts/c3f5490d.html</id>
     <published>2023-06-09T06:10:00.000Z</published>
     <updated>2023-06-09T06:20:11.452Z</updated>
     
@@ -278,21 +278,21 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="一键" scheme="https://blog.ssopay.com/tags/%E4%B8%80%E9%94%AE/"/>
+    <category term="一键" scheme="https://blog.liuyes.eu.org/tags/%E4%B8%80%E9%94%AE/"/>
     
-    <category term="frp" scheme="https://blog.ssopay.com/tags/frp/"/>
+    <category term="frp" scheme="https://blog.liuyes.eu.org/tags/frp/"/>
     
   </entry>
   
   <entry>
     <title>使用CertBot申请证书+自动续期</title>
-    <link href="https://blog.ssopay.com/posts/b4fedc42.html"/>
-    <id>https://blog.ssopay.com/posts/b4fedc42.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/b4fedc42.html"/>
+    <id>https://blog.liuyes.eu.org/posts/b4fedc42.html</id>
     <published>2023-06-09T02:51:00.000Z</published>
     <updated>2023-06-09T02:58:24.897Z</updated>
     
@@ -303,25 +303,25 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="CertBot" scheme="https://blog.ssopay.com/tags/CertBot/"/>
+    <category term="CertBot" scheme="https://blog.liuyes.eu.org/tags/CertBot/"/>
     
-    <category term="证书" scheme="https://blog.ssopay.com/tags/%E8%AF%81%E4%B9%A6/"/>
+    <category term="证书" scheme="https://blog.liuyes.eu.org/tags/%E8%AF%81%E4%B9%A6/"/>
     
-    <category term="自动" scheme="https://blog.ssopay.com/tags/%E8%87%AA%E5%8A%A8/"/>
+    <category term="自动" scheme="https://blog.liuyes.eu.org/tags/%E8%87%AA%E5%8A%A8/"/>
     
-    <category term="续期" scheme="https://blog.ssopay.com/tags/%E7%BB%AD%E6%9C%9F/"/>
+    <category term="续期" scheme="https://blog.liuyes.eu.org/tags/%E7%BB%AD%E6%9C%9F/"/>
     
   </entry>
   
   <entry>
     <title>在Alpine上使用Nezha一键脚本</title>
-    <link href="https://blog.ssopay.com/posts/7f349c0f.html"/>
-    <id>https://blog.ssopay.com/posts/7f349c0f.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/7f349c0f.html"/>
+    <id>https://blog.liuyes.eu.org/posts/7f349c0f.html</id>
     <published>2023-06-09T02:43:00.000Z</published>
     <updated>2023-06-09T02:58:24.892Z</updated>
     
@@ -332,25 +332,25 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    <category term="alpine" scheme="https://blog.liuyes.eu.org/tags/alpine/"/>
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="一键" scheme="https://blog.ssopay.com/tags/%E4%B8%80%E9%94%AE/"/>
+    <category term="一键" scheme="https://blog.liuyes.eu.org/tags/%E4%B8%80%E9%94%AE/"/>
     
-    <category term="nezha" scheme="https://blog.ssopay.com/tags/nezha/"/>
+    <category term="nezha" scheme="https://blog.liuyes.eu.org/tags/nezha/"/>
     
-    <category term="监控" scheme="https://blog.ssopay.com/tags/%E7%9B%91%E6%8E%A7/"/>
+    <category term="监控" scheme="https://blog.liuyes.eu.org/tags/%E7%9B%91%E6%8E%A7/"/>
     
   </entry>
   
   <entry>
     <title>alpine系统一键脚本装X-UI面板创建vmess节点套CF一条龙搞定</title>
-    <link href="https://blog.ssopay.com/posts/a983f08a.html"/>
-    <id>https://blog.ssopay.com/posts/a983f08a.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/a983f08a.html"/>
+    <id>https://blog.liuyes.eu.org/posts/a983f08a.html</id>
     <published>2023-06-06T03:13:00.000Z</published>
     <updated>2023-06-25T07:19:25.280Z</updated>
     
@@ -361,27 +361,27 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    <category term="cf" scheme="https://blog.liuyes.eu.org/tags/cf/"/>
     
-    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    <category term="alpine" scheme="https://blog.liuyes.eu.org/tags/alpine/"/>
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="private" scheme="https://blog.ssopay.com/tags/private/"/>
+    <category term="private" scheme="https://blog.liuyes.eu.org/tags/private/"/>
     
-    <category term="一键" scheme="https://blog.ssopay.com/tags/%E4%B8%80%E9%94%AE/"/>
+    <category term="一键" scheme="https://blog.liuyes.eu.org/tags/%E4%B8%80%E9%94%AE/"/>
     
-    <category term="x-ui" scheme="https://blog.ssopay.com/tags/x-ui/"/>
+    <category term="x-ui" scheme="https://blog.liuyes.eu.org/tags/x-ui/"/>
     
   </entry>
   
   <entry>
     <title>alpine系统手动安装v2ray服务</title>
-    <link href="https://blog.ssopay.com/posts/9794bd71.html"/>
-    <id>https://blog.ssopay.com/posts/9794bd71.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/9794bd71.html"/>
+    <id>https://blog.liuyes.eu.org/posts/9794bd71.html</id>
     <published>2023-05-31T03:45:00.000Z</published>
     <updated>2023-06-25T07:19:34.491Z</updated>
     
@@ -392,23 +392,23 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    <category term="alpine" scheme="https://blog.liuyes.eu.org/tags/alpine/"/>
     
-    <category term="v2ray" scheme="https://blog.ssopay.com/tags/v2ray/"/>
+    <category term="v2ray" scheme="https://blog.liuyes.eu.org/tags/v2ray/"/>
     
-    <category term="private" scheme="https://blog.ssopay.com/tags/private/"/>
+    <category term="private" scheme="https://blog.liuyes.eu.org/tags/private/"/>
     
-    <category term="手动" scheme="https://blog.ssopay.com/tags/%E6%89%8B%E5%8A%A8/"/>
+    <category term="手动" scheme="https://blog.liuyes.eu.org/tags/%E6%89%8B%E5%8A%A8/"/>
     
   </entry>
   
   <entry>
     <title>Linux网络优化加速一键脚本</title>
-    <link href="https://blog.ssopay.com/posts/6d4bb709.html"/>
-    <id>https://blog.ssopay.com/posts/6d4bb709.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/6d4bb709.html"/>
+    <id>https://blog.liuyes.eu.org/posts/6d4bb709.html</id>
     <published>2023-05-31T03:25:00.000Z</published>
     <updated>2023-05-31T03:30:49.558Z</updated>
     
@@ -419,27 +419,27 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="linux" scheme="https://blog.ssopay.com/tags/linux/"/>
+    <category term="linux" scheme="https://blog.liuyes.eu.org/tags/linux/"/>
     
-    <category term="网络" scheme="https://blog.ssopay.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://blog.liuyes.eu.org/tags/%E7%BD%91%E7%BB%9C/"/>
     
-    <category term="优化" scheme="https://blog.ssopay.com/tags/%E4%BC%98%E5%8C%96/"/>
+    <category term="优化" scheme="https://blog.liuyes.eu.org/tags/%E4%BC%98%E5%8C%96/"/>
     
-    <category term="加速" scheme="https://blog.ssopay.com/tags/%E5%8A%A0%E9%80%9F/"/>
+    <category term="加速" scheme="https://blog.liuyes.eu.org/tags/%E5%8A%A0%E9%80%9F/"/>
     
-    <category term="一键" scheme="https://blog.ssopay.com/tags/%E4%B8%80%E9%94%AE/"/>
+    <category term="一键" scheme="https://blog.liuyes.eu.org/tags/%E4%B8%80%E9%94%AE/"/>
     
   </entry>
   
   <entry>
     <title>lxc母鸡批量开小鸡</title>
-    <link href="https://blog.ssopay.com/posts/85890b5e.html"/>
-    <id>https://blog.ssopay.com/posts/85890b5e.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/85890b5e.html"/>
+    <id>https://blog.liuyes.eu.org/posts/85890b5e.html</id>
     <published>2023-05-31T02:59:00.000Z</published>
     <updated>2023-05-31T03:17:26.595Z</updated>
     
@@ -450,56 +450,23 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="lxc" scheme="https://blog.ssopay.com/tags/lxc/"/>
+    <category term="lxc" scheme="https://blog.liuyes.eu.org/tags/lxc/"/>
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="nat" scheme="https://blog.ssopay.com/tags/nat/"/>
+    <category term="nat" scheme="https://blog.liuyes.eu.org/tags/nat/"/>
     
-    <category term="小鸡" scheme="https://blog.ssopay.com/tags/%E5%B0%8F%E9%B8%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一键梭哈脚本</title>
-    <link href="https://blog.ssopay.com/posts/88eb9716.html"/>
-    <id>https://blog.ssopay.com/posts/88eb9716.html</id>
-    <published>2023-05-31T02:55:00.000Z</published>
-    <updated>2023-06-25T07:25:09.336Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">  <script id="hbeData" type="hbeData" data-hmacdigest="a118994f2f277f746d307f9c995c31495c3280e568716375b64880361bcb15ba">a1688f47cfccba90c0837639745f9a099244d5124bf2399cf0f5bf7c56fac6c07e3aa95f61d6d6fd5e89e0b0e86e5553ae4b5a1119f7b004be497644ac15e99968ac662313cd3be9f29dccb38c08c737b6167850a36ed1d1e1bd68341bbffec9227041c71eef47853e540d4d9386c424c03ff2d5f592c989d5f2224f6e987045d6e02a1c9f70d653ef2c68fe46704acfa7eef1c3413e66ed8d00257b4e7ff0b8cef65905b5737097a84bf561e9a1c7578dd02fbd625e87f0dccf04bf945bdce1dc7664ca19a88652f48de471a09899660a27303d15f967488950d744e2ea716fa9e1557fd102396088cc36bcefb2c6d22294cc68c6a00910ba0e9a524f638ab22e52fc98f22991fa18411745502775bbe3d6c97d9a473368f1e0361c745accdfaa1e2df414185825343d880ed4b9c05951264b75fa7b106a4b363f9978b13b791948b10e63f700bdf601e385a7a70b71ab07bbe26d61aef2f86a1bf8c0a0582b21af3a14e87813907d29b67440676e5fd3f2808550ffab9cab56b8cb5a4de4b5d42b71e29003e8b871d443a49922b0b029053f707a5865da699cdb3f4a2a18db8d4ee9a09d89b7ed5ad613b2b09351a328ee85c05aa1ac05e2b5f9ccac48f7956bc6e22e2c67fe935a89ee6984a00a688a1f59050693c628308da6e14208a39508a839103ed865f9b55cb94e44ab39a5f20f4a281271d7e78a4303a626ed5f869da7396c801ff350e9497f280d7ea3bbe9f3b7871d78d5d286de49046f3d33735f5671ea9242da2f6b2f6a1c12c028406b5288cfeaea394a9acfe2080eac349c17a2536dd5d1f0dc7f4976ed84d0441bb600bf6c9b687fdac89edf2547bbf0c97b3300d245f3ff77459ed19a7b2bae071341356eac618f49ce694d4ef854218e556b5f6738f98b87f0339bc2140a3a94b697055a58f90dae852d955a6eb634336c1789b63f1583c3055a153c96eefebaf1ed48df5bf0a38501b6b2fefce81c328552d8114849be603b2576b138cee6a8f436e4eee15467040a336b272a8eea1d60cb771ba9b1407a8e29f0a85b32c2c7979a9648159bfdfe6c295321cf490a8a4407eeef618fe9ea5e587f569d6024d4bde770b10a836432029d5fbabcec260db983f31007baec71a96df01dd621337d64137ede3d4633b9a3fde60d678806a7e0aa68015619a4e627924d78f6e6e986a62e67b8008c334977ae2a4ca84d0b3a1c23a642f32575033931c511735e2e2eb8ccafcf44b35f2fcc647115a5e2bef6999fdade714885c1763c2ef3fe73c8dbe2449a6483a218e12d2138fbb79b23b4fd2c589d46b7699933b5c31a4508d6eeef8eb71d5523c7e0fa58f8bc9c64f96bacf9a3cb9e2adcb6b8a5b2927d34e78cbf45cc43ec7e80ec517cff77f51c3761b2c6c357ae64551ff62987cf3d6b249551515cf2f3d9955bfcbb6828f6bd4a665dc8c87ba3be554d65873c14af0451c9f734502591c1352db14e91067518944a078b5b4fd68e0829591bdbff3fe0f91d310c0f5ace3cda22e167400524151b2280020ec0cb78dfdb395cbc6e9eaa8c9c97362b8fa2e60e4bf916c927ef25defa7fd0efdedf5e85e6cd68bacf5c119f5b444c0ad350af6be9b10072f460c17603c3de3dcd7a105c991da5b1c36676bb657d73df68dca70df3a69774a1bc1f3336</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入访问密码后查看！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">一键梭哈脚本</summary>
-    
-    
-    
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
-    
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
-    
-    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
-    
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-    <category term="v2ray" scheme="https://blog.ssopay.com/tags/v2ray/"/>
-    
-    <category term="private" scheme="https://blog.ssopay.com/tags/private/"/>
-    
-    <category term="梭哈" scheme="https://blog.ssopay.com/tags/%E6%A2%AD%E5%93%88/"/>
+    <category term="小鸡" scheme="https://blog.liuyes.eu.org/tags/%E5%B0%8F%E9%B8%A1/"/>
     
   </entry>
   
   <entry>
     <title>使用docker架设NAT机器</title>
-    <link href="https://blog.ssopay.com/posts/63f131f8.html"/>
-    <id>https://blog.ssopay.com/posts/63f131f8.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/63f131f8.html"/>
+    <id>https://blog.liuyes.eu.org/posts/63f131f8.html</id>
     <published>2023-05-31T02:55:00.000Z</published>
     <updated>2023-05-31T03:22:46.649Z</updated>
     
@@ -510,23 +477,56 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="脚本" scheme="https://blog.ssopay.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
     
-    <category term="docker" scheme="https://blog.ssopay.com/tags/docker/"/>
+    <category term="docker" scheme="https://blog.liuyes.eu.org/tags/docker/"/>
     
-    <category term="nat" scheme="https://blog.ssopay.com/tags/nat/"/>
+    <category term="nat" scheme="https://blog.liuyes.eu.org/tags/nat/"/>
     
-    <category term="小鸡" scheme="https://blog.ssopay.com/tags/%E5%B0%8F%E9%B8%A1/"/>
+    <category term="小鸡" scheme="https://blog.liuyes.eu.org/tags/%E5%B0%8F%E9%B8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一键梭哈脚本</title>
+    <link href="https://blog.liuyes.eu.org/posts/88eb9716.html"/>
+    <id>https://blog.liuyes.eu.org/posts/88eb9716.html</id>
+    <published>2023-05-31T02:55:00.000Z</published>
+    <updated>2023-06-25T07:25:09.336Z</updated>
+    
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">  <script id="hbeData" type="hbeData" data-hmacdigest="a118994f2f277f746d307f9c995c31495c3280e568716375b64880361bcb15ba">a1688f47cfccba90c0837639745f9a099244d5124bf2399cf0f5bf7c56fac6c07e3aa95f61d6d6fd5e89e0b0e86e5553ae4b5a1119f7b004be497644ac15e99968ac662313cd3be9f29dccb38c08c737b6167850a36ed1d1e1bd68341bbffec9227041c71eef47853e540d4d9386c424c03ff2d5f592c989d5f2224f6e987045d6e02a1c9f70d653ef2c68fe46704acfa7eef1c3413e66ed8d00257b4e7ff0b8cef65905b5737097a84bf561e9a1c7578dd02fbd625e87f0dccf04bf945bdce1dc7664ca19a88652f48de471a09899660a27303d15f967488950d744e2ea716fa9e1557fd102396088cc36bcefb2c6d22294cc68c6a00910ba0e9a524f638ab22e52fc98f22991fa18411745502775bbe3d6c97d9a473368f1e0361c745accdfaa1e2df414185825343d880ed4b9c05951264b75fa7b106a4b363f9978b13b791948b10e63f700bdf601e385a7a70b71ab07bbe26d61aef2f86a1bf8c0a0582b21af3a14e87813907d29b67440676e5fd3f2808550ffab9cab56b8cb5a4de4b5d42b71e29003e8b871d443a49922b0b029053f707a5865da699cdb3f4a2a18db8d4ee9a09d89b7ed5ad613b2b09351a328ee85c05aa1ac05e2b5f9ccac48f7956bc6e22e2c67fe935a89ee6984a00a688a1f59050693c628308da6e14208a39508a839103ed865f9b55cb94e44ab39a5f20f4a281271d7e78a4303a626ed5f869da7396c801ff350e9497f280d7ea3bbe9f3b7871d78d5d286de49046f3d33735f5671ea9242da2f6b2f6a1c12c028406b5288cfeaea394a9acfe2080eac349c17a2536dd5d1f0dc7f4976ed84d0441bb600bf6c9b687fdac89edf2547bbf0c97b3300d245f3ff77459ed19a7b2bae071341356eac618f49ce694d4ef854218e556b5f6738f98b87f0339bc2140a3a94b697055a58f90dae852d955a6eb634336c1789b63f1583c3055a153c96eefebaf1ed48df5bf0a38501b6b2fefce81c328552d8114849be603b2576b138cee6a8f436e4eee15467040a336b272a8eea1d60cb771ba9b1407a8e29f0a85b32c2c7979a9648159bfdfe6c295321cf490a8a4407eeef618fe9ea5e587f569d6024d4bde770b10a836432029d5fbabcec260db983f31007baec71a96df01dd621337d64137ede3d4633b9a3fde60d678806a7e0aa68015619a4e627924d78f6e6e986a62e67b8008c334977ae2a4ca84d0b3a1c23a642f32575033931c511735e2e2eb8ccafcf44b35f2fcc647115a5e2bef6999fdade714885c1763c2ef3fe73c8dbe2449a6483a218e12d2138fbb79b23b4fd2c589d46b7699933b5c31a4508d6eeef8eb71d5523c7e0fa58f8bc9c64f96bacf9a3cb9e2adcb6b8a5b2927d34e78cbf45cc43ec7e80ec517cff77f51c3761b2c6c357ae64551ff62987cf3d6b249551515cf2f3d9955bfcbb6828f6bd4a665dc8c87ba3be554d65873c14af0451c9f734502591c1352db14e91067518944a078b5b4fd68e0829591bdbff3fe0f91d310c0f5ace3cda22e167400524151b2280020ec0cb78dfdb395cbc6e9eaa8c9c97362b8fa2e60e4bf916c927ef25defa7fd0efdedf5e85e6cd68bacf5c119f5b444c0ad350af6be9b10072f460c17603c3de3dcd7a105c991da5b1c36676bb657d73df68dca70df3a69774a1bc1f3336</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入访问密码后查看！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    
+    
+    <summary type="html">一键梭哈脚本</summary>
+    
+    
+    
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="cf" scheme="https://blog.liuyes.eu.org/tags/cf/"/>
+    
+    <category term="cloudflare" scheme="https://blog.liuyes.eu.org/tags/cloudflare/"/>
+    
+    <category term="alpine" scheme="https://blog.liuyes.eu.org/tags/alpine/"/>
+    
+    <category term="脚本" scheme="https://blog.liuyes.eu.org/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+    <category term="v2ray" scheme="https://blog.liuyes.eu.org/tags/v2ray/"/>
+    
+    <category term="private" scheme="https://blog.liuyes.eu.org/tags/private/"/>
+    
+    <category term="梭哈" scheme="https://blog.liuyes.eu.org/tags/%E6%A2%AD%E5%93%88/"/>
     
   </entry>
   
   <entry>
     <title>Alpine+V2Ray+Nginx+PHP探针+套CF</title>
-    <link href="https://blog.ssopay.com/posts/48c55392.html"/>
-    <id>https://blog.ssopay.com/posts/48c55392.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/48c55392.html"/>
+    <id>https://blog.liuyes.eu.org/posts/48c55392.html</id>
     <published>2023-05-30T03:36:00.000Z</published>
     <updated>2023-06-25T07:19:50.691Z</updated>
     
@@ -537,29 +537,29 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    <category term="cf" scheme="https://blog.liuyes.eu.org/tags/cf/"/>
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
+    <category term="cloudflare" scheme="https://blog.liuyes.eu.org/tags/cloudflare/"/>
     
-    <category term="探针" scheme="https://blog.ssopay.com/tags/%E6%8E%A2%E9%92%88/"/>
+    <category term="探针" scheme="https://blog.liuyes.eu.org/tags/%E6%8E%A2%E9%92%88/"/>
     
-    <category term="alpine" scheme="https://blog.ssopay.com/tags/alpine/"/>
+    <category term="alpine" scheme="https://blog.liuyes.eu.org/tags/alpine/"/>
     
-    <category term="v2ray" scheme="https://blog.ssopay.com/tags/v2ray/"/>
+    <category term="v2ray" scheme="https://blog.liuyes.eu.org/tags/v2ray/"/>
     
-    <category term="nginx" scheme="https://blog.ssopay.com/tags/nginx/"/>
+    <category term="nginx" scheme="https://blog.liuyes.eu.org/tags/nginx/"/>
     
-    <category term="private" scheme="https://blog.ssopay.com/tags/private/"/>
+    <category term="private" scheme="https://blog.liuyes.eu.org/tags/private/"/>
     
   </entry>
   
   <entry>
     <title>Microsoft Learn 临时免费云电脑使用教程及评测</title>
-    <link href="https://blog.ssopay.com/posts/7975d21a.html"/>
-    <id>https://blog.ssopay.com/posts/7975d21a.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/7975d21a.html"/>
+    <id>https://blog.liuyes.eu.org/posts/7975d21a.html</id>
     <published>2023-05-30T03:11:00.000Z</published>
     <updated>2023-05-30T03:41:52.014Z</updated>
     
@@ -570,27 +570,27 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="免费" scheme="https://blog.ssopay.com/tags/%E5%85%8D%E8%B4%B9/"/>
+    <category term="免费" scheme="https://blog.liuyes.eu.org/tags/%E5%85%8D%E8%B4%B9/"/>
     
-    <category term="microsoft" scheme="https://blog.ssopay.com/tags/microsoft/"/>
+    <category term="microsoft" scheme="https://blog.liuyes.eu.org/tags/microsoft/"/>
     
-    <category term="learn" scheme="https://blog.ssopay.com/tags/learn/"/>
+    <category term="learn" scheme="https://blog.liuyes.eu.org/tags/learn/"/>
     
-    <category term="云电脑" scheme="https://blog.ssopay.com/tags/%E4%BA%91%E7%94%B5%E8%84%91/"/>
+    <category term="云电脑" scheme="https://blog.liuyes.eu.org/tags/%E4%BA%91%E7%94%B5%E8%84%91/"/>
     
-    <category term="评测" scheme="https://blog.ssopay.com/tags/%E8%AF%84%E6%B5%8B/"/>
+    <category term="评测" scheme="https://blog.liuyes.eu.org/tags/%E8%AF%84%E6%B5%8B/"/>
     
   </entry>
   
   <entry>
     <title>在CloudFlare Workers搭建VLESS节点</title>
-    <link href="https://blog.ssopay.com/posts/aa969a82.html"/>
-    <id>https://blog.ssopay.com/posts/aa969a82.html</id>
+    <link href="https://blog.liuyes.eu.org/posts/aa969a82.html"/>
+    <id>https://blog.liuyes.eu.org/posts/aa969a82.html</id>
     <published>2023-05-26T02:22:00.000Z</published>
     <updated>2023-05-26T02:29:11.800Z</updated>
     
@@ -601,20 +601,20 @@
     
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="https://blog.ssopay.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://blog.liuyes.eu.org/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="cf" scheme="https://blog.ssopay.com/tags/cf/"/>
+    <category term="cf" scheme="https://blog.liuyes.eu.org/tags/cf/"/>
     
-    <category term="cloudflare" scheme="https://blog.ssopay.com/tags/cloudflare/"/>
+    <category term="cloudflare" scheme="https://blog.liuyes.eu.org/tags/cloudflare/"/>
     
-    <category term="vless" scheme="https://blog.ssopay.com/tags/vless/"/>
+    <category term="vless" scheme="https://blog.liuyes.eu.org/tags/vless/"/>
     
-    <category term="workers" scheme="https://blog.ssopay.com/tags/workers/"/>
+    <category term="workers" scheme="https://blog.liuyes.eu.org/tags/workers/"/>
     
-    <category term="节点" scheme="https://blog.ssopay.com/tags/%E8%8A%82%E7%82%B9/"/>
+    <category term="节点" scheme="https://blog.liuyes.eu.org/tags/%E8%8A%82%E7%82%B9/"/>
     
   </entry>
   
