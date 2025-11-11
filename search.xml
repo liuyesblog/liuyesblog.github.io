@@ -4,6 +4,72 @@
   
     
     <entry>
+      <title>跳过 TPM 2.0 检查来安装 Windows 11</title>
+      <link href="/posts/10ce4512.html"/>
+      <url>/posts/10ce4512.html</url>
+      
+        <content type="html"><![CDATA[<p>跳过 TPM 2.0 检查来安装 Windows 11 是一个非常常见的需求。微软虽然强制新设备支持 TPM 2.0，但对于很多旧电脑，我们完全可以手动绕过这个限制。</p><p>这里有几种方法，从最简单到最灵活，你可以根据你的具体情况选择。</p><p>重要前提：确认你的电脑是否真的能满足需求<br>跳过 TPM 检查不代表你的电脑就能流畅运行 Win11。请务必确保你的电脑满足 除 TPM 外 的其它核心要求：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">处理器： 相对现代的 64 位 CPU，1GHz 或更快，双核以上。</span><br><span class="line">内存： 4 GB 或以上。</span><br><span class="line">存储空间： 64 GB 或以上。</span><br><span class="line">固件： UEFI 启动，并支持安全启动。</span><br><span class="line">显卡： 兼容 DirectX 12 或更高版本，支持 WDDM 2.0 驱动程序。</span><br></pre></td></tr></table></figure><p>如果你的电脑是近 8-10 年内生产的，大概率没问题。</p><p><strong>方法一：使用官方安装助手（最简单，适用于升级）</strong><br>如果你是从 Windows 10 升级到 Windows 11，这是最省事的方法。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">从微软官网下载 Windows 11 安装助手。</span><br><span class="line">运行工具前，我们需要修改一下注册表来“骗过”检测。</span><br><span class="line">按下 Win + R，输入 regedit 并回车，打开注册表编辑器。</span><br><span class="line">导航到以下路径：</span><br><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\Setup\MoSetup</span><br><span class="line"></span><br><span class="line">在右侧空白处右键，选择 新建 -&gt; DWORD (32位) 值，命名为 AllowUpgradesWithUnsupportedTPMOrCPU。</span><br><span class="line">双击这个新创建的项，将其值从 0 改为 1。</span><br><span class="line">点击确定，关闭注册表编辑器。</span><br><span class="line">现在再运行 Windows 11 安装助手，它就不会再检查 TPM 和 CPU 了，可以直接升级。</span><br><span class="line">优点： 操作简单，无需制作安装介质。</span><br><span class="line">缺点： 仅适用于从现有 Windows 系统升级。</span><br></pre></td></tr></table></figure><p><strong>方法二：修改 ISO 镜像或安装U盘（最常用，适用于全新安装）</strong><br>这是最通用、最有效的方法，适用于通过 U 盘进行全新安装。其核心是删除或绕过安装程序中的检测脚本。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">步骤A：准备安装介质</span><br><span class="line">从微软官网下载 Windows 11 官方 ISO 镜像。</span><br><span class="line">使用工具（如 Rufus）将 ISO 镜像写入 U 盘。Rufus 是这个方法的神器！</span><br><span class="line">步骤B：使用 Rufus（强烈推荐）</span><br><span class="line">Rufus 在写入镜像时，会直接提供选项帮你绕过各种限制。</span><br><span class="line"></span><br><span class="line">打开 Rufus，插入你的 U 盘。</span><br><span class="line">选择你的 U 盘设备，点击“选择”按钮，加载你下载的 Win11 ISO 文件。</span><br><span class="line">此时，Rufus 会弹出一个新的选项窗口，标题是 “Windows 用户体验”。</span><br><span class="line">在这个窗口里，你会看到两个非常重要的选项：</span><br><span class="line">移除 TPM 2.0 要求</span><br><span class="line">移除安全启动要求</span><br><span class="line">移除 RAM 要求 (可选)</span><br><span class="line">确保这两个选项都被勾选上！ 这是最关键的一步。</span><br><span class="line">然后点击“开始”，正常写入 U 盘。</span><br><span class="line">现在，用这个 U 盘启动电脑安装 Windows 11，就不会再有 TPM 的错误提示了。</span><br><span class="line"></span><br><span class="line">步骤C：手动修改安装U盘（如果不用Rufus）</span><br><span class="line">如果你用了其他工具制作了U盘，可以手动修改：</span><br><span class="line"></span><br><span class="line">在制作好的 Win11 安装U盘中，找到 sources 文件夹。</span><br><span class="line">在这个文件夹里，找到一个名为 appraiserres.dll 的文件。</span><br><span class="line">删除它，或者将其重命名为 appraiserres.dll.bak。</span><br><span class="line">为了确保万无一失，你还可以将一个空白的文本文件重命名为 appraiserres.dll 放在这里（但通常直接删除原文件即可）。</span><br><span class="line">这个方法同样可以绕过兼容性检查。</span><br></pre></td></tr></table></figure><p><strong>方法三：在安装过程中使用命令（临时绕过）</strong><br>如果在安装过程中仍然报错，你可以尝试这个“终极大法”。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">当安装程序进行到“输入产品密钥”的页面时（或者在你看到黄牌警告说不满足系统要求的页面），按下 Shift + F10 键，这会打开一个命令提示符窗口。</span><br><span class="line">在命令提示符窗口中，输入以下命令并回车，打开注册表编辑器：</span><br><span class="line"></span><br><span class="line">在注册表编辑器中，导航到以下路径：</span><br><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\Setup</span><br><span class="line"></span><br><span class="line">在 Setup 上右键，选择 新建 -&gt; 项，并将新项命名为 LabConfig。</span><br><span class="line">选中新建的 LabConfig 项，然后在右侧空白处右键：</span><br><span class="line">新建 -&gt; DWORD (32位)值，命名为 BypassTPMCheck，并将其值设置为 1。</span><br><span class="line">新建 -&gt; DWORD (32位)值，命名为 BypassSecureBootCheck，并将其值设置为 1。</span><br><span class="line">（可选）如果还遇到 CPU 报错，可以再创建一个 BypassCPUCheck，值也设为 1。</span><br><span class="line">关闭注册表编辑器和命令提示符窗口。</span><br><span class="line">点击安装程序窗口的“上一步”箭头，然后再次点击“下一步”继续安装。此时检查应该就被绕过了。</span><br></pre></td></tr></table></figure><blockquote><p>本人亲测使用方法三可行：<a href="https://blog.csdn.net/qq_39741838/article/details/152374841">https://blog.csdn.net/qq_39741838/article/details/152374841</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> win </tag>
+            
+            <tag> 11 </tag>
+            
+            <tag> tpm </tag>
+            
+            <tag> 强制 </tag>
+            
+            <tag> 跳过 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Win11最新关闭VBS的几种方法（基于虚拟化的安全性）</title>
+      <link href="/posts/33307576.html"/>
+      <url>/posts/33307576.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="知识点分析"><a href="#知识点分析" class="headerlink" title="知识点分析"></a>知识点分析</h2><p>Virtualization-based Security(VBS)基于虚拟化的安全性功能，保护虚拟机和电脑安全。</p><p>但是会降低电脑性能，也可能会让一些依赖硬件虚拟化的程序出现问题。</p><p>win+r 运行 msinfo32进行查看</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111417493.png;charset=UTF-8" alt="img"></p><p>（提醒：以下修改可能会触发安全变动，然后开机提示修改PIN码，请注意修改前牢记Windows的登录密码、备份重要资料与付费软件至外部存储设备，拔出设备后操作）</p><p>（另外如果修改注册表，有系统稳定性风险，同样建议操作前也备份重要资料与付费软件至外部存储设备，拔出设备后操作）</p><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h2 id="方法一：先保证关闭hyper-v"><a href="#方法一：先保证关闭hyper-v" class="headerlink" title="方法一：先保证关闭hyper-v"></a>方法一：先保证关闭hyper-v</h2><p>右击开始菜单，打开终端管理员，然后输入以下命令，点击回车</p><p>bcdedit &#x2F;set hypervisorlaunchtype off</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416543.png" alt="img"></p><p>或者控制面板中取消勾选hyper-v</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416750.png;charset=UTF-8" alt="img"></p><h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>安装雷电模拟器，下载链接：<a href="https://www.ldmnq.com/">https://www.ldmnq.com/</a></p><p>安装雷电模拟器时，会提示开启了虚拟服务，然后点击重启电脑，雷电模拟器会自动帮您关闭掉VBS。</p><p>注意：此软件为第三方软件，经过我们测试使用可以生效且未发现其他问题，如您的电脑有重要资料，建议您全盘备份重要资料、付费软件至外部存储设备，拔出设备后操作。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416634.png;charset=UTF-8" alt="img"></p><h2 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a><strong>方法三：</strong></h2><p>使用这个工具，<strong>右键管理员身份运行</strong>。点击下载→  <a href="https://chinakb.lenovo.com.cn/chinakb/prod-api/file/downloadFile?key=uniko/FILE/e5e4b47983142110e6758157c7b38edd-1730959606504.bat&name=tool.bat">tool.bat</a></p><p>点击更多信息，仍要运行，等待运行结束，然后手动重启电脑。</p><p>注意：此工具经过我们测试使用可以生效且未发现其他问题，如您的电脑有重要资料，建议您全盘备份重要资料、付费软件至外部存储设备，拔出设备后操作。</p><p><em><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111417372.png" alt="zoom in pic"></em></p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416230.png;charset=UTF-8" alt="img"></h2><p>重启后，会提示这个界面，<strong>连续按4次F3即可</strong></p><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111417245.png" alt="zoom in pic"></h2><h2 id="方法四："><a href="#方法四：" class="headerlink" title="方法四："></a><strong>方法四：</strong></h2><p>第一步:在任务栏中找到打开“Windows安全中心”—设备安全性—内核隔离—关闭“内存完整性”开关。</p><p>第二步:Win+R运行—输入gpedit.msc并回车 打开组策略。（家庭版需要先手动添加组策略）</p><p>第三步:找到“计算机配置—管理模板—系统—Device Guard”双击右侧的“打开基于虚拟化的安全”策略，将其修改为“已禁用”。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416428.png;charset=UTF-8" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416506.png;charset=UTF-8" alt="img"></p><h2 id="方法五："><a href="#方法五：" class="headerlink" title="方法五："></a><strong>方法五：</strong></h2><p><strong>修改注册表有系统稳定性风险，建议操作前备份资料。</strong></p><p>win+r运行regedit打开注册表，找到下方路径</p><p>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard </p><p>将 EnableVirtualizationBasedSecurity 的值，修改为 0，如果 没有则创建 DWORD32 设置，然后重启</p><p><strong><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111418360.png;charset=UTF-8" alt="img"></strong></p><p><strong><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111418848.png;charset=UTF-8" alt="img"></strong></p><h2 id="方法六："><a href="#方法六：" class="headerlink" title="方法六："></a><strong>方法六：</strong></h2><p>下载微软关闭工具，点击下载→<a href="https://chinakb.lenovo.com.cn/chinakb/prod-api/file/downloadFile?key=uniko/FILE/293f7bc00602edcd6e025ca90b8a0fe2-1730960165917.zip&name=dgreadiness_v3.6.zip">dgreadiness_v3.6.zip</a></p><p>以管理员身份运行cmd，然后依次输入下列命令</p><p>Set-ExecutionPolicy RemoteSigned</p><p>cd 解压后的文件夹，右键复制文件地址，粘贴</p><p>.\DG_Readiness_Tool_v3.6.ps1 -Disable</p><p>最后重启电脑，还是按4次F3</p><p>注意：此工具经过我们测试使用可以生效且未发现其他问题，如您的电脑有重要资料，建议您全盘备份重要资料、付费软件至外部存储设备，拔出设备后操作。</p><p><strong><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2025/202510111416640.png;charset=UTF-8" alt="img"></strong></p><blockquote><p>本人亲测使用方法六可行：<a href="https://iknow.lenovo.com.cn/detail/423992">https://iknow.lenovo.com.cn/detail/423992</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> win </tag>
+            
+            <tag> 11 </tag>
+            
+            <tag> hyper-v </tag>
+            
+            <tag> 虚拟化 </tag>
+            
+            <tag> 关闭 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Typora1.10解决破解后用了一段时间打不开的问题，typora闪退</title>
       <link href="/posts/9bc284f2.html"/>
       <url>/posts/9bc284f2.html</url>
@@ -117,9 +183,9 @@
             
             <tag> cloud </tag>
             
-            <tag> docker </tag>
-            
             <tag> 免费 </tag>
+            
+            <tag> docker </tag>
             
             <tag> claw </tag>
             
@@ -303,7 +369,7 @@
       <link href="/posts/83ef0810.html"/>
       <url>/posts/83ef0810.html</url>
       
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>电子邮件传送是一项电子邮件发送服务和 SMTP 中继，它提供快速可靠的托管解决方案，用于发送需要到达收件箱的大容量批量电子邮件和事务性电子邮件。</p><p>摘自甲骨文云官网</p></blockquote><p>大家都知道甲骨文有永久免费的机器。但是其实还有很多免费服务也值得了解一下。今天和大家分享如何使用甲骨文云免费发送电子邮件服务，以及实现配合 worldpress 做到有人评论会收到邮件通知的功能。</p><h2 id="免费电子邮件服务介绍与设置"><a href="#免费电子邮件服务介绍与设置" class="headerlink" title="免费电子邮件服务介绍与设置"></a>免费电子邮件服务介绍与设置</h2><p>一、 甲骨文云免费电子邮件服务简介 甲骨文云提供一项免费的电子邮件服务,用户可以每天发送最多100封电子邮件。这项服务包括以下功能:</p><ol><li>免费使用,无需支付任何费用</li><li>每天发送100封电子邮件的限额</li><li>支持自定义域名</li><li>内置邮件管理工具,包括收发、收发追踪等功能</li><li>可集成到常见的第三方服务如博客、论坛、CRM、营销系统等</li></ol><p>总的来说,这是一个功能丰富、免费使用的电子邮件服务,适合个人或中小型企业使用。</p><p>二、 登录甲骨文云账号，首页点击左上角，依次点击：<strong>开发人员服务-电子邮件传送</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825832.jpeg" alt="甲骨文云免费电子邮件服务-1"></p><p>依次点击左侧 <strong>① 电子邮件域 – ② 创建电子邮件域 – ③ 填入自定义电子邮件域名 – ④ 点击创建电子邮件域</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170826596.jpeg" alt="甲骨文云免费电子邮件服务-2"></p><p>新页面依次点击 <strong>① 添加 DKIM – ② 填入符合要求的字符串 – ③ 点击生成 DKIM 记录 – ④ 点击底部创建 DKIM 按钮</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825280.jpeg" alt="甲骨文云免费电子邮件服务-3"></p><p><strong>DKIM 记录也有助于验证邮件的发送者身份。通过在 DNS 设置中添加 DKIM 记录，你可以提高你的邮件被接收方认可的可能性。</strong></p><p>网页底部可以看到当前 DKIM 签名状态为待处理，复制右侧 CNAME 记录和 CNAME 值，打开配置域名DNS解析网页，因域名DNS由 cloudflare 管理，所以我需要去 cloudflare 中进行添加记录操作</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825981.jpeg" alt="甲骨文云免费电子邮件服务-4"></p><p>类型选择 CNAME，名称和目标选择上图中的数据，关闭代理状态，点击右下角保存。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170828284.jpeg" alt="甲骨文云免费电子邮件服务-5"></p><p>大约半分钟左右，返回甲骨文网页，可以看到提示状态为活动状态</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170828855.jpeg" alt="甲骨文云免费电子邮件服务-6"></p><p>接下来，配置 SPF，下图可看到未配置前的状态为 <strong>否</strong>，我们点击右侧 <strong>了解更多信息</strong>。（SPF的作用：确保你的邮件不被视为垃圾邮件，你需要在 DNS 设置中添加 SPF 记录。SPF 记录会指定哪些邮件服务器被允许发送来自你的域名的邮件。）</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825986.jpeg" alt="甲骨文云免费电子邮件服务-7"></p><p>上步操作之后，会显示如下网页，红色方框中的内容，根据自己发送邮件的区域，复制对应的记录值添加到 cloudflare DNS 记录中。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825703.png" alt="甲骨文云免费电子邮件服务-8"></p><p>打开 cloudflare 网页，这里我以亚太为例，添加 SPF 记录，类型选择 TXT ，名称为 @，点击保存</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170829589.png" alt="甲骨文云免费电子邮件服务-9"></p><p>等待一段时间就会自动配置好，接下来我们配置发件邮箱，安装下图的顺序依次执行 <strong>① 点击批准的发件人 – ② 点击创建批准的发件人 – ③ 填入自定义的电子邮件地址 – ④ 点击底部创建批准的发件人按钮</strong>。这里以 <a href="mailto:&#97;&#x64;&#109;&#105;&#x6e;&#64;&#122;&#x65;&#114;&#x72;&#x2e;&#x6d;&#101;">&#97;&#x64;&#109;&#105;&#x6e;&#64;&#122;&#x65;&#114;&#x72;&#x2e;&#x6d;&#101;</a> 为例：</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170829711.jpeg" alt="甲骨文云免费电子邮件服务-10"></p><p>返回 电子邮件传送 主页，点击配置。可以找到 SMTP 发送信息，其中包含 SMPT 地址、端口和加密方式。这个很重要，之后 wordpress 博客配置邮件服务器需要用到。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825461.jpeg" alt="甲骨文云免费电子邮件服务-11"></p><p>最后一个步骤，添加 SMTP 身份证明，这个信息也很重要。首先，回到甲骨文后台首页，点击右上角，选择我的该要信息</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825683.jpeg" alt="甲骨文云免费电子邮件服务-12"></p><p>接下来安装下图的顺序依次执行 <strong>① SMTP 身份证明 – ② 生成身份真名 – ③ 填入生成身份证明说明（随便填写即可） – ④ 点击底部生成身份证明按钮</strong>。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170829088.jpeg" alt="甲骨文云免费电子邮件服务-13"></p><p>下图显示生成的身份证明，需要注意的是密码只显示一次，一定要保存好</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825765.jpeg" alt="甲骨文云免费电子邮件服务-14"></p><p>至此，就完成了甲骨文发送邮件的配置，接下来我们以 wordpress 为例，尝试使用该服务。</p><h2 id="WordPress-配置邮件服务器"><a href="#WordPress-配置邮件服务器" class="headerlink" title="WordPress 配置邮件服务器"></a>WordPress 配置邮件服务器</h2><p>wordpress 播客搭建完成后，搜索插件，按照并启用</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825715.jpeg" alt="甲骨文云免费电子邮件服务-15"></p><p>启用插件后，点击设置，红色框内的信息按照自己的信息填写，发件人为之前创建的批准发件人。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170830651.jpeg" alt="甲骨文云免费电子邮件服务-16"></p><p>邮件程序选择其它</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825742.jpeg" alt="甲骨文云免费电子邮件服务-17"></p><p>将 SMTP 主机、用户名和密码填写对应的输入框。加密方式选择 TLS，端口 587，启用认证，最后点击底部的保存</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170830733.jpeg" alt="甲骨文云免费电子邮件服务-18"></p><p>点击保存之后，会显示设置保存成功</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170830094.jpeg" alt="甲骨文云免费电子邮件服务-19"></p><p>接下来，我们测试能否正常发送文件</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825860.jpeg" alt="甲骨文云免费电子邮件服务-20"></p><p>如果显示如下图，说明我们的配置没问题，检查邮箱是否收到邮件。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825106.png" alt="甲骨文云免费电子邮件服务-21"></p><p>邮箱确实收到了测试邮件，但是进入了垃圾邮箱中。我又测试了发送到 google 邮箱，这回并没有进入垃圾箱。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825422.jpeg" alt="甲骨文云免费电子邮件服务-22"></p><h2 id="使用心得与评价"><a href="#使用心得与评价" class="headerlink" title="使用心得与评价"></a>使用心得与评价</h2><p>甲骨文云免费邮件服务操作简单,功能也比较全面。对于个人或中小企业来说,这是一个非常不错的选择。每天100封的发送限额完全够用,加上可自定义域名,非常适合作为公司或个人品牌的邮箱使用。唯一需注意的是,如果超出限额会收取一定费用，但是如果未升级的，不用担心收费问题。总的来说,这是一个值得尝试的免费邮件服务方案。<br>【文章转自：<a href="https://uuzi.net/oracle-cloud-free-email-service-setup-guide/%E3%80%91">https://uuzi.net/oracle-cloud-free-email-service-setup-guide/】</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>电子邮件传送是一项电子邮件发送服务和 SMTP 中继，它提供快速可靠的托管解决方案，用于发送需要到达收件箱的大容量批量电子邮件和事务性电子邮件。</p><p>摘自甲骨文云官网</p></blockquote><p>大家都知道甲骨文有永久免费的机器。但是其实还有很多免费服务也值得了解一下。今天和大家分享如何使用甲骨文云免费发送电子邮件服务，以及实现配合 worldpress 做到有人评论会收到邮件通知的功能。</p><h2 id="免费电子邮件服务介绍与设置"><a href="#免费电子邮件服务介绍与设置" class="headerlink" title="免费电子邮件服务介绍与设置"></a>免费电子邮件服务介绍与设置</h2><p>一、 甲骨文云免费电子邮件服务简介 甲骨文云提供一项免费的电子邮件服务,用户可以每天发送最多100封电子邮件。这项服务包括以下功能:</p><ol><li>免费使用,无需支付任何费用</li><li>每天发送100封电子邮件的限额</li><li>支持自定义域名</li><li>内置邮件管理工具,包括收发、收发追踪等功能</li><li>可集成到常见的第三方服务如博客、论坛、CRM、营销系统等</li></ol><p>总的来说,这是一个功能丰富、免费使用的电子邮件服务,适合个人或中小型企业使用。</p><p>二、 登录甲骨文云账号，首页点击左上角，依次点击：<strong>开发人员服务-电子邮件传送</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825832.jpeg" alt="甲骨文云免费电子邮件服务-1"></p><p>依次点击左侧 <strong>① 电子邮件域 – ② 创建电子邮件域 – ③ 填入自定义电子邮件域名 – ④ 点击创建电子邮件域</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170826596.jpeg" alt="甲骨文云免费电子邮件服务-2"></p><p>新页面依次点击 <strong>① 添加 DKIM – ② 填入符合要求的字符串 – ③ 点击生成 DKIM 记录 – ④ 点击底部创建 DKIM 按钮</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825280.jpeg" alt="甲骨文云免费电子邮件服务-3"></p><p><strong>DKIM 记录也有助于验证邮件的发送者身份。通过在 DNS 设置中添加 DKIM 记录，你可以提高你的邮件被接收方认可的可能性。</strong></p><p>网页底部可以看到当前 DKIM 签名状态为待处理，复制右侧 CNAME 记录和 CNAME 值，打开配置域名DNS解析网页，因域名DNS由 cloudflare 管理，所以我需要去 cloudflare 中进行添加记录操作</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825981.jpeg" alt="甲骨文云免费电子邮件服务-4"></p><p>类型选择 CNAME，名称和目标选择上图中的数据，关闭代理状态，点击右下角保存。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170828284.jpeg" alt="甲骨文云免费电子邮件服务-5"></p><p>大约半分钟左右，返回甲骨文网页，可以看到提示状态为活动状态</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170828855.jpeg" alt="甲骨文云免费电子邮件服务-6"></p><p>接下来，配置 SPF，下图可看到未配置前的状态为 <strong>否</strong>，我们点击右侧 <strong>了解更多信息</strong>。（SPF的作用：确保你的邮件不被视为垃圾邮件，你需要在 DNS 设置中添加 SPF 记录。SPF 记录会指定哪些邮件服务器被允许发送来自你的域名的邮件。）</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825986.jpeg" alt="甲骨文云免费电子邮件服务-7"></p><p>上步操作之后，会显示如下网页，红色方框中的内容，根据自己发送邮件的区域，复制对应的记录值添加到 cloudflare DNS 记录中。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825703.png" alt="甲骨文云免费电子邮件服务-8"></p><p>打开 cloudflare 网页，这里我以亚太为例，添加 SPF 记录，类型选择 TXT ，名称为 @，点击保存</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170829589.png" alt="甲骨文云免费电子邮件服务-9"></p><p>等待一段时间就会自动配置好，接下来我们配置发件邮箱，安装下图的顺序依次执行 <strong>① 点击批准的发件人 – ② 点击创建批准的发件人 – ③ 填入自定义的电子邮件地址 – ④ 点击底部创建批准的发件人按钮</strong>。这里以 <a href="mailto:&#x61;&#x64;&#109;&#105;&#110;&#x40;&#x7a;&#101;&#114;&#114;&#x2e;&#109;&#101;">&#x61;&#x64;&#109;&#105;&#110;&#x40;&#x7a;&#101;&#114;&#114;&#x2e;&#109;&#101;</a> 为例：</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170829711.jpeg" alt="甲骨文云免费电子邮件服务-10"></p><p>返回 电子邮件传送 主页，点击配置。可以找到 SMTP 发送信息，其中包含 SMPT 地址、端口和加密方式。这个很重要，之后 wordpress 博客配置邮件服务器需要用到。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825461.jpeg" alt="甲骨文云免费电子邮件服务-11"></p><p>最后一个步骤，添加 SMTP 身份证明，这个信息也很重要。首先，回到甲骨文后台首页，点击右上角，选择我的该要信息</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825683.jpeg" alt="甲骨文云免费电子邮件服务-12"></p><p>接下来安装下图的顺序依次执行 <strong>① SMTP 身份证明 – ② 生成身份真名 – ③ 填入生成身份证明说明（随便填写即可） – ④ 点击底部生成身份证明按钮</strong>。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170829088.jpeg" alt="甲骨文云免费电子邮件服务-13"></p><p>下图显示生成的身份证明，需要注意的是密码只显示一次，一定要保存好</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825765.jpeg" alt="甲骨文云免费电子邮件服务-14"></p><p>至此，就完成了甲骨文发送邮件的配置，接下来我们以 wordpress 为例，尝试使用该服务。</p><h2 id="WordPress-配置邮件服务器"><a href="#WordPress-配置邮件服务器" class="headerlink" title="WordPress 配置邮件服务器"></a>WordPress 配置邮件服务器</h2><p>wordpress 播客搭建完成后，搜索插件，按照并启用</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825715.jpeg" alt="甲骨文云免费电子邮件服务-15"></p><p>启用插件后，点击设置，红色框内的信息按照自己的信息填写，发件人为之前创建的批准发件人。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170830651.jpeg" alt="甲骨文云免费电子邮件服务-16"></p><p>邮件程序选择其它</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825742.jpeg" alt="甲骨文云免费电子邮件服务-17"></p><p>将 SMTP 主机、用户名和密码填写对应的输入框。加密方式选择 TLS，端口 587，启用认证，最后点击底部的保存</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170830733.jpeg" alt="甲骨文云免费电子邮件服务-18"></p><p>点击保存之后，会显示设置保存成功</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170830094.jpeg" alt="甲骨文云免费电子邮件服务-19"></p><p>接下来，我们测试能否正常发送文件</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825860.jpeg" alt="甲骨文云免费电子邮件服务-20"></p><p>如果显示如下图，说明我们的配置没问题，检查邮箱是否收到邮件。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825106.png" alt="甲骨文云免费电子邮件服务-21"></p><p>邮箱确实收到了测试邮件，但是进入了垃圾邮箱中。我又测试了发送到 google 邮箱，这回并没有进入垃圾箱。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2024/202404170825422.jpeg" alt="甲骨文云免费电子邮件服务-22"></p><h2 id="使用心得与评价"><a href="#使用心得与评价" class="headerlink" title="使用心得与评价"></a>使用心得与评价</h2><p>甲骨文云免费邮件服务操作简单,功能也比较全面。对于个人或中小企业来说,这是一个非常不错的选择。每天100封的发送限额完全够用,加上可自定义域名,非常适合作为公司或个人品牌的邮箱使用。唯一需注意的是,如果超出限额会收取一定费用，但是如果未升级的，不用担心收费问题。总的来说,这是一个值得尝试的免费邮件服务方案。<br>【文章转自：<a href="https://uuzi.net/oracle-cloud-free-email-service-setup-guide/%E3%80%91">https://uuzi.net/oracle-cloud-free-email-service-setup-guide/】</a></p>]]></content>
       
       
       <categories>
@@ -684,9 +750,9 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> email </tag>
             
@@ -717,9 +783,9 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> vless </tag>
             
@@ -752,9 +818,9 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> vless </tag>
             
@@ -787,15 +853,15 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> 优选 </tag>
+            
+            <tag> cf </tag>
             
             <tag> 测速 </tag>
             
             <tag> workers </tag>
-            
-            <tag> 优选 </tag>
             
             <tag> 地址 </tag>
             
@@ -847,7 +913,7 @@
       <link href="/posts/9f1a467f.html"/>
       <url>/posts/9f1a467f.html</url>
       
-        <content type="html"><![CDATA[<p><strong>这里要用到的是：catch-all 功能</strong>，又叫全收邮件，就是把发给邮件服务器上不存在账户的邮件都重定向到某个邮箱，而不是直接退信。正常情况下，如发邮件给服务器上不存在的账户会直接退信给发件人。这个教程就是教大家如何利用 Microsoft 365 全局账户，通过<strong>catch-all</strong>功能可以实现无限别名收邮件。</p><p><strong>一，添加域名到Microsoft 365</strong></p><p>打开：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains</a></p><p>这里我们添加域名 cnmail.ml 作为示例。添加过程很简单，一步一步按照提示做就可以了。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953278.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953180.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949007.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949787.jpeg" alt="img"></p><p><strong>二，添加一个用户用于邮件归集</strong></p><p>添加用户：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users</a></p><p>这里我添加了一个 <a href="mailto:&#x63;&#x6e;&#98;&#111;&#x79;&#x40;&#x63;&#x6e;&#109;&#97;&#x69;&#x6c;&#46;&#109;&#108;">&#x63;&#x6e;&#98;&#111;&#x79;&#x40;&#x63;&#x6e;&#109;&#97;&#x69;&#x6c;&#46;&#109;&#108;</a>，添加过程中记得一定要赋予订阅权限。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949901.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953750.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949193.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953213.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949340.jpeg" alt="img"></p><p><strong>三，设置Catch-all功能。</strong></p><p>1）打开Exchange 管理中心：<a href="https://admin.exchange.microsoft.com/#/homepage">https://outlook.office365.com/ecp/</a></p><p>可以通过上面链接直接进入新版 Exchange 管理中心，也可以在 Microsoft 365 管理中心的左侧菜单栏选择 Exchange 进入</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953755.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949565.jpeg" alt="img"></p><p>2）修改域类型</p><p><strong>邮件流</strong> — <strong>接受的域</strong>，点击刚刚添加的域名，在弹出页里把域类型改为 <strong>内部中继</strong>，并勾选 <strong>接受所有子域的邮件</strong>，保存即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949831.jpeg" alt="img"></p><p>3）创建一个动态通讯组，用于存放已有的用户。</p><p><strong>收件人</strong> — <strong>组</strong> — <strong>动态通讯组列表</strong> — <strong>添加组</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949530.jpeg" alt="img"></p><p>此处选择 <strong>动态分布</strong>（通讯组 对应的是 分布，动态通讯组 对应的是 动态分布）</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954618.jpeg" alt="img"></p><p>我这里动态通讯组名称设置为 <strong>exchange</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949881.jpeg" alt="img"></p><p>此处选择 <strong>仅以下收件人类型</strong> — <strong>具有 Exchange 邮箱的用户</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954178.jpeg" alt="img"></p><p>设置一个组邮件名，这里为了统一，我仍然使用exchange，然后下一步完成即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949103.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949932.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949184.jpeg" alt="img"></p><p>如果刚刚添加的动态通讯组没有在列表中出现，稍等片刻刷新即可看到</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954288.jpeg" alt="img"></p><p>4）创建规则，用于把不存在的邮箱的邮件重定向到指定邮箱</p><p><strong>邮件流</strong> — <strong>规则</strong> — <strong>添加规则</strong> — <strong>创建新规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954241.jpeg" alt="img"></p><p><strong>名称</strong>：随意，这里我填写的是 catch-all；</p><p><strong>在以下情况下应用此规则</strong>：前面选择 <strong>发件人</strong>，后面选择 <strong>在外部&#x2F;内部</strong>，弹出框里选择 <strong>Outside the organization</strong></p><p><strong>请执行以下操作</strong>：前面选择 <strong>将邮件重定向到</strong>，后面选择 <strong>这些人收件人</strong>，弹出框里选择 <strong>本文开始时添加的用户</strong>，这里是 <a href="mailto:&#99;&#110;&#98;&#x6f;&#121;&#64;&#99;&#x6e;&#x6d;&#97;&#105;&#x6c;&#x2e;&#109;&#108;">&#99;&#110;&#98;&#x6f;&#121;&#64;&#99;&#x6e;&#x6d;&#97;&#105;&#x6c;&#x2e;&#109;&#108;</a></p><p><strong>除非</strong>：前面选择 <strong>收件人</strong>，后面选择 <strong>是此组成员</strong>，弹出框内选择 <strong>刚添加的动态通讯组</strong>，这里是 <a href="mailto:&#x65;&#x78;&#x63;&#104;&#97;&#110;&#103;&#101;&#x40;&#99;&#110;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x6d;&#x6c;">&#x65;&#x78;&#x63;&#104;&#97;&#110;&#103;&#101;&#x40;&#99;&#110;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x6d;&#x6c;</a></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949659.jpeg" alt="img"></p><p><strong>设置规则设置</strong>：保持默认即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954907.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949409.jpeg" alt="img"></p><p>至此规则新建完成。但要特别注意，当前规则状态为 Disabled，并未自动开启，所以我们还需要<strong>启用规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949779.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949248.jpeg" alt="img"></p><p>到这里，我们就全部设置完成了！</p><p>可以测试一下：</p><p>向 <a href="mailto:&#x63;&#110;&#98;&#x6f;&#x79;&#x40;&#99;&#110;&#109;&#97;&#105;&#108;&#x2e;&#x6d;&#108;">&#x63;&#110;&#98;&#x6f;&#x79;&#x40;&#99;&#110;&#109;&#97;&#105;&#108;&#x2e;&#x6d;&#108;</a> 发送邮件，<a href="mailto:&#99;&#x6e;&#x62;&#111;&#x79;&#64;&#x63;&#x6e;&#x6d;&#x61;&#x69;&#x6c;&#46;&#109;&#x6c;">&#99;&#x6e;&#x62;&#111;&#x79;&#64;&#x63;&#x6e;&#x6d;&#x61;&#x69;&#x6c;&#46;&#109;&#x6c;</a>正常接收；</p><p>向 <a href="mailto:&#x78;&#x78;&#120;&#64;&#x63;&#110;&#109;&#97;&#105;&#x6c;&#x2e;&#109;&#108;">&#x78;&#x78;&#120;&#64;&#x63;&#110;&#109;&#97;&#105;&#x6c;&#x2e;&#109;&#108;</a> 等不存在的前缀域名邮箱发送邮件，邮件重定向到了<a href="mailto:&#99;&#x6e;&#x62;&#111;&#121;&#x40;&#99;&#110;&#x6d;&#x61;&#x69;&#108;&#x2e;&#109;&#108;">&#99;&#x6e;&#x62;&#111;&#121;&#x40;&#99;&#110;&#x6d;&#x61;&#x69;&#108;&#x2e;&#109;&#108;</a>。</p><p>如果接收出现问题，请按本教程逐步检查相应设置是否正确。</p><p>官方相关文档（* 旧版未更新）：</p><p><a href="https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)">https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)</a></p>]]></content>
+        <content type="html"><![CDATA[<p><strong>这里要用到的是：catch-all 功能</strong>，又叫全收邮件，就是把发给邮件服务器上不存在账户的邮件都重定向到某个邮箱，而不是直接退信。正常情况下，如发邮件给服务器上不存在的账户会直接退信给发件人。这个教程就是教大家如何利用 Microsoft 365 全局账户，通过<strong>catch-all</strong>功能可以实现无限别名收邮件。</p><p><strong>一，添加域名到Microsoft 365</strong></p><p>打开：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Domains</a></p><p>这里我们添加域名 cnmail.ml 作为示例。添加过程很简单，一步一步按照提示做就可以了。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953278.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953180.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949007.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949787.jpeg" alt="img"></p><p><strong>二，添加一个用户用于邮件归集</strong></p><p>添加用户：<a href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users">https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users</a></p><p>这里我添加了一个 <a href="mailto:&#x63;&#110;&#x62;&#111;&#121;&#64;&#x63;&#x6e;&#x6d;&#97;&#x69;&#x6c;&#46;&#109;&#x6c;">&#x63;&#110;&#x62;&#111;&#121;&#64;&#x63;&#x6e;&#x6d;&#97;&#x69;&#x6c;&#46;&#109;&#x6c;</a>，添加过程中记得一定要赋予订阅权限。</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949901.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953750.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949193.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953213.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949340.jpeg" alt="img"></p><p><strong>三，设置Catch-all功能。</strong></p><p>1）打开Exchange 管理中心：<a href="https://admin.exchange.microsoft.com/#/homepage">https://outlook.office365.com/ecp/</a></p><p>可以通过上面链接直接进入新版 Exchange 管理中心，也可以在 Microsoft 365 管理中心的左侧菜单栏选择 Exchange 进入</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111953755.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949565.jpeg" alt="img"></p><p>2）修改域类型</p><p><strong>邮件流</strong> — <strong>接受的域</strong>，点击刚刚添加的域名，在弹出页里把域类型改为 <strong>内部中继</strong>，并勾选 <strong>接受所有子域的邮件</strong>，保存即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949831.jpeg" alt="img"></p><p>3）创建一个动态通讯组，用于存放已有的用户。</p><p><strong>收件人</strong> — <strong>组</strong> — <strong>动态通讯组列表</strong> — <strong>添加组</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949530.jpeg" alt="img"></p><p>此处选择 <strong>动态分布</strong>（通讯组 对应的是 分布，动态通讯组 对应的是 动态分布）</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954618.jpeg" alt="img"></p><p>我这里动态通讯组名称设置为 <strong>exchange</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949881.jpeg" alt="img"></p><p>此处选择 <strong>仅以下收件人类型</strong> — <strong>具有 Exchange 邮箱的用户</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954178.jpeg" alt="img"></p><p>设置一个组邮件名，这里为了统一，我仍然使用exchange，然后下一步完成即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949103.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949932.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949184.jpeg" alt="img"></p><p>如果刚刚添加的动态通讯组没有在列表中出现，稍等片刻刷新即可看到</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954288.jpeg" alt="img"></p><p>4）创建规则，用于把不存在的邮箱的邮件重定向到指定邮箱</p><p><strong>邮件流</strong> — <strong>规则</strong> — <strong>添加规则</strong> — <strong>创建新规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954241.jpeg" alt="img"></p><p><strong>名称</strong>：随意，这里我填写的是 catch-all；</p><p><strong>在以下情况下应用此规则</strong>：前面选择 <strong>发件人</strong>，后面选择 <strong>在外部&#x2F;内部</strong>，弹出框里选择 <strong>Outside the organization</strong></p><p><strong>请执行以下操作</strong>：前面选择 <strong>将邮件重定向到</strong>，后面选择 <strong>这些人收件人</strong>，弹出框里选择 <strong>本文开始时添加的用户</strong>，这里是 <a href="mailto:&#x63;&#x6e;&#98;&#x6f;&#121;&#x40;&#99;&#x6e;&#x6d;&#x61;&#105;&#x6c;&#46;&#109;&#x6c;">&#x63;&#x6e;&#98;&#x6f;&#121;&#x40;&#99;&#x6e;&#x6d;&#x61;&#105;&#x6c;&#46;&#109;&#x6c;</a></p><p><strong>除非</strong>：前面选择 <strong>收件人</strong>，后面选择 <strong>是此组成员</strong>，弹出框内选择 <strong>刚添加的动态通讯组</strong>，这里是 <a href="mailto:&#x65;&#120;&#x63;&#x68;&#x61;&#x6e;&#x67;&#x65;&#x40;&#99;&#x6e;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x6d;&#x6c;">&#x65;&#120;&#x63;&#x68;&#x61;&#x6e;&#x67;&#x65;&#x40;&#99;&#x6e;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x6d;&#x6c;</a></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949659.jpeg" alt="img"></p><p><strong>设置规则设置</strong>：保持默认即可</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111954907.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949409.jpeg" alt="img"></p><p>至此规则新建完成。但要特别注意，当前规则状态为 Disabled，并未自动开启，所以我们还需要<strong>启用规则</strong></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949779.jpeg" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202307111949248.jpeg" alt="img"></p><p>到这里，我们就全部设置完成了！</p><p>可以测试一下：</p><p>向 <a href="mailto:&#99;&#110;&#x62;&#x6f;&#121;&#64;&#99;&#110;&#109;&#97;&#x69;&#x6c;&#46;&#x6d;&#x6c;">&#99;&#110;&#x62;&#x6f;&#121;&#64;&#99;&#110;&#109;&#97;&#x69;&#x6c;&#46;&#x6d;&#x6c;</a> 发送邮件，<a href="mailto:&#x63;&#110;&#98;&#111;&#x79;&#64;&#x63;&#110;&#x6d;&#97;&#105;&#x6c;&#46;&#109;&#x6c;">&#x63;&#110;&#98;&#111;&#x79;&#64;&#x63;&#110;&#x6d;&#97;&#105;&#x6c;&#46;&#109;&#x6c;</a>正常接收；</p><p>向 <a href="mailto:&#x78;&#x78;&#120;&#x40;&#x63;&#x6e;&#x6d;&#97;&#x69;&#x6c;&#46;&#109;&#x6c;">&#x78;&#x78;&#120;&#x40;&#x63;&#x6e;&#x6d;&#97;&#x69;&#x6c;&#46;&#109;&#x6c;</a> 等不存在的前缀域名邮箱发送邮件，邮件重定向到了<a href="mailto:&#99;&#x6e;&#98;&#111;&#121;&#64;&#x63;&#x6e;&#109;&#x61;&#x69;&#x6c;&#46;&#109;&#108;">&#99;&#x6e;&#98;&#111;&#121;&#64;&#x63;&#x6e;&#109;&#x61;&#x69;&#x6c;&#46;&#109;&#108;</a>。</p><p>如果接收出现问题，请按本教程逐步检查相应设置是否正确。</p><p>官方相关文档（* 旧版未更新）：</p><p><a href="https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)">https://docs.microsoft.com/zh-cn/previous-versions/office/exchange-server-2010/bb691132(v=exchg.141)</a></p>]]></content>
       
       
       <categories>
@@ -1022,7 +1088,7 @@
       <link href="/posts/bec2c9cc.html"/>
       <url>/posts/bec2c9cc.html</url>
       
-        <content type="html"><![CDATA[<h3 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h3><p>前面介绍的方法，适用于有全局管理员的edu邮箱：<a href="https://www.nodeseek.com/post-7935-1">https://www.nodeseek.com/post-7935-1</a><br>如果没有全局管理员，注册Azure会提示你没有资格。那么可以通过edu邮箱验证的方式来注册azure，适用于大多数edu邮箱。</p><h3 id="二、需要准备的"><a href="#二、需要准备的" class="headerlink" title="二、需要准备的"></a>二、需要准备的</h3><p>1、Azure注册地址：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>2、你的edu邮箱<br>3、一个干净的手机号（最好是自用的没撸过az的），一个干净的ip（最好是家宽，不要挂代理）</p><h3 id="三、具体步骤"><a href="#三、具体步骤" class="headerlink" title="三、具体步骤"></a>三、具体步骤</h3><p>1、使用其他邮箱注册Azure账号：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>我用的outlook邮箱：<a href="mailto:&#110;&#111;&#100;&#101;&#x73;&#x65;&#x65;&#x6b;&#x30;&#48;&#x31;&#x40;&#111;&#x75;&#x74;&#x6c;&#111;&#x6f;&#107;&#x2e;&#99;&#111;&#109;">&#110;&#111;&#100;&#101;&#x73;&#x65;&#x65;&#x6b;&#x30;&#48;&#x31;&#x40;&#111;&#x75;&#x74;&#x6c;&#111;&#x6f;&#107;&#x2e;&#99;&#111;&#109;</a><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611074.png" alt="img"><br>2、注册完成后，认证教育资格：<a href="https://azure.microsoft.com/zh-cn/free/students/">https://azure.microsoft.com/zh-cn/free/students/</a><br>这里需要手机号码认证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611885.png" alt="img"><br>认证通过后，填写你的edu邮箱验证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611491.png" alt="img"><br>此时查看你的邮箱，会受到验证链接，打开链接后确认你的身份<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611503.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121614182.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615145.png" alt="img"><br>到这个页面填写个人信息，填写信息尽量真实，可以编一个真实地址，提交注册后等待确认<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611819.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611686.png" alt="img"><br>如果申请成功了会提示：正在重定向…<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615915.png" alt="img"><br>ok了<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611969.png" alt="img"></p><h3 id="四、创建虚拟机"><a href="#四、创建虚拟机" class="headerlink" title="四、创建虚拟机"></a>四、创建虚拟机</h3><p>Az香港的线路延迟只有40左右，是真的香，这里记录一些知识点。</p><p>AZ100刀是学生账户，使用特定机型是可以免费一年的。</p><p>AZ200刀是普通账户，赠送200刀免费用一个月，升级版200到听说是可以欠费使用，欠费一年，具体不清楚。</p><p>AZ香港可以拿来做中转，中转一些垃圾节点，虽然没有光移牛逼，但是也能上垃圾节点跑起来。</p><p>AZ100刀如果在开虚拟机的时候，订阅加载不出来，导致开机失败，如下图所示：</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045509.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122050440.png" alt="img"></p><p>这种问题是使用ip不行，更换ip就好了。</p><p>AZ香港是East Asia</p><p>1、AZ100刀免费只能使用B1s也就是如下所示套餐：B1s(1vcpu,1GiB内存)</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045270.png" alt="img"></p><p>2、AZ100刀如果免费使用只能使用动态ip，不可以固定ip，否则会收费</p><p>动态ip，只要不通过AZ面板重启，基本ip就不会变</p><p>3、AZ默认的30G硬盘是收费的。所以linux需要修改硬盘为：P6-240 64G</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048655.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048162.png" alt="img"></p><p>4、放行端口，后台–网络–入站和出站都添加 端口范围* 优先级100</p><p>5、AZ切换root，ssh进去后执行sudo -i</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h3><p>前面介绍的方法，适用于有全局管理员的edu邮箱：<a href="https://www.nodeseek.com/post-7935-1">https://www.nodeseek.com/post-7935-1</a><br>如果没有全局管理员，注册Azure会提示你没有资格。那么可以通过edu邮箱验证的方式来注册azure，适用于大多数edu邮箱。</p><h3 id="二、需要准备的"><a href="#二、需要准备的" class="headerlink" title="二、需要准备的"></a>二、需要准备的</h3><p>1、Azure注册地址：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>2、你的edu邮箱<br>3、一个干净的手机号（最好是自用的没撸过az的），一个干净的ip（最好是家宽，不要挂代理）</p><h3 id="三、具体步骤"><a href="#三、具体步骤" class="headerlink" title="三、具体步骤"></a>三、具体步骤</h3><p>1、使用其他邮箱注册Azure账号：<a href="https://portal.azure.com/">https://portal.azure.com/</a><br>我用的outlook邮箱：<a href="mailto:&#110;&#111;&#100;&#x65;&#x73;&#x65;&#x65;&#107;&#x30;&#x30;&#x31;&#64;&#111;&#x75;&#x74;&#x6c;&#x6f;&#x6f;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;">&#110;&#111;&#100;&#x65;&#x73;&#x65;&#x65;&#107;&#x30;&#x30;&#x31;&#64;&#111;&#x75;&#x74;&#x6c;&#x6f;&#x6f;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;</a><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611074.png" alt="img"><br>2、注册完成后，认证教育资格：<a href="https://azure.microsoft.com/zh-cn/free/students/">https://azure.microsoft.com/zh-cn/free/students/</a><br>这里需要手机号码认证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611885.png" alt="img"><br>认证通过后，填写你的edu邮箱验证，<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611491.png" alt="img"><br>此时查看你的邮箱，会受到验证链接，打开链接后确认你的身份<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611503.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121614182.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615145.png" alt="img"><br>到这个页面填写个人信息，填写信息尽量真实，可以编一个真实地址，提交注册后等待确认<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611819.png" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611686.png" alt="img"><br>如果申请成功了会提示：正在重定向…<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121615915.png" alt="img"><br>ok了<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306121611969.png" alt="img"></p><h3 id="四、创建虚拟机"><a href="#四、创建虚拟机" class="headerlink" title="四、创建虚拟机"></a>四、创建虚拟机</h3><p>Az香港的线路延迟只有40左右，是真的香，这里记录一些知识点。</p><p>AZ100刀是学生账户，使用特定机型是可以免费一年的。</p><p>AZ200刀是普通账户，赠送200刀免费用一个月，升级版200到听说是可以欠费使用，欠费一年，具体不清楚。</p><p>AZ香港可以拿来做中转，中转一些垃圾节点，虽然没有光移牛逼，但是也能上垃圾节点跑起来。</p><p>AZ100刀如果在开虚拟机的时候，订阅加载不出来，导致开机失败，如下图所示：</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045509.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122050440.png" alt="img"></p><p>这种问题是使用ip不行，更换ip就好了。</p><p>AZ香港是East Asia</p><p>1、AZ100刀免费只能使用B1s也就是如下所示套餐：B1s(1vcpu,1GiB内存)</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122045270.png" alt="img"></p><p>2、AZ100刀如果免费使用只能使用动态ip，不可以固定ip，否则会收费</p><p>动态ip，只要不通过AZ面板重启，基本ip就不会变</p><p>3、AZ默认的30G硬盘是收费的。所以linux需要修改硬盘为：P6-240 64G</p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048655.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202306122048162.png" alt="img"></p><p>4、放行端口，后台–网络–入站和出站都添加 端口范围* 优先级100</p><p>5、AZ切换root，ssh进去后执行sudo -i</p>]]></content>
       
       
       <categories>
@@ -1129,9 +1195,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> alpine </tag>
+            
+            <tag> 脚本 </tag>
             
             <tag> 一键 </tag>
             
@@ -1164,9 +1230,9 @@
             
             <tag> cf </tag>
             
-            <tag> 脚本 </tag>
-            
             <tag> alpine </tag>
+            
+            <tag> 脚本 </tag>
             
             <tag> private </tag>
             
@@ -1263,40 +1329,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> lxc </tag>
             
-            <tag> nat </tag>
-            
-            <tag> 小鸡 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>使用docker架设NAT机器</title>
-      <link href="/posts/63f131f8.html"/>
-      <url>/posts/63f131f8.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311056458.jpeg" alt="img"></p><p>通过docker批量或单独开设NAT服务器(Bulk or individual NAT server provisioning via docker)</p><p>默认使用debian系统，每个容器自带1个外网ssh端口，25个内外网一致端口</p><p>默认创建的是非特权容器，且不挂载与宿主机的docker的守护进程之间的通信，所以宿主机创建的docker虚拟化的NAT服务器内无法再嵌套虚拟化docker</p><p>由于只是在宿主机进行了CPU和内存的限制未在容器内使用cgroup驱动，所以在容器内使用服务器测试脚本检测容器的可用资源是无效的，显示的会是宿主机的资源</p><p>由于大部分云服务器xfs文件系统不启用pquota选项，所以默认共享宿主机硬盘，无法限制每个容器的磁盘大小</p><p>原作者项目地址：<a href="https://github.com/spiritLHLS/docker">点击跳转</a></p><h2 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h2><p>系统可安装docker即可用，网络能连接Github的raw界面就能用，硬件配置只要不拉跨就行，空闲硬盘有3G就行</p><p>推荐在开设NAT服务器前先增加部分SWAP虚拟内存，避免突发的内存占用导致母鸡卡死 <a href="https://github.com/spiritLHLS/addswap">跳转</a></p><h2 id="环境预设"><a href="#环境预设" class="headerlink" title="环境预设"></a>环境预设</h2><ul><li>检测环境</li><li>安装docker</li><li>下载预制脚本</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/pre_build.sh -o pre_build.sh &amp;&amp; chmod +x pre_build.sh &amp;&amp; bash pre_build.sh</span><br></pre></td></tr></table></figure><h2 id="单独开设"><a href="#单独开设" class="headerlink" title="单独开设"></a>单独开设</h2><p>下载脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/onedocker.sh -o onedocker.sh &amp;&amp; chmod +x onedocker.sh</span><br></pre></td></tr></table></figure><p>运行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./onedocker.sh name cpu memory password sshport startport endport system</span><br></pre></td></tr></table></figure><p>目前system仅支持选择alpine或debian，默认是debian</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>将开设1核512MB内存，root的密码是123456，SSH端口映射至外网25000，批量映射的端口区间为34975到35000，此区间内外网端口一致，系统为debian</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./onedocker.sh test 1 512 123456 25000 34975 35000 debian</span><br></pre></td></tr></table></figure><p>删除示例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f test</span><br><span class="line">rm -rf test</span><br><span class="line">ls</span><br></pre></td></tr></table></figure><p>进入示例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it test /bin/bash</span><br></pre></td></tr></table></figure><h3 id="查询信息"><a href="#查询信息" class="headerlink" title="查询信息"></a>查询信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat 容器名字</span><br></pre></td></tr></table></figure><p>输出格式</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">容器名字 SSH端口 登陆的root密码 核数 内存 外网端口起 外网端口止</span><br></pre></td></tr></table></figure><h2 id="批量开设"><a href="#批量开设" class="headerlink" title="批量开设"></a>批量开设</h2><ul><li>批量多次运行继承配置生成</li><li>生成多个时为避免SSH连接中断建议在screen中执行</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/dockers.sh -o dockers.sh &amp;&amp; chmod +x dockers.sh &amp;&amp; bash dockers.sh</span><br></pre></td></tr></table></figure><h2 id="卸载所有docker容器和镜像"><a href="#卸载所有docker容器和镜像" class="headerlink" title="卸载所有docker容器和镜像"></a>卸载所有docker容器和镜像</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f $(docker ps -aq); docker rmi $(docker images -aq)</span><br><span class="line">rm -rf dclog</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
             <tag> 脚本 </tag>
-            
-            <tag> docker </tag>
             
             <tag> nat </tag>
             
@@ -1325,19 +1360,50 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
             
-            <tag> 脚本 </tag>
+            <tag> cf </tag>
             
             <tag> alpine </tag>
             
+            <tag> 脚本 </tag>
+            
             <tag> v2ray </tag>
+            
+            <tag> private </tag>
             
             <tag> 梭哈 </tag>
             
-            <tag> private </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用docker架设NAT机器</title>
+      <link href="/posts/63f131f8.html"/>
+      <url>/posts/63f131f8.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202305311056458.jpeg" alt="img"></p><p>通过docker批量或单独开设NAT服务器(Bulk or individual NAT server provisioning via docker)</p><p>默认使用debian系统，每个容器自带1个外网ssh端口，25个内外网一致端口</p><p>默认创建的是非特权容器，且不挂载与宿主机的docker的守护进程之间的通信，所以宿主机创建的docker虚拟化的NAT服务器内无法再嵌套虚拟化docker</p><p>由于只是在宿主机进行了CPU和内存的限制未在容器内使用cgroup驱动，所以在容器内使用服务器测试脚本检测容器的可用资源是无效的，显示的会是宿主机的资源</p><p>由于大部分云服务器xfs文件系统不启用pquota选项，所以默认共享宿主机硬盘，无法限制每个容器的磁盘大小</p><p>原作者项目地址：<a href="https://github.com/spiritLHLS/docker">点击跳转</a></p><h2 id="配置要求"><a href="#配置要求" class="headerlink" title="配置要求"></a>配置要求</h2><p>系统可安装docker即可用，网络能连接Github的raw界面就能用，硬件配置只要不拉跨就行，空闲硬盘有3G就行</p><p>推荐在开设NAT服务器前先增加部分SWAP虚拟内存，避免突发的内存占用导致母鸡卡死 <a href="https://github.com/spiritLHLS/addswap">跳转</a></p><h2 id="环境预设"><a href="#环境预设" class="headerlink" title="环境预设"></a>环境预设</h2><ul><li>检测环境</li><li>安装docker</li><li>下载预制脚本</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/pre_build.sh -o pre_build.sh &amp;&amp; chmod +x pre_build.sh &amp;&amp; bash pre_build.sh</span><br></pre></td></tr></table></figure><h2 id="单独开设"><a href="#单独开设" class="headerlink" title="单独开设"></a>单独开设</h2><p>下载脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/onedocker.sh -o onedocker.sh &amp;&amp; chmod +x onedocker.sh</span><br></pre></td></tr></table></figure><p>运行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./onedocker.sh name cpu memory password sshport startport endport system</span><br></pre></td></tr></table></figure><p>目前system仅支持选择alpine或debian，默认是debian</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>将开设1核512MB内存，root的密码是123456，SSH端口映射至外网25000，批量映射的端口区间为34975到35000，此区间内外网端口一致，系统为debian</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./onedocker.sh test 1 512 123456 25000 34975 35000 debian</span><br></pre></td></tr></table></figure><p>删除示例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f test</span><br><span class="line">rm -rf test</span><br><span class="line">ls</span><br></pre></td></tr></table></figure><p>进入示例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it test /bin/bash</span><br></pre></td></tr></table></figure><h3 id="查询信息"><a href="#查询信息" class="headerlink" title="查询信息"></a>查询信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat 容器名字</span><br></pre></td></tr></table></figure><p>输出格式</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">容器名字 SSH端口 登陆的root密码 核数 内存 外网端口起 外网端口止</span><br></pre></td></tr></table></figure><h2 id="批量开设"><a href="#批量开设" class="headerlink" title="批量开设"></a>批量开设</h2><ul><li>批量多次运行继承配置生成</li><li>生成多个时为避免SSH连接中断建议在screen中执行</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/dockers.sh -o dockers.sh &amp;&amp; chmod +x dockers.sh &amp;&amp; bash dockers.sh</span><br></pre></td></tr></table></figure><h2 id="卸载所有docker容器和镜像"><a href="#卸载所有docker容器和镜像" class="headerlink" title="卸载所有docker容器和镜像"></a>卸载所有docker容器和镜像</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f $(docker ps -aq); docker rmi $(docker images -aq)</span><br><span class="line">rm -rf dclog</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 脚本 </tag>
+            
+            <tag> nat </tag>
+            
+            <tag> 小鸡 </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -1362,9 +1428,9 @@
       
         <tags>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> 探针 </tag>
             
@@ -1372,9 +1438,9 @@
             
             <tag> v2ray </tag>
             
-            <tag> private </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> private </tag>
             
         </tags>
       
@@ -1436,9 +1502,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> vless </tag>
             
@@ -1504,9 +1570,9 @@
             
             <tag> vps </tag>
             
-            <tag> 脚本 </tag>
-            
             <tag> 服务器 </tag>
+            
+            <tag> 脚本 </tag>
             
             <tag> 测速 </tag>
             
@@ -1607,13 +1673,13 @@
             
             <tag> 教程 </tag>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
             
             <tag> 优选 </tag>
             
             <tag> ip </tag>
+            
+            <tag> cf </tag>
             
             <tag> hostmonit </tag>
             
@@ -1716,9 +1782,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> cf </tag>
-            
             <tag> cloudflare </tag>
+            
+            <tag> cf </tag>
             
             <tag> argo </tag>
             
@@ -1868,11 +1934,11 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> clash </tag>
             
             <tag> 内核 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -1903,11 +1969,11 @@
             
             <tag> cloudflare </tag>
             
+            <tag> cdn </tag>
+            
             <tag> argo </tag>
             
             <tag> tunnel </tag>
-            
-            <tag> cdn </tag>
             
         </tags>
       
@@ -1969,11 +2035,11 @@
       
         <tags>
             
-            <tag> 订阅 </tag>
-            
             <tag> replit </tag>
             
             <tag> subconverter </tag>
+            
+            <tag> 订阅 </tag>
             
         </tags>
       
@@ -2019,7 +2085,7 @@
       <link href="/posts/69e9b14c.html"/>
       <url>/posts/69e9b14c.html</url>
       
-        <content type="html"><![CDATA[<h1 id="域名准备"><a href="#域名准备" class="headerlink" title="域名准备"></a>域名准备</h1><p>想要架上二级域名，首先，我们需要一个一级域名……自行在心仪的厂家选购。我比较常用的（价格比较实惠的）是国内的是万网，特价的时候一百多人民币买过十年的。国外的是NameSilo，首年特价很多，.com，.xyz比较实惠，但像.top之类的还是当年万网买得更便宜。（不过拿.top，.cyou之类的便宜域名发邮件比较容易被当成垃圾邮件屏蔽……）</p><p>提醒一下，Freenom的虽然免费，但在那个bug多端的网站申请其实还挺麻烦的，而且实测无法使用LetsEncrypt获取证书（不支持那几个顶级域名）。</p><h1 id="DNS准备"><a href="#DNS准备" class="headerlink" title="DNS准备"></a>DNS准备</h1><p>获得域名后，如果那家的DNS不尽如人意，可以转接其他服务商的DNS，比如Cloudflare。</p><p>在Cloudflare的话，可以这样配置域名：</p><table><thead><tr><th align="left">Type</th><th align="left">Name</th><th align="left">Content</th></tr></thead><tbody><tr><td align="left">A</td><td align="left">你弄到的那个域名，比如mydomain.com</td><td align="left">你的IP(IPv4)</td></tr><tr><td align="left">CNAME</td><td align="left">二级域名，比如blog</td><td align="left">你的主域名，如上面的mydomain.com</td></tr><tr><td align="left">CNAME</td><td align="left">另一个二级域名，如repo</td><td align="left">你的主域名</td></tr><tr><td align="left">CNAME</td><td align="left">其他想要配置的二级域名，如www</td><td align="left">你的主域名</td></tr></tbody></table><p>后面的proxy status显示橙色的云表示已经应用了Cloudflare的CDN，很好，不用管，除非设置的某个子域名是用来直接SSH、FTP服务器的。</p><p>然后，记得在SSL&#x2F;TLS里切换模式到Full（不然在下面的配置中，会让访问在http和https间反复横跳，too many redirections）。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141001264.png" alt="记得改SSL/TLS模式设置"></p><h1 id="SSL准备"><a href="#SSL准备" class="headerlink" title="SSL准备"></a>SSL准备</h1><p>在有了一个域名的基础上，可以申请LetsEncrypt的域名证书。<br>可以使用<a href="https://github.com/acmesh-official/acme.sh">acme.sh</a></p><p>安装：<code>curl https://get.acme.sh | sh -s email=my@example.com</code><br>其中后面那个email不要用<a href="mailto:&#x6d;&#x79;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x6d;&#x79;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>，会出错的。</p><p>其他就跟着GitHub的教程来吧，有中文的：<br><a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明</a></p><p>厂家DNS不给力的记得先换了其他厂家的DNS，不然可以这一步申请证书会超时。</p><blockquote><p>PS：也可以直接使用cloudflare的证书，15年</p></blockquote><h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="基础的配置"><a href="#基础的配置" class="headerlink" title="基础的配置"></a>基础的配置</h2><p>&#x2F;etc&#x2F;nginx&#x2F;nginx.conf里，http花括号里确保有</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include /etc/nginx/conf.d/*.conf;</span><br><span class="line">include /etc/nginx/sites-enabled/*.conf;</span><br></pre></td></tr></table></figure><p>这样conf.d和sites-enabled目录下.conf后缀名的文件都会被包含进设置。</p><p>sites-enabled目录下，可以每个站点单写一个.conf文件，方便管理。需要关闭某个站点的时候，直接<code>mv the_site_name.conf ../sites-available</code>把文件移走，然后<code>service nginx restart</code>。要开启某个站点就从sites-available移回来，再重启nginx。</p><h2 id="ssl-snippets"><a href="#ssl-snippets" class="headerlink" title="ssl snippets"></a>ssl snippets</h2><p>如果站点很多的话，给ssl配置部分写一个snippet会方便很多。这样，在每个站点的文件中就可以直接引用snippet，不用一遍一遍的重复证书路径、加密等等的设置了。</p><p>每份域名证书都需要一个对应的snippet，泛域名证书的话，可以多个子域名站点共用同一个snippet。</p><blockquote><p>例，申请了 <code>*.mysite.com</code>的证书，并为它写了ssl snippet<br>a.mysite.com<br>b.mysite.com<br>c.mysite.com<br>都可以共用这个snippet</p></blockquote><p>存放一份据说是安全的设置的模板：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/snippets/ssl.conf</span><br><span class="line"># 就是个提醒自己的路径啦</span><br><span class="line"></span><br><span class="line">server_tokens   off;</span><br><span class="line">ssl_session_cache        shared:SSL:10m;</span><br><span class="line">ssl_session_timeout      60m;</span><br><span class="line">ssl_session_tickets      on;</span><br><span class="line"></span><br><span class="line"># OCSP stapling</span><br><span class="line"># 证书状态缓存</span><br><span class="line">ssl_stapling             on;</span><br><span class="line">ssl_stapling_verify      on;</span><br><span class="line">resolver                 8.8.4.4 8.8.8.8  valid=300s;</span><br><span class="line">resolver_timeout         10s;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Ephemeral Diffie-Hellman key exchange</span><br><span class="line">ssl_dhparam /your_path_to_cert/dhparam.pem;</span><br><span class="line">ssl_ecdh_curve secp384r1; # Requires nginx &gt;= 1.1.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># path to ssl certificates</span><br><span class="line">ssl_certificate         /your_path_to_cert/fullchain.cer;</span><br><span class="line">ssl_certificate_key     /you_path_to_cert/&lt;domain&gt;.key;</span><br><span class="line"></span><br><span class="line"># disable TLSv1.0 &amp; TLSv1.1</span><br><span class="line"># 禁用安全性不好的 TLS1.0和1.1</span><br><span class="line">ssl_protocols           TLSv1.2 TLSv1.3;</span><br><span class="line"></span><br><span class="line">ssl_ciphers &quot;ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># headers</span><br><span class="line">add_header  Strict-Transport-Security &quot;max-age=31536000;includeSubDomains;preload&quot;;</span><br><span class="line">add_header  X-Frame-Options  sameorigin;</span><br><span class="line">add_header  Referrer-Policy  strict-origin-when-cross-origin;</span><br><span class="line"> </span><br><span class="line">add_header  X-Content-Type-Options  nosniff;</span><br><span class="line">add_header  x-xss-protection &quot;1; mode=block&quot;;</span><br><span class="line"></span><br><span class="line">add_header Content-Security-Policy &quot;default-src &#x27;self&#x27; *.your_domain.com other_sites.com; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; blob: https:; connect-src &#x27;self&#x27; https:; img-src &#x27;self&#x27; data: https: blob:; style-src &#x27;unsafe-inline&#x27; https:; font-src &#x27;self&#x27; https: data:&quot;;</span><br></pre></td></tr></table></figure><p>其中，your_path_to_cert（放证书、秘钥等的路径）和CSP请自行调整。</p><p>DF参数提高到至少2048位（乐意的话4096位也可以哦）：<br><code>openssl dhparam -out /your_path_to_cert/dhparam.pem 2048</code><br>openssl如果没有就apt-get安装</p><p>CSP（Content-Security-Policy）里加入你信任的、需要用到的网站和加载方式，浏览器会把没包含在内的加载内容全都截下来的（F12看network或者console里面）。如果配置完，从HTTPS访问时网站有部分内容不显示或表现不正常，优先查看是否因为CSP被浏览器拦截。</p><h2 id="站点设置"><a href="#站点设置" class="headerlink" title="站点设置"></a>站点设置</h2><p>站点的模板，每个站点要使用含有对应证书的ssl snippet哦：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        listen [::]:80;</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 不是.com的自己改啦</span><br><span class="line">        return 301 https://$server_name$request_uri; # 如果被以http访问了，转https</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">server &#123;</span><br><span class="line">        listen 443 ssl; # 这个ssl很重要，不写的话可能会有奇奇怪怪的悲剧发生。另外这行是ipv4</span><br><span class="line">        listen [::]:443 ssl; # 这行是ipv6</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 同上</span><br><span class="line">        </span><br><span class="line">        include snippets/ssl.conf; # 上文中写好的对应snippet，或者自己的ssl设置</span><br><span class="line">        </span><br><span class="line">        client_max_body_size 20m;</span><br><span class="line">        </span><br><span class="line">        location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:&lt;port_number&gt;/&lt;app_name&gt;; #你要转到哪里</span><br><span class="line">        </span><br><span class="line">        proxy_set_header        Host             $host;</span><br><span class="line">        proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_http_version      1.1;</span><br><span class="line">        proxy_set_header        Upgrade          $http_upgrade;</span><br><span class="line">        proxy_set_header        Connection       $http_connection;</span><br><span class="line">        proxy_set_header        Origin           http://$host;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p>配置好之后，<code>nginx -t</code>测试配置。测试通过的话<code>sudo service nginx restart</code>重启就可以看到效果了。不过要刷新ssl证书（比如更新过、或者吊销又重新申请了证书等情况）的话需要<code>sudo service nginx force-reload</code>哟。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="域名准备"><a href="#域名准备" class="headerlink" title="域名准备"></a>域名准备</h1><p>想要架上二级域名，首先，我们需要一个一级域名……自行在心仪的厂家选购。我比较常用的（价格比较实惠的）是国内的是万网，特价的时候一百多人民币买过十年的。国外的是NameSilo，首年特价很多，.com，.xyz比较实惠，但像.top之类的还是当年万网买得更便宜。（不过拿.top，.cyou之类的便宜域名发邮件比较容易被当成垃圾邮件屏蔽……）</p><p>提醒一下，Freenom的虽然免费，但在那个bug多端的网站申请其实还挺麻烦的，而且实测无法使用LetsEncrypt获取证书（不支持那几个顶级域名）。</p><h1 id="DNS准备"><a href="#DNS准备" class="headerlink" title="DNS准备"></a>DNS准备</h1><p>获得域名后，如果那家的DNS不尽如人意，可以转接其他服务商的DNS，比如Cloudflare。</p><p>在Cloudflare的话，可以这样配置域名：</p><table><thead><tr><th align="left">Type</th><th align="left">Name</th><th align="left">Content</th></tr></thead><tbody><tr><td align="left">A</td><td align="left">你弄到的那个域名，比如mydomain.com</td><td align="left">你的IP(IPv4)</td></tr><tr><td align="left">CNAME</td><td align="left">二级域名，比如blog</td><td align="left">你的主域名，如上面的mydomain.com</td></tr><tr><td align="left">CNAME</td><td align="left">另一个二级域名，如repo</td><td align="left">你的主域名</td></tr><tr><td align="left">CNAME</td><td align="left">其他想要配置的二级域名，如www</td><td align="left">你的主域名</td></tr></tbody></table><p>后面的proxy status显示橙色的云表示已经应用了Cloudflare的CDN，很好，不用管，除非设置的某个子域名是用来直接SSH、FTP服务器的。</p><p>然后，记得在SSL&#x2F;TLS里切换模式到Full（不然在下面的配置中，会让访问在http和https间反复横跳，too many redirections）。<br><img src="https://cdn.jsdelivr.net/gh/liuyesblog/images@main/2023/202304141001264.png" alt="记得改SSL/TLS模式设置"></p><h1 id="SSL准备"><a href="#SSL准备" class="headerlink" title="SSL准备"></a>SSL准备</h1><p>在有了一个域名的基础上，可以申请LetsEncrypt的域名证书。<br>可以使用<a href="https://github.com/acmesh-official/acme.sh">acme.sh</a></p><p>安装：<code>curl https://get.acme.sh | sh -s email=my@example.com</code><br>其中后面那个email不要用<a href="mailto:&#109;&#121;&#64;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;">&#109;&#121;&#64;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;</a>，会出错的。</p><p>其他就跟着GitHub的教程来吧，有中文的：<br><a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/说明</a></p><p>厂家DNS不给力的记得先换了其他厂家的DNS，不然可以这一步申请证书会超时。</p><blockquote><p>PS：也可以直接使用cloudflare的证书，15年</p></blockquote><h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="基础的配置"><a href="#基础的配置" class="headerlink" title="基础的配置"></a>基础的配置</h2><p>&#x2F;etc&#x2F;nginx&#x2F;nginx.conf里，http花括号里确保有</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include /etc/nginx/conf.d/*.conf;</span><br><span class="line">include /etc/nginx/sites-enabled/*.conf;</span><br></pre></td></tr></table></figure><p>这样conf.d和sites-enabled目录下.conf后缀名的文件都会被包含进设置。</p><p>sites-enabled目录下，可以每个站点单写一个.conf文件，方便管理。需要关闭某个站点的时候，直接<code>mv the_site_name.conf ../sites-available</code>把文件移走，然后<code>service nginx restart</code>。要开启某个站点就从sites-available移回来，再重启nginx。</p><h2 id="ssl-snippets"><a href="#ssl-snippets" class="headerlink" title="ssl snippets"></a>ssl snippets</h2><p>如果站点很多的话，给ssl配置部分写一个snippet会方便很多。这样，在每个站点的文件中就可以直接引用snippet，不用一遍一遍的重复证书路径、加密等等的设置了。</p><p>每份域名证书都需要一个对应的snippet，泛域名证书的话，可以多个子域名站点共用同一个snippet。</p><blockquote><p>例，申请了 <code>*.mysite.com</code>的证书，并为它写了ssl snippet<br>a.mysite.com<br>b.mysite.com<br>c.mysite.com<br>都可以共用这个snippet</p></blockquote><p>存放一份据说是安全的设置的模板：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/snippets/ssl.conf</span><br><span class="line"># 就是个提醒自己的路径啦</span><br><span class="line"></span><br><span class="line">server_tokens   off;</span><br><span class="line">ssl_session_cache        shared:SSL:10m;</span><br><span class="line">ssl_session_timeout      60m;</span><br><span class="line">ssl_session_tickets      on;</span><br><span class="line"></span><br><span class="line"># OCSP stapling</span><br><span class="line"># 证书状态缓存</span><br><span class="line">ssl_stapling             on;</span><br><span class="line">ssl_stapling_verify      on;</span><br><span class="line">resolver                 8.8.4.4 8.8.8.8  valid=300s;</span><br><span class="line">resolver_timeout         10s;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Ephemeral Diffie-Hellman key exchange</span><br><span class="line">ssl_dhparam /your_path_to_cert/dhparam.pem;</span><br><span class="line">ssl_ecdh_curve secp384r1; # Requires nginx &gt;= 1.1.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># path to ssl certificates</span><br><span class="line">ssl_certificate         /your_path_to_cert/fullchain.cer;</span><br><span class="line">ssl_certificate_key     /you_path_to_cert/&lt;domain&gt;.key;</span><br><span class="line"></span><br><span class="line"># disable TLSv1.0 &amp; TLSv1.1</span><br><span class="line"># 禁用安全性不好的 TLS1.0和1.1</span><br><span class="line">ssl_protocols           TLSv1.2 TLSv1.3;</span><br><span class="line"></span><br><span class="line">ssl_ciphers &quot;ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># headers</span><br><span class="line">add_header  Strict-Transport-Security &quot;max-age=31536000;includeSubDomains;preload&quot;;</span><br><span class="line">add_header  X-Frame-Options  sameorigin;</span><br><span class="line">add_header  Referrer-Policy  strict-origin-when-cross-origin;</span><br><span class="line"> </span><br><span class="line">add_header  X-Content-Type-Options  nosniff;</span><br><span class="line">add_header  x-xss-protection &quot;1; mode=block&quot;;</span><br><span class="line"></span><br><span class="line">add_header Content-Security-Policy &quot;default-src &#x27;self&#x27; *.your_domain.com other_sites.com; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; blob: https:; connect-src &#x27;self&#x27; https:; img-src &#x27;self&#x27; data: https: blob:; style-src &#x27;unsafe-inline&#x27; https:; font-src &#x27;self&#x27; https: data:&quot;;</span><br></pre></td></tr></table></figure><p>其中，your_path_to_cert（放证书、秘钥等的路径）和CSP请自行调整。</p><p>DF参数提高到至少2048位（乐意的话4096位也可以哦）：<br><code>openssl dhparam -out /your_path_to_cert/dhparam.pem 2048</code><br>openssl如果没有就apt-get安装</p><p>CSP（Content-Security-Policy）里加入你信任的、需要用到的网站和加载方式，浏览器会把没包含在内的加载内容全都截下来的（F12看network或者console里面）。如果配置完，从HTTPS访问时网站有部分内容不显示或表现不正常，优先查看是否因为CSP被浏览器拦截。</p><h2 id="站点设置"><a href="#站点设置" class="headerlink" title="站点设置"></a>站点设置</h2><p>站点的模板，每个站点要使用含有对应证书的ssl snippet哦：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        listen [::]:80;</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 不是.com的自己改啦</span><br><span class="line">        return 301 https://$server_name$request_uri; # 如果被以http访问了，转https</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">server &#123;</span><br><span class="line">        listen 443 ssl; # 这个ssl很重要，不写的话可能会有奇奇怪怪的悲剧发生。另外这行是ipv4</span><br><span class="line">        listen [::]:443 ssl; # 这行是ipv6</span><br><span class="line">        server_name &lt;your_secondary_domain&gt;.&lt;your_domain&gt;.com; # 同上</span><br><span class="line">        </span><br><span class="line">        include snippets/ssl.conf; # 上文中写好的对应snippet，或者自己的ssl设置</span><br><span class="line">        </span><br><span class="line">        client_max_body_size 20m;</span><br><span class="line">        </span><br><span class="line">        location / &#123;</span><br><span class="line">        proxy_pass http://127.0.0.1:&lt;port_number&gt;/&lt;app_name&gt;; #你要转到哪里</span><br><span class="line">        </span><br><span class="line">        proxy_set_header        Host             $host;</span><br><span class="line">        proxy_set_header        X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_http_version      1.1;</span><br><span class="line">        proxy_set_header        Upgrade          $http_upgrade;</span><br><span class="line">        proxy_set_header        Connection       $http_connection;</span><br><span class="line">        proxy_set_header        Origin           http://$host;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p>配置好之后，<code>nginx -t</code>测试配置。测试通过的话<code>sudo service nginx restart</code>重启就可以看到效果了。不过要刷新ssl证书（比如更新过、或者吊销又重新申请了证书等情况）的话需要<code>sudo service nginx force-reload</code>哟。</p>]]></content>
       
       
       <categories>
